@@ -31,6 +31,7 @@
     <project.jdk7.home>${env.JAVA_HOME}</project.jdk7.home>
     <project.build.targetJdk>1.7</project.build.targetJdk>
     <basepom.check.skip-license>true</basepom.check.skip-license>
+    <basepom.check.skip-dependency-management>false</basepom.check.skip-dependency-management>
 
     <basepom.test.timeout>120</basepom.test.timeout>
 
@@ -69,6 +70,41 @@
     <ringleader.version>0.1.4</ringleader.version>
     <aws.sdk.version>1.9.37</aws.sdk.version>
   </properties>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>com.hubspot.maven.plugins</groupId>
+          <artifactId>dependency-management-plugin</artifactId>
+          <version>0.3</version>
+          <configuration>
+            <skip>${basepom.check.skip-dependency-management}</skip>
+            <fail>true</fail>
+            <requireManagement>
+              <dependencies>true</dependencies>
+              <plugins>true</plugins>
+            </requireManagement>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+    <plugins>
+      <plugin>
+        <groupId>com.hubspot.maven.plugins</groupId>
+        <artifactId>dependency-management-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>analyze</id>
+            <goals>
+              <goal>analyze</goal>
+            </goals>
+            <phase>validate</phase>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
 
   <dependencyManagement>
     <dependencies>
