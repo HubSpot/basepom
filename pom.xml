@@ -30,6 +30,10 @@
   <properties>
     <project.jdk7.home>${env.JAVA_HOME}</project.jdk7.home>
     <project.build.targetJdk>1.7</project.build.targetJdk>
+
+    <basepom.check.phase-checkstyle>validate</basepom.check.phase-checkstyle>
+    <basepom.check.phase-dependency-versions-check>validate</basepom.check.phase-dependency-versions-check>
+
     <basepom.check.skip-license>true</basepom.check.skip-license>
     <basepom.check.skip-dependency-management>false</basepom.check.skip-dependency-management>
 
