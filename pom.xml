@@ -81,13 +81,15 @@
         <plugin>
           <groupId>com.hubspot.maven.plugins</groupId>
           <artifactId>dependency-management-plugin</artifactId>
-          <version>0.3</version>
+          <version>0.4</version>
           <configuration>
             <skip>${basepom.check.skip-dependency-management}</skip>
             <fail>true</fail>
             <requireManagement>
               <dependencies>true</dependencies>
               <plugins>true</plugins>
+              <allowVersions>false</allowVersions>
+              <allowExclusions>false</allowExclusions>
             </requireManagement>
           </configuration>
         </plugin>
