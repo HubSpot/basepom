@@ -39,8 +39,7 @@
 
     <basepom.test.timeout>120</basepom.test.timeout>
 
-    <!-- hubspot jackson and dropwizard dep use 2.3.x -->
-    <dep.jackson.version>2.5.1</dep.jackson.version>
+    <dep.jackson.version>2.6.4</dep.jackson.version>
     <dep.jackson.core.version>${dep.jackson.version}</dep.jackson.core.version>
     <dep.jackson.databind.version>${dep.jackson.version}</dep.jackson.databind.version>
 
