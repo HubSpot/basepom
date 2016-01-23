@@ -10,14 +10,14 @@
 
   <groupId>com.hubspot</groupId>
   <artifactId>basepom</artifactId>
-  <version>12.8-SNAPSHOT</version>
+  <version>12.8</version>
   <packaging>pom</packaging>
 
   <scm>
     <connection>scm:git:git@github.com:HubSpot/basepom.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/HubSpot/basepom.git</developerConnection>
     <url>git@github.com:HubSpot/basepom.git</url>
-    <tag>HEAD</tag>
+    <tag>basepom-12.8</tag>
   </scm>
 
   <developers>
