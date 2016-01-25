@@ -5,12 +5,12 @@
   <parent>
     <groupId>org.basepom</groupId>
     <artifactId>basepom-standard-oss</artifactId>
-    <version>15</version>
+    <version>12</version>
   </parent>
 
   <groupId>com.hubspot</groupId>
   <artifactId>basepom</artifactId>
-  <version>15.2-SNAPSHOT</version>
+  <version>12.9-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <scm>
@@ -50,6 +50,7 @@
     <dep.jetty.version>9.0.7.v20131107</dep.jetty.version>
 
     <dep.metrics.version>3.0.2</dep.metrics.version>
+    <dep.findbugs.version>3.0.1</dep.findbugs.version>
     <dep.zookeeper.version>3.4.6</dep.zookeeper.version>
 
     <dep.jesos.version>1.1</dep.jesos.version>
