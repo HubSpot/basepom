@@ -31,7 +31,8 @@
     <project.jdk7.home>${env.JAVA_HOME}</project.jdk7.home>
     <project.build.targetJdk>1.7</project.build.targetJdk>
 
-    <basepom.jar.name.format>${project.artifactId}-${project.version}-shaded</basepom.jar.name.format>
+    <basepom.plugin.phase-really-executable>none</basepom.plugin.phase-really-executable>
+    <basepom.jar.name.format>${project.artifactId}-${project.version}</basepom.jar.name.format>
 
     <basepom.check.phase-checkstyle>validate</basepom.check.phase-checkstyle>
     <basepom.check.phase-dependency-versions-check>validate</basepom.check.phase-dependency-versions-check>
@@ -99,7 +100,7 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-shade-plugin</artifactId>
           <configuration>
-            <outputFile>${project.build.directory}/${basepom.jar.name.format}.jar</outputFile>
+            <outputFile>${project.build.directory}/${basepom.jar.name.format}-shaded.jar</outputFile>
             <shadedArtifactAttached>false</shadedArtifactAttached>
           </configuration>
         </plugin>
@@ -798,11 +799,32 @@
             <executions>
               <execution>
                 <id>default</id>
-                <phase>none</phase>
+                <phase>${basepom.plugin.phase-really-executable}</phase>
               </execution>
             </executions>
           </plugin>
         </plugins>
+      </build>
+    </profile>
+    <profile>
+      <id>basepom.oss-release</id>
+      <properties>
+        <basepom.plugin.phase-really-executable>package</basepom.plugin.phase-really-executable>
+      </properties>
+      <build>
+        <pluginManagement>
+          <plugins>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-shade-plugin</artifactId>
+              <configuration>
+                <outputFile combine.self="override" />
+                <finalName>${basepom.jar.name.format}</finalName>
+                <shadedArtifactAttached>true</shadedArtifactAttached>
+              </configuration>
+            </plugin>
+          </plugins>
+        </pluginManagement>
       </build>
     </profile>
     <profile>
@@ -838,6 +860,25 @@
               <artifactId>maven-javadoc-plugin</artifactId>
               <configuration>
                 <bootclasspath>${project.jdk7.home}/jre/lib/rt.jar:${project.jdk7.home}/jre/lib/jce.jar:${project.jdk7.home}/../classes/classes.jar</bootclasspath>
+              </configuration>
+            </plugin>
+          </plugins>
+        </pluginManagement>
+      </build>
+    </profile>
+    <profile>
+      <id>disable-java8-doclint</id>
+      <activation>
+        <jdk>[1.8,)</jdk>
+      </activation>
+      <build>
+        <pluginManagement>
+          <plugins>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-javadoc-plugin</artifactId>
+              <configuration>
+                <additionalparam>-Xdoclint:none</additionalparam>
               </configuration>
             </plugin>
           </plugins>
