@@ -5,7 +5,7 @@
   <parent>
     <groupId>org.basepom</groupId>
     <artifactId>basepom-standard-oss</artifactId>
-    <version>12</version>
+    <version>15</version>
   </parent>
 
   <groupId>com.hubspot</groupId>
@@ -91,6 +91,14 @@
               <allowVersions>false</allowVersions>
               <allowExclusions>false</allowExclusions>
             </requireManagement>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-shade-plugin</artifactId>
+          <configuration>
+            <outputFile>${project.build.directory}/${project.artifactId}-${project.version}-shaded.jar</outputFile>
+            <shadedArtifactAttached>false</shadedArtifactAttached>
           </configuration>
         </plugin>
       </plugins>
@@ -773,6 +781,28 @@
   </dependencyManagement>
 
   <profiles>
+    <profile>
+      <id>basepom.executable</id>
+      <activation>
+        <file>
+          <exists>${basedir}/.build-executable</exists>
+        </file>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.skife.maven</groupId>
+            <artifactId>really-executable-jar-maven-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>default</id>
+                <phase>none</phase>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
     <profile>
       <id>travis</id>
       <activation>
