@@ -31,6 +31,8 @@
     <project.jdk7.home>${env.JAVA_HOME}</project.jdk7.home>
     <project.build.targetJdk>1.7</project.build.targetJdk>
 
+    <basepom.jar.name.format>${project.artifactId}-${project.version}-shaded</basepom.jar.name.format>
+
     <basepom.check.phase-checkstyle>validate</basepom.check.phase-checkstyle>
     <basepom.check.phase-dependency-versions-check>validate</basepom.check.phase-dependency-versions-check>
 
@@ -97,7 +99,7 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-shade-plugin</artifactId>
           <configuration>
-            <outputFile>${project.build.directory}/${project.artifactId}-${project.version}-shaded.jar</outputFile>
+            <outputFile>${project.build.directory}/${basepom.jar.name.format}.jar</outputFile>
             <shadedArtifactAttached>false</shadedArtifactAttached>
           </configuration>
         </plugin>
