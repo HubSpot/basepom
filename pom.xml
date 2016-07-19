@@ -53,12 +53,17 @@
 
     <dep.joda.version>2.9.3</dep.joda.version>
     <dep.guava.version>19.0</dep.guava.version>
+    <dep.jdbi.version>2.73</dep.jdbi.version>
+    <dep.liquibase.version>3.5.1</dep.liquibase.version>
+    <dep.mysql-connector-java.version>5.1.39</dep.mysql-connector-java.version>
 
     <dep.hk2.version>2.4.0-b34</dep.hk2.version>
     <dep.jersey.version>2.23</dep.jersey.version>
     <dep.jetty.version>9.3.9.v20160517</dep.jetty.version>
     <dep.hibernate-validator.version>5.2.4.Final</dep.hibernate-validator.version>
 
+    <dep.dropwizard-metrics.version>3.1.2</dep.dropwizard-metrics.version>
+    <dep.metrics-guice.version>3.1.4</dep.metrics-guice.version>
     <dep.metrics.version>3.0.2</dep.metrics.version>
     <dep.findbugs.version>3.0.1</dep.findbugs.version>
     <dep.zookeeper.version>3.4.6</dep.zookeeper.version>
@@ -447,7 +452,25 @@
       <dependency>
         <groupId>org.jdbi</groupId>
         <artifactId>jdbi</artifactId>
-        <version>2.62</version>
+        <version>${dep.jdbi.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.liquibase</groupId>
+        <artifactId>liquibase-core</artifactId>
+        <version>${dep.liquibase.version}</version>
+        <exclusions>
+          <exclusion>
+            <groupId>org.yaml</groupId>
+            <artifactId>snakeyaml</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+
+      <dependency>
+        <groupId>com.mattbertolini</groupId>
+        <artifactId>liquibase-slf4j</artifactId>
+        <version>2.0.0</version>
       </dependency>
 
       <dependency>
@@ -459,7 +482,7 @@
       <dependency>
         <groupId>mysql</groupId>
         <artifactId>mysql-connector-java</artifactId>
-        <version>5.1.38</version>
+        <version>${dep.mysql-connector-java.version}</version>
       </dependency>
 
       <dependency>
@@ -585,8 +608,50 @@
       <!-- Metrics -->
       <dependency>
         <groupId>io.dropwizard.metrics</groupId>
+        <artifactId>metrics-annotation</artifactId>
+        <version>${dep.dropwizard-metrics.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>io.dropwizard.metrics</groupId>
+        <artifactId>metrics-core</artifactId>
+        <version>${dep.dropwizard-metrics.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>io.dropwizard.metrics</groupId>
         <artifactId>metrics-healthchecks</artifactId>
-        <version>3.1.2</version>
+        <version>${dep.dropwizard-metrics.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>io.dropwizard.metrics</groupId>
+        <artifactId>metrics-jdbi</artifactId>
+        <version>${dep.dropwizard-metrics.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>io.dropwizard.metrics</groupId>
+        <artifactId>metrics-json</artifactId>
+        <version>${dep.dropwizard-metrics.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>io.dropwizard.metrics</groupId>
+        <artifactId>metrics-jvm</artifactId>
+        <version>${dep.dropwizard-metrics.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.palominolabs.metrics</groupId>
+        <artifactId>metrics-guice</artifactId>
+        <version>${dep.metrics-guice.version}</version>
+        <exclusions>
+          <exclusion>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>jsr305</artifactId>
+          </exclusion>
+        </exclusions>
       </dependency>
 
       <dependency>
