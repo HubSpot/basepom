@@ -68,6 +68,13 @@
     <dep.findbugs.version>3.0.1</dep.findbugs.version>
     <dep.zookeeper.version>3.4.6</dep.zookeeper.version>
 
+    <dep.assertj.version>3.4.1</dep.assertj.version>
+    <dep.httpclient.version>4.5.2</dep.httpclient.version>
+    <dep.httpcore.version>4.4.4</dep.httpcore.version>
+    <dep.javassist.version>3.20.0-GA</dep.javassist.version>
+    <dep.objenesis.version>2.3</dep.objenesis.version>
+    <dep.reflections.version>0.9.10</dep.reflections.version>
+
     <dep.jesos.version>1.1</dep.jesos.version>
 
     <dep.swagger.version>1.3.12</dep.swagger.version>
@@ -434,7 +441,13 @@
       <dependency>
         <groupId>org.javassist</groupId>
         <artifactId>javassist</artifactId>
-        <version>3.18.2-GA</version>
+        <version>${dep.javassist.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.reflections</groupId>
+        <artifactId>reflections</artifactId>
+        <version>${dep.reflections.version}</version>
       </dependency>
 
       <dependency>
@@ -602,7 +615,7 @@
       <dependency>
         <groupId>org.assertj</groupId>
         <artifactId>assertj-core</artifactId>
-        <version>2.0.0</version>
+        <version>${dep.assertj.version}</version>
       </dependency>
 
       <!-- Metrics -->
@@ -739,7 +752,7 @@
       <dependency>
         <groupId>org.apache.httpcomponents</groupId>
         <artifactId>httpclient</artifactId>
-        <version>4.5.1</version>
+        <version>${dep.httpclient.version}</version>
         <exclusions>
           <exclusion>
             <groupId>commons-logging</groupId>
@@ -751,7 +764,7 @@
       <dependency>
         <groupId>org.apache.httpcomponents</groupId>
         <artifactId>httpcore</artifactId>
-        <version>4.4.4</version>
+        <version>${dep.httpcore.version}</version>
       </dependency>
 
       <!-- Hibernate -->
