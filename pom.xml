@@ -81,7 +81,7 @@
     <dep.swagger-plugin.version>2.3.2</dep.swagger-plugin.version>
 
     <curator.version>2.8.0</curator.version>
-    <dropwizard.version>1.0.0</dropwizard.version>
+    <dropwizard.version>1.0.2</dropwizard.version>
     <jets3t.version>0.9.0</jets3t.version>
     <guava.retry.version>1.0.7</guava.retry.version>
     <mesos.version>0.28.1</mesos.version>
