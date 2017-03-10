@@ -46,7 +46,7 @@
     <dep.logback.version>1.1.7</dep.logback.version>
     <dep.jboss-logging.version>3.2.1.Final</dep.jboss-logging.version>
 
-    <dep.jackson.version>2.7.6</dep.jackson.version>
+    <dep.jackson.version>2.7.9</dep.jackson.version>
     <dep.jackson.core.version>${dep.jackson.version}</dep.jackson.core.version>
     <dep.jackson.databind.version>${dep.jackson.version}</dep.jackson.databind.version>
     <dep.classmate.version>1.1.0</dep.classmate.version>
@@ -57,8 +57,8 @@
     <dep.liquibase.version>3.5.1</dep.liquibase.version>
     <dep.mysql-connector-java.version>5.1.39</dep.mysql-connector-java.version>
 
-    <dep.hk2.version>2.4.0-b34</dep.hk2.version>
-    <dep.jersey2.version>2.23.1</dep.jersey2.version>
+    <dep.hk2.version>2.5.0-b05</dep.hk2.version>
+    <dep.jersey2.version>2.23.2</dep.jersey2.version>
     <dep.jetty.version>9.3.9.v20160517</dep.jetty.version>
     <dep.hibernate-validator.version>5.2.4.Final</dep.hibernate-validator.version>
 
@@ -74,6 +74,7 @@
     <dep.javassist.version>3.20.0-GA</dep.javassist.version>
     <dep.objenesis.version>2.3</dep.objenesis.version>
     <dep.reflections.version>0.9.10</dep.reflections.version>
+    <dep.mockito.version>2.7.16</dep.mockito.version>
 
     <dep.jesos.version>1.1</dep.jesos.version>
 
@@ -81,7 +82,7 @@
     <dep.swagger-plugin.version>2.3.2</dep.swagger-plugin.version>
 
     <curator.version>2.8.0</curator.version>
-    <dropwizard.version>1.0.2</dropwizard.version>
+    <dropwizard.version>1.0.6</dropwizard.version>
     <jets3t.version>0.9.0</jets3t.version>
     <guava.retry.version>1.0.7</guava.retry.version>
     <mesos.version>0.28.1</mesos.version>
