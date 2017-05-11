@@ -69,9 +69,13 @@
     <dep.zookeeper.version>3.4.6</dep.zookeeper.version>
 
     <dep.assertj.version>3.4.1</dep.assertj.version>
+    <dep.google.clients.version>1.20.0</dep.google.clients.version>
     <dep.httpclient.version>4.5.2</dep.httpclient.version>
     <dep.httpcore.version>4.4.4</dep.httpcore.version>
     <dep.javassist.version>3.20.0-GA</dep.javassist.version>
+    <dep.mime4j.version>0.8.0</dep.mime4j.version>
+    <dep.netty.version>4.1.8.Final</dep.netty.version>
+    <dep.netty.epoll.classifier/>
     <dep.objenesis.version>2.5.1</dep.objenesis.version>
     <dep.reflections.version>0.9.10</dep.reflections.version>
     <dep.mockito.version>2.7.16</dep.mockito.version>
@@ -739,6 +743,28 @@
 
       <!-- HTTP -->
       <dependency>
+        <groupId>com.google.api-client</groupId>
+        <artifactId>google-api-client</artifactId>
+        <version>${dep.google.clients.version}</version>
+        <exclusions>
+          <exclusion>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava-jdk5</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+      <dependency>
+        <groupId>com.google.http-client</groupId>
+        <artifactId>google-http-client</artifactId>
+        <version>${dep.google.clients.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.google.http-client</groupId>
+        <artifactId>google-http-client-jackson2</artifactId>
+        <version>${dep.google.clients.version}</version>
+      </dependency>
+
+      <dependency>
         <groupId>com.ning</groupId>
         <artifactId>async-http-client</artifactId>
         <version>${ning.async.version}</version>
@@ -748,6 +774,43 @@
             <artifactId>slf4j-log4j12</artifactId>
           </exclusion>
         </exclusions>
+      </dependency>
+
+      <dependency>
+        <groupId>io.netty</groupId>
+        <artifactId>netty-buffer</artifactId>
+        <version>${dep.netty.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.netty</groupId>
+        <artifactId>netty-codec</artifactId>
+        <version>${dep.netty.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.netty</groupId>
+        <artifactId>netty-codec-http</artifactId>
+        <version>${netty.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.netty</groupId>
+        <artifactId>netty-common</artifactId>
+        <version>${dep.netty.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.netty</groupId>
+        <artifactId>netty-handler</artifactId>
+        <version>${dep.netty.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.netty</groupId>
+        <artifactId>netty-transport</artifactId>
+        <version>${dep.netty.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.netty</groupId>
+        <artifactId>netty-transport-native-epoll</artifactId>
+        <version>${netty.version}</version>
+        <classifier>${dep.netty.epoll.classifier}</classifier>
       </dependency>
 
       <dependency>
@@ -922,6 +985,19 @@
         </exclusions>
       </dependency>
 
+      <!-- mime4j -->
+      <dependency>
+        <groupId>org.apache.james</groupId>
+        <artifactId>apache-mime4j-core</artifactId>
+        <version>${dep.mime4j.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.james</groupId>
+        <artifactId>apache-mime4j-dom</artifactId>
+        <version>${dep.mime4j.version}</version>
+      </dependency>
+
+      <!-- Misc. -->
       <dependency>
         <groupId>com.google.code.findbugs</groupId>
         <artifactId>annotations</artifactId>
@@ -936,6 +1012,37 @@
             <artifactId>jcip-annotations</artifactId>
           </exclusion>
         </exclusions>
+      </dependency>
+
+      <dependency>
+        <groupId>com.googlecode.concurrent-trees</groupId>
+        <artifactId>concurrent-trees</artifactId>
+        <version>2.4.0</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.icegreen</groupId>
+        <artifactId>greenmail</artifactId>
+        <version>1.5.3</version>
+        <exclusions>
+          <exclusion>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+
+      <dependency>
+        <groupId>com.spotify</groupId>
+        <artifactId>completable-futures</artifactId>
+        <version>0.3.0</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.immutables</groupId>
+        <artifactId>value</artifactId>
+        <version>2.1.15</version>
+        <scope>provided</scope>
       </dependency>
     </dependencies>
   </dependencyManagement>
