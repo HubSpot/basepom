@@ -10,7 +10,7 @@
 
   <groupId>com.hubspot</groupId>
   <artifactId>basepom</artifactId>
-  <version>15.12-SNAPSHOT</version>
+  <version>15.13-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <scm>
@@ -75,7 +75,7 @@
     <dep.javassist.version>3.20.0-GA</dep.javassist.version>
     <dep.mime4j.version>0.8.0</dep.mime4j.version>
     <dep.netty.version>4.1.8.Final</dep.netty.version>
-    <dep.netty.epoll.classifier/>
+    <dep.netty.epoll.classifier />
     <dep.objenesis.version>2.5.1</dep.objenesis.version>
     <dep.reflections.version>0.9.10</dep.reflections.version>
     <dep.mockito.version>2.7.16</dep.mockito.version>
