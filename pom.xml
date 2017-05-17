@@ -85,7 +85,7 @@
     <dep.jetty.version>9.3.9.v20160517</dep.jetty.version>
     <dep.hibernate-validator.version>5.2.4.Final</dep.hibernate-validator.version>
 
-    <dep.dropwizard-metrics.version>3.1.2</dep.dropwizard-metrics.version>
+    <dep.dropwizard-metrics.version>3.1.4</dep.dropwizard-metrics.version>
     <dep.metrics-guice.version>3.1.4</dep.metrics-guice.version>
     <dep.metrics.version>3.0.2</dep.metrics.version>
     <dep.findbugs.version>3.0.1</dep.findbugs.version>
@@ -109,7 +109,7 @@
     <dep.swagger-plugin.version>2.3.2</dep.swagger-plugin.version>
 
     <curator.version>2.8.0</curator.version>
-    <dropwizard.version>1.0.6</dropwizard.version>
+    <dropwizard.version>1.0.7</dropwizard.version>
     <jets3t.version>0.9.0</jets3t.version>
     <guava.retry.version>1.0.7</guava.retry.version>
     <mesos.version>0.28.1</mesos.version>
