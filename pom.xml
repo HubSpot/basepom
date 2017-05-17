@@ -10,7 +10,7 @@
 
   <groupId>com.hubspot</groupId>
   <artifactId>basepom</artifactId>
-  <version>15.9-SNAPSHOT</version>
+  <version>15.13-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <scm>
@@ -69,7 +69,7 @@
     <dep.logback.version>1.1.7</dep.logback.version>
     <dep.jboss-logging.version>3.2.1.Final</dep.jboss-logging.version>
 
-    <dep.jackson.version>2.7.6</dep.jackson.version>
+    <dep.jackson.version>2.7.9</dep.jackson.version>
     <dep.jackson.core.version>${dep.jackson.version}</dep.jackson.core.version>
     <dep.jackson.databind.version>${dep.jackson.version}</dep.jackson.databind.version>
     <dep.classmate.version>1.1.0</dep.classmate.version>
@@ -80,8 +80,8 @@
     <dep.liquibase.version>3.5.1</dep.liquibase.version>
     <dep.mysql-connector-java.version>5.1.39</dep.mysql-connector-java.version>
 
-    <dep.hk2.version>2.4.0-b34</dep.hk2.version>
-    <dep.jersey.version>2.23.1</dep.jersey.version>
+    <dep.hk2.version>2.5.0-b05</dep.hk2.version>
+    <dep.jersey2.version>2.23.2</dep.jersey2.version>
     <dep.jetty.version>9.3.9.v20160517</dep.jetty.version>
     <dep.hibernate-validator.version>5.2.4.Final</dep.hibernate-validator.version>
 
@@ -92,11 +92,16 @@
     <dep.zookeeper.version>3.4.6</dep.zookeeper.version>
 
     <dep.assertj.version>3.4.1</dep.assertj.version>
+    <dep.google.clients.version>1.20.0</dep.google.clients.version>
     <dep.httpclient.version>4.5.2</dep.httpclient.version>
     <dep.httpcore.version>4.4.4</dep.httpcore.version>
     <dep.javassist.version>3.20.0-GA</dep.javassist.version>
-    <dep.objenesis.version>2.3</dep.objenesis.version>
+    <dep.mime4j.version>0.8.0</dep.mime4j.version>
+    <dep.netty.version>4.1.8.Final</dep.netty.version>
+    <dep.netty.epoll.classifier />
+    <dep.objenesis.version>2.5.1</dep.objenesis.version>
     <dep.reflections.version>0.9.10</dep.reflections.version>
+    <dep.mockito.version>2.7.16</dep.mockito.version>
 
     <dep.jesos.version>1.1</dep.jesos.version>
 
@@ -104,7 +109,7 @@
     <dep.swagger-plugin.version>2.3.2</dep.swagger-plugin.version>
 
     <curator.version>2.8.0</curator.version>
-    <dropwizard.version>1.0.2</dropwizard.version>
+    <dropwizard.version>1.0.6</dropwizard.version>
     <jets3t.version>0.9.0</jets3t.version>
     <guava.retry.version>1.0.7</guava.retry.version>
     <mesos.version>0.28.1</mesos.version>
@@ -442,7 +447,7 @@
       <dependency>
         <groupId>com.sun.mail</groupId>
         <artifactId>javax.mail</artifactId>
-        <version>1.5.2</version>
+        <version>1.5.6</version>
       </dependency>
 
       <dependency>
@@ -829,6 +834,28 @@
 
       <!-- HTTP -->
       <dependency>
+        <groupId>com.google.api-client</groupId>
+        <artifactId>google-api-client</artifactId>
+        <version>${dep.google.clients.version}</version>
+        <exclusions>
+          <exclusion>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava-jdk5</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+      <dependency>
+        <groupId>com.google.http-client</groupId>
+        <artifactId>google-http-client</artifactId>
+        <version>${dep.google.clients.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.google.http-client</groupId>
+        <artifactId>google-http-client-jackson2</artifactId>
+        <version>${dep.google.clients.version}</version>
+      </dependency>
+
+      <dependency>
         <groupId>com.ning</groupId>
         <artifactId>async-http-client</artifactId>
         <version>${ning.async.version}</version>
@@ -838,6 +865,43 @@
             <artifactId>slf4j-log4j12</artifactId>
           </exclusion>
         </exclusions>
+      </dependency>
+
+      <dependency>
+        <groupId>io.netty</groupId>
+        <artifactId>netty-buffer</artifactId>
+        <version>${dep.netty.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.netty</groupId>
+        <artifactId>netty-codec</artifactId>
+        <version>${dep.netty.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.netty</groupId>
+        <artifactId>netty-codec-http</artifactId>
+        <version>${netty.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.netty</groupId>
+        <artifactId>netty-common</artifactId>
+        <version>${dep.netty.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.netty</groupId>
+        <artifactId>netty-handler</artifactId>
+        <version>${dep.netty.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.netty</groupId>
+        <artifactId>netty-transport</artifactId>
+        <version>${dep.netty.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.netty</groupId>
+        <artifactId>netty-transport-native-epoll</artifactId>
+        <version>${netty.version}</version>
+        <classifier>${dep.netty.epoll.classifier}</classifier>
       </dependency>
 
       <dependency>
@@ -1489,21 +1553,51 @@
 
       <!-- misc stuff -->
       <dependency>
-        <groupId>org.apache.bval</groupId>
-        <artifactId>bval-jsr303</artifactId>
-        <version>${dep.apache-bval.version}</version>
+        <groupId>com.googlecode.concurrent-trees</groupId>
+        <artifactId>concurrent-trees</artifactId>
+        <version>2.4.0</version>
       </dependency>
 
       <dependency>
-        <groupId>org.weakref</groupId>
-        <artifactId>jmxutils</artifactId>
-        <version>${dep.jmxutils.version}</version>
+        <groupId>com.icegreen</groupId>
+        <artifactId>greenmail</artifactId>
+        <version>1.5.3</version>
+        <exclusions>
+          <exclusion>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+
+      <dependency>
+        <groupId>com.spotify</groupId>
+        <artifactId>completable-futures</artifactId>
+        <version>0.3.0</version>
       </dependency>
 
       <dependency>
         <groupId>joda-time</groupId>
         <artifactId>joda-time</artifactId>
         <version>${dep.joda.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.apache.bval</groupId>
+        <artifactId>bval-jsr303</artifactId>
+        <version>${dep.apache-bval.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.immutables</groupId>
+        <artifactId>value</artifactId>
+        <version>2.1.15</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.weakref</groupId>
+        <artifactId>jmxutils</artifactId>
+        <version>${dep.jmxutils.version}</version>
       </dependency>
 
       <!-- logging -->
@@ -1711,6 +1805,19 @@
         <groupId>org.objenesis</groupId>
         <artifactId>objenesis</artifactId>
         <version>${dep.objenesis.version}</version>
+      </dependency>
+
+      <!-- mime4j -->
+      <dependency>
+        <groupId>org.apache.james</groupId>
+        <artifactId>apache-mime4j-core</artifactId>
+        <version>${dep.mime4j.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.apache.james</groupId>
+        <artifactId>apache-mime4j-dom</artifactId>
+        <version>${dep.mime4j.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
