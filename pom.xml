@@ -129,8 +129,8 @@
       <plugins>
         <plugin>
           <groupId>com.hubspot.maven.plugins</groupId>
-          <artifactId>dependency-management-plugin</artifactId>
-          <version>0.4</version>
+          <artifactId>dependency-management-maven-plugin</artifactId>
+          <version>0.7</version>
           <configuration>
             <skip>${basepom.check.skip-dependency-management}</skip>
             <fail>true</fail>
