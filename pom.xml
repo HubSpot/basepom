@@ -130,7 +130,7 @@
         <plugin>
           <groupId>com.hubspot.maven.plugins</groupId>
           <artifactId>dependency-management-maven-plugin</artifactId>
-          <version>0.7</version>
+          <version>0.8</version>
           <configuration>
             <skip>${basepom.check.skip-dependency-management}</skip>
             <fail>true</fail>
