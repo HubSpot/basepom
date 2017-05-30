@@ -187,11 +187,6 @@
                 <exclude>com.google.collections:google-collections</exclude>
                 <!-- but not the badly numbered ones... -->
                 <exclude>com.google.guava:guava</exclude>
-                <!-- Use the official version at javax.servlet:javax.servlet-api -->
-                <!-- This one plays well the official version, so it's safe to omit for now -->
-                <!-- <exclude>org.eclipse.jetty.orbit:javax.servlet</exclude> -->
-                <exclude>org.mortbay.jetty:servlet-api</exclude>
-                <exclude>org.mortbay.jetty:servlet-api-2.5</exclude>
                 <!-- 1.8 and 1.9 are generified badly -->
                 <exclude>commons-configuration:commons-configuration:[1.8,1.9]</exclude>
                 <!-- ban all versions of asm that do not work on JDK8 -->
