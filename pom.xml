@@ -111,7 +111,6 @@
 
     <curator.version>2.8.0</curator.version>
     <dropwizard.version>1.0.7</dropwizard.version>
-    <jets3t.version>0.9.0</jets3t.version>
     <guava.retry.version>1.0.7</guava.retry.version>
     <mesos.version>0.28.1</mesos.version>
     <ning.async.version>1.8.12</ning.async.version>
@@ -463,18 +462,6 @@
         <groupId>org.jboss.logging</groupId>
         <artifactId>jboss-logging</artifactId>
         <version>${dep.jboss-logging.version}</version>
-      </dependency>
-
-      <dependency>
-        <groupId>net.java.dev.jets3t</groupId>
-        <artifactId>jets3t</artifactId>
-        <version>${jets3t.version}</version>
-        <exclusions>
-          <exclusion>
-            <groupId>commons-logging</groupId>
-            <artifactId>commons-logging</artifactId>
-          </exclusion>
-        </exclusions>
       </dependency>
 
       <dependency>
