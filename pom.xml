@@ -89,7 +89,7 @@
 
     <dep.dropwizard-metrics.version>3.1.4</dep.dropwizard-metrics.version>
     <dep.metrics-guice.version>3.1.4</dep.metrics-guice.version>
-    <dep.metrics.version>3.0.2</dep.metrics.version>
+    <dep.codahale-metrics.version>3.0.2</dep.codahale-metrics.version>
     <dep.findbugs.version>3.0.1</dep.findbugs.version>
     <dep.zookeeper.version>3.4.6</dep.zookeeper.version>
 
@@ -728,25 +728,25 @@
       <dependency>
         <groupId>com.codahale.metrics</groupId>
         <artifactId>metrics-core</artifactId>
-        <version>${dep.metrics.version}</version>
+        <version>${dep.codahale-metrics.version}</version>
       </dependency>
 
       <dependency>
         <groupId>com.codahale.metrics</groupId>
         <artifactId>metrics-healthchecks</artifactId>
-        <version>${dep.metrics.version}</version>
+        <version>${dep.codahale-metrics.version}</version>
       </dependency>
 
       <dependency>
         <groupId>com.codahale.metrics</groupId>
         <artifactId>metrics-jvm</artifactId>
-        <version>${dep.metrics.version}</version>
+        <version>${dep.codahale-metrics.version}</version>
       </dependency>
 
       <dependency>
         <groupId>com.codahale.metrics</groupId>
         <artifactId>metrics-servlets</artifactId>
-        <version>${dep.metrics.version}</version>
+        <version>${dep.codahale-metrics.version}</version>
         <exclusions>
           <!-- metrics servlets wants jackson core 2.2.x. However, everything else wants 2.3.x. -->
           <!-- exclude dep here and pray that this still works ... -->
