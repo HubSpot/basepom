@@ -70,8 +70,6 @@
     <dep.jboss-logging.version>3.2.1.Final</dep.jboss-logging.version>
 
     <dep.jackson.version>2.7.9</dep.jackson.version>
-    <dep.jackson.core.version>${dep.jackson.version}</dep.jackson.core.version>
-    <dep.jackson.databind.version>${dep.jackson.version}</dep.jackson.databind.version>
     <dep.classmate.version>1.1.0</dep.classmate.version>
 
     <dep.joda.version>2.9.4</dep.joda.version>
