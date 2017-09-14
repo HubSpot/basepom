@@ -911,7 +911,7 @@
       <dependency>
         <groupId>io.netty</groupId>
         <artifactId>netty-codec-http</artifactId>
-        <version>${netty.version}</version>
+        <version>${dep.netty.version}</version>
       </dependency>
       <dependency>
         <groupId>io.netty</groupId>
@@ -931,7 +931,7 @@
       <dependency>
         <groupId>io.netty</groupId>
         <artifactId>netty-transport-native-epoll</artifactId>
-        <version>${netty.version}</version>
+        <version>${dep.netty.version}</version>
         <classifier>${dep.netty.epoll.classifier}</classifier>
       </dependency>
 
