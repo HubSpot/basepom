@@ -99,6 +99,7 @@
     <dep.httpmime.version>4.4.1</dep.httpmime.version>
     <dep.javassist.version>3.20.0-GA</dep.javassist.version>
     <dep.mime4j.version>0.8.0</dep.mime4j.version>
+    <dep.netty3.version>3.9.4.Final</dep.netty3.version>
     <dep.netty.version>4.1.8.Final</dep.netty.version>
     <dep.netty.epoll.classifier />
     <dep.objenesis.version>2.5.1</dep.objenesis.version>
@@ -898,6 +899,11 @@
         </exclusions>
       </dependency>
 
+      <dependency>
+        <groupId>io.netty</groupId>
+        <artifactId>netty</artifactId>
+        <version>${dep.netty3.version}</version>
+      </dependency>
       <dependency>
         <groupId>io.netty</groupId>
         <artifactId>netty-buffer</artifactId>
