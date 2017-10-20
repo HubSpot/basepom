@@ -112,8 +112,8 @@
     <dep.swagger-plugin.version>2.3.2</dep.swagger-plugin.version>
 
     <dep.curator.version>2.8.0</dep.curator.version>
-    <guava.retry.version>1.0.7</guava.retry.version>
     <dropwizard.version>1.0.9</dropwizard.version>
+    <dep.guava-retrying.version>2.0.0</dep.guava-retrying.version>
     <mesos.version>0.28.1</mesos.version>
     <ning.async.version>1.8.12</ning.async.version>
     <snappy.version>0.3</snappy.version>
@@ -515,7 +515,7 @@
       <dependency>
         <groupId>com.github.rholder</groupId>
         <artifactId>guava-retrying</artifactId>
-        <version>${guava.retry.version}</version>
+        <version>${dep.guava-retrying.version}</version>
         <exclusions>
           <exclusion>
             <groupId>com.google.code.findbugs</groupId>
