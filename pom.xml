@@ -83,7 +83,7 @@
     <dep.hk2.version>2.5.0-b05</dep.hk2.version>
     <dep.jersey.version>1.19</dep.jersey.version>
     <dep.jersey2.version>2.23.2</dep.jersey2.version>
-    <dep.jetty.version>9.3.9.v20160517</dep.jetty.version>
+    <dep.jetty.version>9.3.20.v20170531</dep.jetty.version>
     <dep.hibernate-validator.version>5.2.4.Final</dep.hibernate-validator.version>
 
     <dep.dropwizard-metrics.version>3.1.4</dep.dropwizard-metrics.version>
@@ -112,8 +112,8 @@
     <dep.swagger-plugin.version>2.3.2</dep.swagger-plugin.version>
 
     <dep.curator.version>2.8.0</dep.curator.version>
-    <dropwizard.version>1.0.7</dropwizard.version>
     <guava.retry.version>1.0.7</guava.retry.version>
+    <dropwizard.version>1.0.9</dropwizard.version>
     <mesos.version>0.28.1</mesos.version>
     <ning.async.version>1.8.12</ning.async.version>
     <snappy.version>0.3</snappy.version>
