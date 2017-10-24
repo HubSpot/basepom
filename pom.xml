@@ -158,7 +158,7 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-shade-plugin</artifactId>
           <configuration>
-            <outputFile>${project.build.directory}/${basepom.jar.name.format}-shaded.jar</outputFile>
+            <finalName>${basepom.jar.name.format}-shaded.jar</finalName>
             <shadedArtifactAttached>false</shadedArtifactAttached>
           </configuration>
         </plugin>
@@ -2012,7 +2012,6 @@
               <groupId>org.apache.maven.plugins</groupId>
               <artifactId>maven-shade-plugin</artifactId>
               <configuration>
-                <outputFile combine.self="override" />
                 <finalName>${basepom.jar.name.format}</finalName>
                 <shadedArtifactAttached>true</shadedArtifactAttached>
               </configuration>
