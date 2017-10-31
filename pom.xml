@@ -158,7 +158,8 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-shade-plugin</artifactId>
           <configuration>
-            <finalName>${basepom.jar.name.format}-shaded</finalName>
+            <!-- Need to use outputFile because passing this value as finalName fails -->
+            <outputFile>${project.build.directory}/${basepom.jar.name.format}-shaded.jar</outputFile>
             <shadedArtifactAttached>false</shadedArtifactAttached>
           </configuration>
         </plugin>
@@ -2012,6 +2013,8 @@
               <groupId>org.apache.maven.plugins</groupId>
               <artifactId>maven-shade-plugin</artifactId>
               <configuration>
+                <!-- Need to disable the outputFile declaration from above -->
+                <outputFile combine.self="override" />
                 <finalName>${basepom.jar.name.format}</finalName>
                 <shadedArtifactAttached>true</shadedArtifactAttached>
               </configuration>
