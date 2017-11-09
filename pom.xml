@@ -28,6 +28,7 @@
   </developers>
 
   <properties>
+    <project.jdk7.home>${env.JAVA_HOME}</project.jdk7.home>
     <project.build.targetJdk>1.7</project.build.targetJdk>
 
     <basepom.plugin.phase-really-executable>none</basepom.plugin.phase-really-executable>
@@ -2030,9 +2031,36 @@
         </property>
       </activation>
       <properties>
+        <project.jdk7.home>${env.JAVA_HOME}</project.jdk7.home>
         <basepom.test.reuse-vm>false</basepom.test.reuse-vm>
         <basepom.test.fork-count>1</basepom.test.fork-count>
       </properties>
+    </profile>
+    <profile>
+      <id>cross-compile</id>
+      <activation>
+        <jdk>(1.7,]</jdk>
+      </activation>
+      <build>
+        <pluginManagement>
+          <plugins>
+            <plugin>
+              <artifactId>maven-compiler-plugin</artifactId>
+              <configuration>
+                <compilerArguments children.combine="append">
+                  <bootclasspath>${project.jdk7.home}/jre/lib/rt.jar:${project.jdk7.home}/jre/lib/jce.jar:${project.jdk7.home}/../classes/classes.jar</bootclasspath>
+                </compilerArguments>
+              </configuration>
+            </plugin>
+            <plugin>
+              <artifactId>maven-javadoc-plugin</artifactId>
+              <configuration>
+                <bootclasspath>${project.jdk7.home}/jre/lib/rt.jar:${project.jdk7.home}/jre/lib/jce.jar:${project.jdk7.home}/../classes/classes.jar</bootclasspath>
+              </configuration>
+            </plugin>
+          </plugins>
+        </pluginManagement>
+      </build>
     </profile>
     <profile>
       <id>disable-java8-doclint</id>
