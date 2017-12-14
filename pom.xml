@@ -4,13 +4,13 @@
 
   <parent>
     <groupId>org.basepom</groupId>
-    <artifactId>basepom-minimal-oss</artifactId>
-    <version>15</version>
+    <artifactId>basepom-oss</artifactId>
+    <version>18</version>
   </parent>
 
   <groupId>com.hubspot</groupId>
   <artifactId>basepom</artifactId>
-  <version>15.18-SNAPSHOT</version>
+  <version>18.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <scm>
@@ -28,7 +28,6 @@
   </developers>
 
   <properties>
-    <project.jdk7.home>${env.JAVA_HOME}</project.jdk7.home>
     <project.build.targetJdk>1.7</project.build.targetJdk>
 
     <basepom.plugin.phase-really-executable>none</basepom.plugin.phase-really-executable>
@@ -36,13 +35,18 @@
 
     <basepom.check.phase-checkstyle>validate</basepom.check.phase-checkstyle>
     <basepom.check.phase-dependency-versions-check>validate</basepom.check.phase-dependency-versions-check>
+    <basepom.check.phase-dependency-management>validate</basepom.check.phase-dependency-management>
 
     <basepom.check.skip-license>true</basepom.check.skip-license>
     <basepom.check.skip-dependency-management>false</basepom.check.skip-dependency-management>
     <basepom.check.skip-dependency-scope>false</basepom.check.skip-dependency-scope>
 
+    <basepom.dependency-management.dependencies>true</basepom.dependency-management.dependencies>
+    <basepom.dependency-management.plugins>true</basepom.dependency-management.plugins>
+
     <basepom.test.timeout>120</basepom.test.timeout>
 
+    <dep.plugin.dependency-management.version>0.8</dep.plugin.dependency-management.version>
     <dep.plugin.plugin.version>3.5</dep.plugin.plugin.version>
 
     <dep.commons-beanutils.version>1.9.2</dep.commons-beanutils.version>
@@ -133,21 +137,6 @@
       <plugins>
         <plugin>
           <groupId>com.hubspot.maven.plugins</groupId>
-          <artifactId>dependency-management-maven-plugin</artifactId>
-          <version>0.8</version>
-          <configuration>
-            <skip>${basepom.check.skip-dependency-management}</skip>
-            <fail>true</fail>
-            <requireManagement>
-              <dependencies>true</dependencies>
-              <plugins>true</plugins>
-              <allowVersions>false</allowVersions>
-              <allowExclusions>false</allowExclusions>
-            </requireManagement>
-          </configuration>
-        </plugin>
-        <plugin>
-          <groupId>com.hubspot.maven.plugins</groupId>
           <artifactId>dependency-scope-maven-plugin</artifactId>
           <version>0.8</version>
           <configuration>
@@ -190,19 +179,6 @@
     </pluginManagement>
 
     <plugins>
-      <plugin>
-        <groupId>com.hubspot.maven.plugins</groupId>
-        <artifactId>dependency-management-maven-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>analyze</id>
-            <goals>
-              <goal>analyze</goal>
-            </goals>
-            <phase>validate</phase>
-          </execution>
-        </executions>
-      </plugin>
       <plugin>
         <groupId>com.hubspot.maven.plugins</groupId>
         <artifactId>dependency-scope-maven-plugin</artifactId>
@@ -571,6 +547,11 @@
         <artifactId>guava-retrying</artifactId>
         <version>${dep.guava-retrying.version}</version>
         <exclusions>
+          <!-- version 2.0.0 uses an open version range which pulls in the latest -->
+          <exclusion>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+          </exclusion>
           <exclusion>
             <groupId>com.google.code.findbugs</groupId>
             <artifactId>jsr305</artifactId>
@@ -2048,36 +2029,9 @@
         </property>
       </activation>
       <properties>
-        <project.jdk7.home>${env.JAVA_HOME}</project.jdk7.home>
         <basepom.test.reuse-vm>false</basepom.test.reuse-vm>
         <basepom.test.fork-count>1</basepom.test.fork-count>
       </properties>
-    </profile>
-    <profile>
-      <id>cross-compile</id>
-      <activation>
-        <jdk>(1.7,]</jdk>
-      </activation>
-      <build>
-        <pluginManagement>
-          <plugins>
-            <plugin>
-              <artifactId>maven-compiler-plugin</artifactId>
-              <configuration>
-                <compilerArguments children.combine="append">
-                  <bootclasspath>${project.jdk7.home}/jre/lib/rt.jar:${project.jdk7.home}/jre/lib/jce.jar:${project.jdk7.home}/../classes/classes.jar</bootclasspath>
-                </compilerArguments>
-              </configuration>
-            </plugin>
-            <plugin>
-              <artifactId>maven-javadoc-plugin</artifactId>
-              <configuration>
-                <bootclasspath>${project.jdk7.home}/jre/lib/rt.jar:${project.jdk7.home}/jre/lib/jce.jar:${project.jdk7.home}/../classes/classes.jar</bootclasspath>
-              </configuration>
-            </plugin>
-          </plugins>
-        </pluginManagement>
-      </build>
     </profile>
     <profile>
       <id>disable-java8-doclint</id>
