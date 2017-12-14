@@ -547,6 +547,11 @@
         <artifactId>guava-retrying</artifactId>
         <version>${dep.guava-retrying.version}</version>
         <exclusions>
+          <!-- version 2.0.0 uses an open version range which pulls in the latest -->
+          <exclusion>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+          </exclusion>
           <exclusion>
             <groupId>com.google.code.findbugs</groupId>
             <artifactId>jsr305</artifactId>
