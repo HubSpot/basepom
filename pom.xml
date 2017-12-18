@@ -49,6 +49,7 @@
     <dep.plugin.dependency-management.version>0.8</dep.plugin.dependency-management.version>
     <dep.plugin.source.version>3.0.1</dep.plugin.source.version>
     <dep.plugin.plugin.version>3.5</dep.plugin.plugin.version>
+    <dep.plugin.resources.version>3.0.2</dep.plugin.resources.version>
 
     <dep.commons-beanutils.version>1.9.2</dep.commons-beanutils.version>
     <dep.commons-codec.version>1.10</dep.commons-codec.version>
