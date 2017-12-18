@@ -587,7 +587,7 @@
       <dependency>
         <groupId>de.neuland-bfi</groupId>
         <artifactId>jade4j</artifactId>
-        <version>0.4.0</version>
+        <version>0.4.2</version>
         <exclusions>
           <exclusion>
             <groupId>commons-logging</groupId>
