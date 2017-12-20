@@ -10,7 +10,7 @@
 
   <groupId>com.hubspot</groupId>
   <artifactId>basepom</artifactId>
-  <version>18.2-SNAPSHOT</version>
+  <version>18.3-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <scm>
