@@ -123,7 +123,7 @@
     <dep.curator.version>2.8.0</dep.curator.version>
     <dropwizard.version>1.0.9</dropwizard.version>
     <dep.guava-retrying.version>2.0.0</dep.guava-retrying.version>
-    <mesos.version>0.28.1</mesos.version>
+    <mesos.version>1.1.2</mesos.version>
     <ning.async.version>1.8.12</ning.async.version>
     <snappy.version>0.3</snappy.version>
     <sentry.version>6.0.0</sentry.version>
