@@ -538,6 +538,12 @@
         <artifactId>mesos</artifactId>
         <version>${mesos.version}</version>
         <classifier>shaded-protobuf</classifier>
+        <exclusions>
+          <exclusion>
+            <groupId>com.google.protobuf</groupId>
+            <artifactId>protobuf-java</artifactId>
+          </exclusion>
+        </exclusions>
       </dependency>
 
       <dependency>
