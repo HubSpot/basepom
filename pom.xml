@@ -534,6 +534,13 @@
       </dependency>
 
       <dependency>
+        <groupId>org.apache.mesos</groupId>
+        <artifactId>mesos</artifactId>
+        <version>${mesos.version}</version>
+        <classifier>shaded-protobuf</classifier>
+      </dependency>
+
+      <dependency>
         <groupId>com.groupon.mesos</groupId>
         <artifactId>jesos</artifactId>
         <version>${dep.jesos.version}</version>
