@@ -45,7 +45,7 @@
     <basepom.dependency-management.plugins>true</basepom.dependency-management.plugins>
 
     <basepom.test.timeout>900</basepom.test.timeout>
-    <basepom.failsafe.timeout>300</basepom.failsafe.timeout>
+    <basepom.failsafe.timeout>900</basepom.failsafe.timeout>
 
     <dep.plugin.dependency-management.version>0.8</dep.plugin.dependency-management.version>
     <dep.plugin.source.version>3.0.1</dep.plugin.source.version>
