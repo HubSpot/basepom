@@ -176,6 +176,17 @@
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-pmd-plugin</artifactId>
+          <configuration>
+            <excludeRoots combine.children="append">
+              <excludeRoot>target/generated-sources/annotations</excludeRoot>
+              <excludeRoot>target/generated-sources/protobuf</excludeRoot>
+              <excludeRoot>target/generated-sources/dependency-protobufs</excludeRoot>
+            </excludeRoots>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-plugin-plugin</artifactId>
           <version>${dep.plugin.plugin.version}</version>
         </plugin>
