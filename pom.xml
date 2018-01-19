@@ -179,8 +179,11 @@
           <artifactId>maven-pmd-plugin</artifactId>
           <configuration>
             <excludeRoots combine.children="append">
+              <!-- Generated code from annotation processors like Immutables -->
               <excludeRoot>target/generated-sources/annotations</excludeRoot>
+              <!-- Generated code from protoc-bundled-plugin -->
               <excludeRoot>target/generated-sources/protobuf</excludeRoot>
+              <!-- Generated code from recompile-protos-maven-plugin -->
               <excludeRoot>target/generated-sources/dependency-protobufs</excludeRoot>
             </excludeRoots>
           </configuration>
