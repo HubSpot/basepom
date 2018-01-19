@@ -84,6 +84,7 @@
 
     <dep.joda.version>2.9.4</dep.joda.version>
     <dep.guava.version>19.0</dep.guava.version>
+    <dep.protobuf-java.version>2.5.0</dep.protobuf-java.version>
     <dep.jdbi.version>2.73</dep.jdbi.version>
     <dep.liquibase.version>3.5.1</dep.liquibase.version>
     <dep.liquibase-slf4j.version>2.0.0</dep.liquibase-slf4j.version>
@@ -584,7 +585,13 @@
       <dependency>
         <groupId>com.google.protobuf</groupId>
         <artifactId>protobuf-java</artifactId>
-        <version>2.5.0</version>
+        <version>${dep.protobuf-java.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.google.protobuf</groupId>
+        <artifactId>protobuf-java-util</artifactId>
+        <version>${dep.protobuf-java.version}</version>
       </dependency>
 
       <dependency>
