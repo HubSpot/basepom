@@ -178,6 +178,7 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-pmd-plugin</artifactId>
           <configuration>
+            <linkXRef>false</linkXRef>
             <excludeRoots combine.children="append">
               <!-- Generated code from annotation processors like Immutables -->
               <excludeRoot>target/generated-sources/annotations</excludeRoot>
