@@ -1786,6 +1786,12 @@
         <version>${dep.jetty.version}</version>
       </dependency>
 
+      <dependency>
+        <groupId>org.eclipse.jetty</groupId>
+        <artifactId>jetty-jsp</artifactId>
+        <version>${dep.jetty.version}</version>
+      </dependency>
+
       <!-- misc stuff -->
       <dependency>
         <groupId>com.googlecode.concurrent-trees</groupId>
