@@ -107,7 +107,7 @@
     <dep.httpclient.version>4.5.2</dep.httpclient.version>
     <dep.httpcore.version>4.4.4</dep.httpcore.version>
     <dep.httpmime.version>4.4.1</dep.httpmime.version>
-    <dep.javassist.version>3.20.0-GA</dep.javassist.version>
+    <dep.javassist.version>3.22.0-GA</dep.javassist.version>
     <dep.mime4j.version>0.8.0</dep.mime4j.version>
     <dep.netty3.version>3.9.4.Final</dep.netty3.version>
     <dep.netty.version>4.1.8.Final</dep.netty.version>
