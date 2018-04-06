@@ -141,6 +141,13 @@
     <pluginManagement>
       <plugins>
         <plugin>
+          <groupId>com.hubspot.maven.plugins</groupId>
+          <artifactId>dependency-scope-maven-plugin</artifactId>
+          <configuration>
+            <linkToDocumentation>true</linkToDocumentation>
+          </configuration>
+        </plugin>
+        <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-shade-plugin</artifactId>
           <configuration>
