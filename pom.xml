@@ -5,12 +5,12 @@
   <parent>
     <groupId>org.basepom</groupId>
     <artifactId>basepom-oss</artifactId>
-    <version>18</version>
+    <version>25</version>
   </parent>
 
   <groupId>com.hubspot</groupId>
   <artifactId>basepom</artifactId>
-  <version>18.4-SNAPSHOT</version>
+  <version>25.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <scm>
@@ -36,10 +36,10 @@
     <basepom.check.phase-checkstyle>validate</basepom.check.phase-checkstyle>
     <basepom.check.phase-dependency-versions-check>validate</basepom.check.phase-dependency-versions-check>
     <basepom.check.phase-dependency-management>validate</basepom.check.phase-dependency-management>
+    <basepom.check.phase-dependency-scope>validate</basepom.check.phase-dependency-scope>
 
     <basepom.check.skip-license>true</basepom.check.skip-license>
-    <basepom.check.skip-dependency-management>false</basepom.check.skip-dependency-management>
-    <basepom.check.skip-dependency-scope>false</basepom.check.skip-dependency-scope>
+    <basepom.check.skip-coverage>true</basepom.check.skip-coverage>
 
     <basepom.dependency-management.dependencies>true</basepom.dependency-management.dependencies>
     <basepom.dependency-management.plugins>true</basepom.dependency-management.plugins>
@@ -48,9 +48,8 @@
     <basepom.failsafe.timeout>900</basepom.failsafe.timeout>
 
     <dep.plugin.dependency-management.version>0.8</dep.plugin.dependency-management.version>
-    <dep.plugin.source.version>3.0.1</dep.plugin.source.version>
     <dep.plugin.plugin.version>3.5</dep.plugin.plugin.version>
-    <dep.plugin.resources.version>3.0.2</dep.plugin.resources.version>
+    <dep.plugin.surefire.version>2.19.1</dep.plugin.surefire.version>
 
     <dep.commons-beanutils.version>1.9.2</dep.commons-beanutils.version>
     <dep.commons-codec.version>1.10</dep.commons-codec.version>
@@ -145,11 +144,8 @@
         <plugin>
           <groupId>com.hubspot.maven.plugins</groupId>
           <artifactId>dependency-scope-maven-plugin</artifactId>
-          <version>0.8</version>
           <configuration>
             <linkToDocumentation>true</linkToDocumentation>
-            <skip>${basepom.check.skip-dependency-scope}</skip>
-            <fail>true</fail>
           </configuration>
         </plugin>
         <plugin>
@@ -201,19 +197,6 @@
     </pluginManagement>
 
     <plugins>
-      <plugin>
-        <groupId>com.hubspot.maven.plugins</groupId>
-        <artifactId>dependency-scope-maven-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>check</id>
-            <goals>
-              <goal>check</goal>
-            </goals>
-            <phase>validate</phase>
-          </execution>
-        </executions>
-      </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-enforcer-plugin</artifactId>
