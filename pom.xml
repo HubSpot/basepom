@@ -44,6 +44,7 @@
     <basepom.dependency-management.dependencies>true</basepom.dependency-management.dependencies>
     <basepom.dependency-management.plugins>true</basepom.dependency-management.plugins>
 
+    <basepom.test.memory>1024m</basepom.test.memory>
     <basepom.test.timeout>900</basepom.test.timeout>
     <basepom.failsafe.timeout>900</basepom.failsafe.timeout>
 
