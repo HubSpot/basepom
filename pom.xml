@@ -50,6 +50,7 @@
 
     <dep.plugin.dependency-management.version>0.8</dep.plugin.dependency-management.version>
     <dep.plugin.plugin.version>3.5</dep.plugin.plugin.version>
+    <!-- Overridden because basepom 25 is on 2.20.1, safe to remove if we upgrade basepom -->
     <dep.plugin.surefire.version>2.21.0</dep.plugin.surefire.version>
 
     <dep.commons-beanutils.version>1.9.2</dep.commons-beanutils.version>
