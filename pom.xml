@@ -38,6 +38,7 @@
     <basepom.check.phase-dependency-management>validate</basepom.check.phase-dependency-management>
     <basepom.check.phase-dependency-scope>validate</basepom.check.phase-dependency-scope>
 
+    <basepom.check.skip-pom-lint>false</basepom.check.skip-pom-lint>
     <basepom.check.skip-license>true</basepom.check.skip-license>
     <basepom.check.skip-coverage>true</basepom.check.skip-coverage>
 
@@ -144,12 +145,25 @@
     <pluginManagement>
       <plugins>
         <plugin>
+          <groupId>com.github.ekryd.sortpom</groupId>
+          <artifactId>sortpom-maven-plugin</artifactId>
+          <version>2.8.0</version>
+          <configuration>
+            <skip>${basepom.check.skip-pom-lint}</skip>
+            <keepBlankLines>true</keepBlankLines>
+            <predefinedSortOrder>custom_1</predefinedSortOrder>
+            <verifyFail>STOP</verifyFail>
+          </configuration>
+        </plugin>
+
+        <plugin>
           <groupId>com.hubspot.maven.plugins</groupId>
           <artifactId>dependency-scope-maven-plugin</artifactId>
           <configuration>
             <linkToDocumentation>true</linkToDocumentation>
           </configuration>
         </plugin>
+
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-shade-plugin</artifactId>
@@ -159,6 +173,7 @@
             <shadedArtifactAttached>false</shadedArtifactAttached>
           </configuration>
         </plugin>
+
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-checkstyle-plugin</artifactId>
@@ -175,6 +190,7 @@
             </dependency>
           </dependencies>
         </plugin>
+
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-pmd-plugin</artifactId>
@@ -199,6 +215,19 @@
     </pluginManagement>
 
     <plugins>
+      <plugin>
+        <groupId>com.github.ekryd.sortpom</groupId>
+        <artifactId>sortpom-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>verify</goal>
+            </goals>
+            <phase>validate</phase>
+          </execution>
+        </executions>
+      </plugin>
+
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-enforcer-plugin</artifactId>
@@ -242,6 +271,7 @@
           </execution>
         </executions>
       </plugin>
+
       <plugin>
         <groupId>org.basepom.maven</groupId>
         <artifactId>duplicate-finder-maven-plugin</artifactId>
