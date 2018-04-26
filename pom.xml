@@ -13,20 +13,6 @@
   <version>25.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
-  <scm>
-    <connection>scm:git:git@github.com:HubSpot/basepom.git</connection>
-    <developerConnection>scm:git:ssh://git@github.com/HubSpot/basepom.git</developerConnection>
-    <url>git@github.com:HubSpot/basepom.git</url>
-    <tag>HEAD</tag>
-  </scm>
-
-  <developers>
-    <developer>
-      <name>Jonathan Haber</name>
-      <email>jhaber@hubspot.com</email>
-    </developer>
-  </developers>
-
   <properties>
     <project.build.targetJdk>1.7</project.build.targetJdk>
 
@@ -38,6 +24,7 @@
     <basepom.check.phase-dependency-management>validate</basepom.check.phase-dependency-management>
     <basepom.check.phase-dependency-scope>validate</basepom.check.phase-dependency-scope>
 
+    <basepom.check.skip-pom-lint>false</basepom.check.skip-pom-lint>
     <basepom.check.skip-license>true</basepom.check.skip-license>
     <basepom.check.skip-coverage>true</basepom.check.skip-coverage>
 
@@ -139,164 +126,6 @@
     <ringleader.version>0.1.4</ringleader.version>
     <aws.sdk.version>1.9.37</aws.sdk.version>
   </properties>
-
-  <build>
-    <pluginManagement>
-      <plugins>
-        <plugin>
-          <groupId>com.hubspot.maven.plugins</groupId>
-          <artifactId>dependency-scope-maven-plugin</artifactId>
-          <configuration>
-            <linkToDocumentation>true</linkToDocumentation>
-          </configuration>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-shade-plugin</artifactId>
-          <configuration>
-            <!-- Need to use outputFile because passing this value as finalName fails -->
-            <outputFile>${project.build.directory}/${basepom.jar.name.format}-shaded.jar</outputFile>
-            <shadedArtifactAttached>false</shadedArtifactAttached>
-          </configuration>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-checkstyle-plugin</artifactId>
-          <dependencies>
-            <dependency>
-              <groupId>org.slf4j</groupId>
-              <artifactId>slf4j-jdk14</artifactId>
-              <version>1.7.5</version>
-            </dependency>
-            <dependency>
-              <groupId>org.slf4j</groupId>
-              <artifactId>jcl-over-slf4j</artifactId>
-              <version>1.7.5</version>
-            </dependency>
-          </dependencies>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-pmd-plugin</artifactId>
-          <configuration>
-            <linkXRef>false</linkXRef>
-            <excludeRoots combine.children="append">
-              <!-- Generated code from annotation processors like Immutables -->
-              <excludeRoot>target/generated-sources/annotations</excludeRoot>
-              <!-- Generated code from protoc-bundled-plugin -->
-              <excludeRoot>target/generated-sources/protobuf</excludeRoot>
-              <!-- Generated code from recompile-protos-maven-plugin -->
-              <excludeRoot>target/generated-sources/dependency-protobufs</excludeRoot>
-            </excludeRoots>
-          </configuration>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-plugin-plugin</artifactId>
-          <version>${dep.plugin.plugin.version}</version>
-        </plugin>
-      </plugins>
-    </pluginManagement>
-
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-enforcer-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>basepom-banned-dependencies</id>
-            <goals>
-              <goal>enforce</goal>
-            </goals>
-            <configuration>
-              <skip>${basepom.check.skip-enforcer}</skip>
-              <fail>${basepom.check.fail-enforcer}</fail>
-              <rules>
-                <!-- The following dependencies are hazardous for builds. -->
-                <bannedDependencies>
-                  <excludes>
-                    <!-- clashes with commons-logging:commons-logging -->
-                    <exclude>commons-logging:commons-logging-api</exclude>
-                    <!-- junit repackages hamcrest into its own jar, which is a big no-no.
-                         junit-dep fixes this problem -->
-                    <exclude>junit:junit-dep</exclude>
-                    <exclude>junit:junit:[,4.11)</exclude>
-                    <!-- completely and utterly broken -->
-                    <exclude>org.weakref:jmxutils:(,1.11]</exclude>
-                    <!-- use guava -->
-                    <exclude>com.google.collections:google-collections</exclude>
-                    <!-- but not the badly numbered ones... -->
-                    <exclude>com.google.guava:guava</exclude>
-                    <!-- 1.8 and 1.9 are generified badly -->
-                    <exclude>commons-configuration:commons-configuration:[1.8,1.9]</exclude>
-                    <!-- ban all versions of asm that do not work on JDK8 -->
-                    <exclude>org.ow2.asm:asm:[,5.0.2)</exclude>
-                  </excludes>
-                  <includes>
-                    <!-- whitelist the well numbered guava releases -->
-                    <include>com.google.guava:guava:[10.0.1,)</include>
-                  </includes>
-                </bannedDependencies>
-              </rules>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <groupId>org.basepom.maven</groupId>
-        <artifactId>duplicate-finder-maven-plugin</artifactId>
-        <configuration>
-          <exceptions combine.children="append">
-            <!-- Well done, Apache... -->
-            <exception>
-              <conflictingDependencies>
-                <dependency>
-                  <groupId>commons-beanutils</groupId>
-                  <artifactId>commons-beanutils</artifactId>
-                </dependency>
-                <dependency>
-                  <groupId>commons-beanutils</groupId>
-                  <artifactId>commons-beanutils-core</artifactId>
-                </dependency>
-                <dependency>
-                  <groupId>commons-collections</groupId>
-                  <artifactId>commons-collections</artifactId>
-                </dependency>
-              </conflictingDependencies>
-              <classes>
-                <class>org.apache.commons.collections.ArrayStack</class>
-                <class>org.apache.commons.collections.Buffer</class>
-                <class>org.apache.commons.collections.BufferUnderflowException</class>
-                <class>org.apache.commons.collections.FastHashMap</class>
-              </classes>
-            </exception>
-            <exception>
-              <conflictingDependencies>
-                <dependency>
-                  <groupId>commons-beanutils</groupId>
-                  <artifactId>commons-beanutils</artifactId>
-                </dependency>
-                <dependency>
-                  <groupId>commons-beanutils</groupId>
-                  <artifactId>commons-beanutils-core</artifactId>
-                </dependency>
-              </conflictingDependencies>
-              <packages>
-                <package>org.apache.commons.beanutils</package>
-              </packages>
-            </exception>
-          </exceptions>
-          <!-- Ruby is hopeless -->
-          <ignoredDependencies>
-            <dependency>
-              <groupId>org.jruby</groupId>
-              <artifactId>jruby-complete</artifactId>
-            </dependency>
-          </ignoredDependencies>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
 
   <dependencyManagement>
     <dependencies>
@@ -2056,6 +1885,207 @@
       </dependency>
     </dependencies>
   </dependencyManagement>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>com.github.ekryd.sortpom</groupId>
+          <artifactId>sortpom-maven-plugin</artifactId>
+          <version>2.8.0</version>
+          <configuration>
+            <skip>${basepom.check.skip-pom-lint}</skip>
+            <keepBlankLines>true</keepBlankLines>
+            <predefinedSortOrder>custom_1</predefinedSortOrder>
+            <verifyFail>STOP</verifyFail>
+          </configuration>
+        </plugin>
+
+        <plugin>
+          <groupId>com.hubspot.maven.plugins</groupId>
+          <artifactId>dependency-scope-maven-plugin</artifactId>
+          <configuration>
+            <linkToDocumentation>true</linkToDocumentation>
+          </configuration>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-shade-plugin</artifactId>
+          <configuration>
+            <!-- Need to use outputFile because passing this value as finalName fails -->
+            <outputFile>${project.build.directory}/${basepom.jar.name.format}-shaded.jar</outputFile>
+            <shadedArtifactAttached>false</shadedArtifactAttached>
+          </configuration>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-checkstyle-plugin</artifactId>
+          <dependencies>
+            <dependency>
+              <groupId>org.slf4j</groupId>
+              <artifactId>slf4j-jdk14</artifactId>
+              <version>1.7.5</version>
+            </dependency>
+            <dependency>
+              <groupId>org.slf4j</groupId>
+              <artifactId>jcl-over-slf4j</artifactId>
+              <version>1.7.5</version>
+            </dependency>
+          </dependencies>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-pmd-plugin</artifactId>
+          <configuration>
+            <linkXRef>false</linkXRef>
+            <excludeRoots combine.children="append">
+              <!-- Generated code from annotation processors like Immutables -->
+              <excludeRoot>target/generated-sources/annotations</excludeRoot>
+              <!-- Generated code from protoc-bundled-plugin -->
+              <excludeRoot>target/generated-sources/protobuf</excludeRoot>
+              <!-- Generated code from recompile-protos-maven-plugin -->
+              <excludeRoot>target/generated-sources/dependency-protobufs</excludeRoot>
+            </excludeRoots>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-plugin-plugin</artifactId>
+          <version>${dep.plugin.plugin.version}</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+
+    <plugins>
+      <plugin>
+        <groupId>com.github.ekryd.sortpom</groupId>
+        <artifactId>sortpom-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>verify</goal>
+            </goals>
+            <phase>validate</phase>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-enforcer-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>basepom-banned-dependencies</id>
+            <goals>
+              <goal>enforce</goal>
+            </goals>
+            <configuration>
+              <skip>${basepom.check.skip-enforcer}</skip>
+              <fail>${basepom.check.fail-enforcer}</fail>
+              <rules>
+                <!-- The following dependencies are hazardous for builds. -->
+                <bannedDependencies>
+                  <excludes>
+                    <!-- clashes with commons-logging:commons-logging -->
+                    <exclude>commons-logging:commons-logging-api</exclude>
+                    <!-- junit repackages hamcrest into its own jar, which is a big no-no.
+                         junit-dep fixes this problem -->
+                    <exclude>junit:junit-dep</exclude>
+                    <exclude>junit:junit:[,4.11)</exclude>
+                    <!-- completely and utterly broken -->
+                    <exclude>org.weakref:jmxutils:(,1.11]</exclude>
+                    <!-- use guava -->
+                    <exclude>com.google.collections:google-collections</exclude>
+                    <!-- but not the badly numbered ones... -->
+                    <exclude>com.google.guava:guava</exclude>
+                    <!-- 1.8 and 1.9 are generified badly -->
+                    <exclude>commons-configuration:commons-configuration:[1.8,1.9]</exclude>
+                    <!-- ban all versions of asm that do not work on JDK8 -->
+                    <exclude>org.ow2.asm:asm:[,5.0.2)</exclude>
+                  </excludes>
+                  <includes>
+                    <!-- whitelist the well numbered guava releases -->
+                    <include>com.google.guava:guava:[10.0.1,)</include>
+                  </includes>
+                </bannedDependencies>
+              </rules>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.basepom.maven</groupId>
+        <artifactId>duplicate-finder-maven-plugin</artifactId>
+        <configuration>
+          <exceptions combine.children="append">
+            <!-- Well done, Apache... -->
+            <exception>
+              <conflictingDependencies>
+                <dependency>
+                  <groupId>commons-beanutils</groupId>
+                  <artifactId>commons-beanutils</artifactId>
+                </dependency>
+                <dependency>
+                  <groupId>commons-beanutils</groupId>
+                  <artifactId>commons-beanutils-core</artifactId>
+                </dependency>
+                <dependency>
+                  <groupId>commons-collections</groupId>
+                  <artifactId>commons-collections</artifactId>
+                </dependency>
+              </conflictingDependencies>
+              <classes>
+                <class>org.apache.commons.collections.ArrayStack</class>
+                <class>org.apache.commons.collections.Buffer</class>
+                <class>org.apache.commons.collections.BufferUnderflowException</class>
+                <class>org.apache.commons.collections.FastHashMap</class>
+              </classes>
+            </exception>
+            <exception>
+              <conflictingDependencies>
+                <dependency>
+                  <groupId>commons-beanutils</groupId>
+                  <artifactId>commons-beanutils</artifactId>
+                </dependency>
+                <dependency>
+                  <groupId>commons-beanutils</groupId>
+                  <artifactId>commons-beanutils-core</artifactId>
+                </dependency>
+              </conflictingDependencies>
+              <packages>
+                <package>org.apache.commons.beanutils</package>
+              </packages>
+            </exception>
+          </exceptions>
+          <!-- Ruby is hopeless -->
+          <ignoredDependencies>
+            <dependency>
+              <groupId>org.jruby</groupId>
+              <artifactId>jruby-complete</artifactId>
+            </dependency>
+          </ignoredDependencies>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  <developers>
+    <developer>
+      <name>Jonathan Haber</name>
+      <email>jhaber@hubspot.com</email>
+    </developer>
+  </developers>
+
+  <scm>
+    <connection>scm:git:git@github.com:HubSpot/basepom.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com/HubSpot/basepom.git</developerConnection>
+    <url>git@github.com:HubSpot/basepom.git</url>
+    <tag>HEAD</tag>
+  </scm>
 
   <profiles>
     <profile>
