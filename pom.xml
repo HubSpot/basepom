@@ -119,7 +119,7 @@
     <horizon.version>0.1.1</horizon.version>
     <dep.algebra.version>1.2</dep.algebra.version>
     <dep.hubspot-immutables.version>1.2</dep.hubspot-immutables.version>
-    <dep.immutables.version>2.2.10</dep.immutables.version>
+    <dep.immutables.version>2.5.6</dep.immutables.version>
     <commons-exec.version>1.1</commons-exec.version>
     <jukito.version>1.4.1</jukito.version>
     <handlebars.version>1.3.1</handlebars.version>
@@ -1615,6 +1615,25 @@
         <version>${dep.jetty.version}</version>
       </dependency>
 
+      <!-- immutables -->
+      <dependency>
+        <groupId>org.immutables</groupId>
+        <artifactId>value</artifactId>
+        <version>${dep.immutables.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.hubspot.immutables</groupId>
+        <artifactId>hubspot-style</artifactId>
+        <version>${dep.hubspot-immutables.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.hubspot.immutables</groupId>
+        <artifactId>immutables-exceptions</artifactId>
+        <version>${dep.hubspot-immutables.version}</version>
+      </dependency>
+
       <!-- misc stuff -->
       <dependency>
         <groupId>com.googlecode.concurrent-trees</groupId>
@@ -1650,12 +1669,6 @@
         <groupId>org.apache.bval</groupId>
         <artifactId>bval-jsr303</artifactId>
         <version>${dep.apache-bval.version}</version>
-      </dependency>
-
-      <dependency>
-        <groupId>org.immutables</groupId>
-        <artifactId>value</artifactId>
-        <version>${dep.immutables.version}</version>
       </dependency>
 
       <dependency>
