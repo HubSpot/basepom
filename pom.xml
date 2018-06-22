@@ -191,6 +191,12 @@
         <version>2.2.1</version>
       </dependency>
 
+      <dependency>
+        <groupId>org.apache.maven.shared</groupId>
+        <artifactId>maven-dependency-tree</artifactId>
+        <version>3.0.1</version>
+      </dependency>
+
       <!-- Java APIs -->
       <dependency>
         <groupId>javax.inject</groupId>
