@@ -45,9 +45,9 @@
     <dep.commons-collections.version>3.2.1</dep.commons-collections.version>
     <dep.commons-collections4.version>4.0</dep.commons-collections4.version>
     <dep.commons-configuration.version>1.10</dep.commons-configuration.version>
-    <dep.commons-io.version>2.4</dep.commons-io.version>
+    <dep.commons-io.version>2.5</dep.commons-io.version>
     <dep.commons-lang.version>2.6</dep.commons-lang.version>
-    <dep.commons-lang3.version>3.4</dep.commons-lang3.version>
+    <dep.commons-lang3.version>3.5</dep.commons-lang3.version>
     <dep.commons-logging.version>1.2</dep.commons-logging.version>
     <dep.apache-bval.version>0.5</dep.apache-bval.version>
 
