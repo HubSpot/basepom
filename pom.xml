@@ -24,7 +24,7 @@
     <basepom.check.phase-dependency-management>validate</basepom.check.phase-dependency-management>
     <basepom.check.phase-dependency-scope>validate</basepom.check.phase-dependency-scope>
 
-    <basepom.check.skip-pom-lint>false</basepom.check.skip-pom-lint>
+    <basepom.check.skip-pom-lint>${basepom.check.skip-basic}</basepom.check.skip-pom-lint>
     <basepom.check.skip-license>true</basepom.check.skip-license>
     <basepom.check.skip-coverage>true</basepom.check.skip-coverage>
 
