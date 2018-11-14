@@ -20,9 +20,17 @@
     <basepom.jar.name.format>${project.artifactId}-${project.version}</basepom.jar.name.format>
 
     <basepom.check.phase-checkstyle>validate</basepom.check.phase-checkstyle>
+    <basepom.check.phase-coverage>pre-integration-test</basepom.check.phase-coverage>
     <basepom.check.phase-dependency-versions-check>validate</basepom.check.phase-dependency-versions-check>
     <basepom.check.phase-dependency-management>validate</basepom.check.phase-dependency-management>
     <basepom.check.phase-dependency-scope>validate</basepom.check.phase-dependency-scope>
+    <basepom.check.phase-duplicate-finder>verify</basepom.check.phase-duplicate-finder>
+    <basepom.check.phase-enforcer>validate</basepom.check.phase-enforcer>
+    <basepom.check.phase-findbugs>verify</basepom.check.phase-findbugs>
+    <basepom.check.phase-pmd>verify</basepom.check.phase-pmd>
+    <basepom.check.phase-pom-lint>validate</basepom.check.phase-pom-lint>
+    <basepom.check.phase-prepare-coverage>initialize</basepom.check.phase-prepare-coverage>
+    <basepom.git-id.phase>initialize</basepom.git-id.phase>
 
     <basepom.check.skip-pom-lint>${basepom.check.skip-basic}</basepom.check.skip-pom-lint>
     <basepom.check.skip-license>true</basepom.check.skip-license>
@@ -1993,7 +2001,7 @@
             <goals>
               <goal>verify</goal>
             </goals>
-            <phase>validate</phase>
+            <phase>${basepom.check.phase-pom-lint}</phase>
           </execution>
         </executions>
       </plugin>
@@ -2003,10 +2011,18 @@
         <artifactId>maven-enforcer-plugin</artifactId>
         <executions>
           <execution>
+            <id>default</id>
+            <goals>
+              <goal>enforce</goal>
+            </goals>
+            <phase>${basepom.check.phase-enforcer}</phase>
+          </execution>
+          <execution>
             <id>basepom-banned-dependencies</id>
             <goals>
               <goal>enforce</goal>
             </goals>
+            <phase>${basepom.check.phase-enforcer}</phase>
             <configuration>
               <skip>${basepom.check.skip-enforcer}</skip>
               <fail>${basepom.check.fail-enforcer}</fail>
@@ -2045,6 +2061,15 @@
       <plugin>
         <groupId>org.basepom.maven</groupId>
         <artifactId>duplicate-finder-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>default</id>
+            <goals>
+              <goal>check</goal>
+            </goals>
+            <phase>${basepom.check.phase-duplicate-finder}</phase>
+          </execution>
+        </executions>
         <configuration>
           <exceptions combine.children="append">
             <!-- Well done, Apache... -->
@@ -2094,6 +2119,69 @@
             </dependency>
           </ignoredDependencies>
         </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-pmd-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>default</id>
+            <goals>
+              <goal>check</goal>
+            </goals>
+            <phase>${basepom.check.phase-pmd}</phase>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>pl.project13.maven</groupId>
+        <artifactId>git-commit-id-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>default</id>
+            <goals>
+              <goal>revision</goal>
+            </goals>
+            <phase>${basepom.git-id.phase}</phase>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>findbugs-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>default</id>
+            <goals>
+              <goal>check</goal>
+            </goals>
+            <phase>${basepom.check.phase-findbugs}</phase>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>default</id>
+            <goals>
+              <goal>prepare-agent</goal>
+            </goals>
+            <phase>${basepom.check.phase-prepare-coverage}</phase>
+          </execution>
+          <execution>
+            <id>default-it</id>
+            <goals>
+              <goal>prepare-agent-integration</goal>
+            </goals>
+            <phase>${basepom.check.phase-coverage}</phase>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>
