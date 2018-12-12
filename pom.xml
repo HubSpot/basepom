@@ -1636,18 +1636,6 @@
         <version>${dep.immutables.version}</version>
       </dependency>
 
-      <dependency>
-        <groupId>com.hubspot.immutables</groupId>
-        <artifactId>hubspot-style</artifactId>
-        <version>${dep.hubspot-immutables.version}</version>
-      </dependency>
-
-      <dependency>
-        <groupId>com.hubspot.immutables</groupId>
-        <artifactId>immutables-exceptions</artifactId>
-        <version>${dep.hubspot-immutables.version}</version>
-      </dependency>
-
       <!-- misc stuff -->
       <dependency>
         <groupId>com.googlecode.concurrent-trees</groupId>
