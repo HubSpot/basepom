@@ -821,12 +821,24 @@
         <groupId>com.google.inject.extensions</groupId>
         <artifactId>guice-testlib</artifactId>
         <version>${dep.guice.version}</version>
+        <exclusions>
+          <exclusion>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>jsr305</artifactId>
+          </exclusion>
+        </exclusions>
       </dependency>
 
       <dependency>
         <groupId>com.google.inject.extensions</groupId>
         <artifactId>guice-throwingproviders</artifactId>
         <version>${dep.guice.version}</version>
+        <exclusions>
+          <exclusion>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>jsr305</artifactId>
+          </exclusion>
+        </exclusions>
       </dependency>
 
       <!-- HTTP -->
