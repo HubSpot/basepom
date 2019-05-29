@@ -111,7 +111,7 @@
     <dep.netty3.version>3.9.4.Final</dep.netty3.version>
     <dep.netty.version>4.1.8.Final</dep.netty.version>
     <dep.netty.epoll.classifier />
-    <dep.objenesis.version>2.5.1</dep.objenesis.version>
+    <dep.objenesis.version>2.6</dep.objenesis.version>
     <dep.reflections.version>0.9.10</dep.reflections.version>
     <dep.mockito.version>2.23.4</dep.mockito.version>
 
