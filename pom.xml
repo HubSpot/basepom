@@ -2051,6 +2051,10 @@
                 <artifactId>jruby-complete</artifactId>
               </dependency>
             </ignoredDependencies>
+            <ignoredClassPatterns>
+              <!-- Can remove once https://github.com/basepom/duplicate-finder-maven-plugin/issues/33 is fixed -->
+              <ignoredClassPattern>^META-INF.versions.9.module-info$</ignoredClassPattern>
+            </ignoredClassPatterns>
           </configuration>
         </plugin>
       </plugins>
