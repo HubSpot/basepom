@@ -47,6 +47,7 @@
     <dep.plugin.compiler.version>3.8.0</dep.plugin.compiler.version>
     <dep.plugin.dependency-management.version>0.8</dep.plugin.dependency-management.version>
     <dep.plugin.failsafe.version>3.0.0-M3</dep.plugin.failsafe.version>
+    <dep.plugin.javadoc.version>3.1.0</dep.plugin.javadoc.version>
     <dep.plugin.plugin.version>3.5</dep.plugin.plugin.version>
     <!-- Overridden because basepom 25 is on 2.20.1, safe to remove if we upgrade basepom -->
     <dep.plugin.surefire.version>2.21.0</dep.plugin.surefire.version>
