@@ -106,7 +106,7 @@
     <dep.google.clients.version>1.20.0</dep.google.clients.version>
     <dep.httpclient.version>4.5.5</dep.httpclient.version>
     <dep.httpcore.version>4.4.9</dep.httpcore.version>
-    <dep.httpmime.version>4.4.1</dep.httpmime.version>
+    <dep.httpmime.version>4.5.5</dep.httpmime.version>
     <dep.javassist.version>3.22.0-GA</dep.javassist.version>
     <dep.mime4j.version>0.8.0</dep.mime4j.version>
     <dep.netty3.version>3.9.4.Final</dep.netty3.version>
