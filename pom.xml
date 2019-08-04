@@ -94,7 +94,7 @@
     <dep.jersey.version>1.19</dep.jersey.version>
     <dep.jersey2.version>2.23.2</dep.jersey2.version>
     <dep.jetty.version>9.3.25.v20180904</dep.jetty.version>
-    <dep.hibernate-validator.version>5.2.4.Final</dep.hibernate-validator.version>
+    <dep.hibernate-validator.version>5.4.2.Final</dep.hibernate-validator.version>
 
     <dep.dropwizard-metrics.version>3.1.4</dep.dropwizard-metrics.version>
     <dep.metrics-guice.version>3.1.4</dep.metrics-guice.version>
