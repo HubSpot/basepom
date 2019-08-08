@@ -1665,6 +1665,11 @@
         <artifactId>value</artifactId>
         <version>${dep.immutables.version}</version>
       </dependency>
+      <dependency>
+        <groupId>org.immutables</groupId>
+        <artifactId>encode</artifactId>
+        <version>${dep.immutables.version}</version>
+      </dependency>
 
       <!-- misc stuff -->
       <dependency>
