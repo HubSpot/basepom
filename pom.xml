@@ -83,7 +83,7 @@
     <dep.classmate.version>1.3.1</dep.classmate.version>
 
     <dep.joda.version>2.9.9</dep.joda.version>
-    <dep.guava.version>22.0</dep.guava.version>
+    <dep.guava.version>25.0-jre</dep.guava.version>
     <dep.protobuf-java.version>2.5.0</dep.protobuf-java.version>
     <dep.jdbi.version>2.73</dep.jdbi.version>
     <dep.liquibase.version>3.5.1</dep.liquibase.version>
