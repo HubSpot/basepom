@@ -10,7 +10,7 @@
 
   <groupId>com.hubspot</groupId>
   <artifactId>basepom</artifactId>
-  <version>25.5-SNAPSHOT</version>
+  <version>25.5</version>
   <packaging>pom</packaging>
 
   <properties>
@@ -2230,7 +2230,7 @@
     <connection>scm:git:git@github.com:HubSpot/basepom.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/HubSpot/basepom.git</developerConnection>
     <url>git@github.com:HubSpot/basepom.git</url>
-    <tag>HEAD</tag>
+    <tag>basepom-25.5</tag>
   </scm>
 
   <profiles>
