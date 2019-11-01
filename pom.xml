@@ -99,6 +99,7 @@
     <dep.dropwizard-metrics.version>3.1.4</dep.dropwizard-metrics.version>
     <dep.metrics-guice.version>3.1.4</dep.metrics-guice.version>
     <dep.codahale-metrics.version>3.0.2</dep.codahale-metrics.version>
+    <dep.error-prone.version>2.2.0</dep.error-prone.version>
     <dep.findbugs.version>3.0.1</dep.findbugs.version>
     <dep.zookeeper.version>3.4.6</dep.zookeeper.version>
 
@@ -1852,6 +1853,29 @@
         <groupId>commons-beanutils</groupId>
         <artifactId>commons-beanutils</artifactId>
         <version>${dep.commons-beanutils.version}</version>
+      </dependency>
+
+      <!-- error prone -->
+      <dependency>
+        <groupId>com.google.errorprone</groupId>
+        <artifactId>error_prone_annotations</artifactId>
+        <version>${dep.error-prone.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.google.errorprone</groupId>
+        <artifactId>error_prone_core</artifactId>
+        <version>${dep.error-prone.version}</version>
+        <exclusions>
+          <exclusion>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>jsr305</artifactId>
+          </exclusion>
+          <!-- errorprone javac isn't required on jdk 9+ with -XPlugin:ErrorProne -->
+          <exclusion>
+            <groupId>com.google.errorprone</groupId>
+            <artifactId>javac</artifactId>
+          </exclusion>
+        </exclusions>
       </dependency>
 
       <!-- findbugs -->
