@@ -30,12 +30,21 @@
     <basepom.check.phase-findbugs>verify</basepom.check.phase-findbugs>
     <basepom.check.phase-pmd>verify</basepom.check.phase-pmd>
     <basepom.check.phase-pom-lint>validate</basepom.check.phase-pom-lint>
+    <basepom.check.phase-prettier>validate</basepom.check.phase-prettier>
     <basepom.check.phase-prepare-coverage>initialize</basepom.check.phase-prepare-coverage>
     <basepom.git-id.phase>initialize</basepom.git-id.phase>
+
+    <basepom.prettier.node-version>12.13.0</basepom.prettier.node-version>
+    <basepom.prettier.prettier-java-version>0.7.0</basepom.prettier.prettier-java-version>
+    <basepom.prettier.extract-to-target-directory>false</basepom.prettier.extract-to-target-directory>
 
     <basepom.check.skip-pom-lint>${basepom.check.skip-basic}</basepom.check.skip-pom-lint>
     <basepom.check.skip-license>true</basepom.check.skip-license>
     <basepom.check.skip-coverage>true</basepom.check.skip-coverage>
+    <basepom.check.skip-prettier>true</basepom.check.skip-prettier>
+
+    <basepom.fix.phase-prettier>never</basepom.fix.phase-prettier>
+    <basepom.fix.skip-prettier>${basepom.check.skip-prettier}</basepom.fix.skip-prettier>
 
     <basepom.dependency-management.dependencies>true</basepom.dependency-management.dependencies>
     <basepom.dependency-management.plugins>true</basepom.dependency-management.plugins>
@@ -1983,6 +1992,21 @@
 
         <plugin>
           <groupId>com.hubspot.maven.plugins</groupId>
+          <artifactId>prettier-maven-plugin</artifactId>
+          <version>0.6-SNAPSHOT</version>
+          <configuration>
+            <generateDiff>true</generateDiff>
+            <nodeVersion>${basepom.prettier.node-version}</nodeVersion>
+            <prettierJavaVersion>${basepom.prettier.prettier-java-version}</prettierJavaVersion>
+            <extractPrettierToTargetDirectory>${basepom.prettier.extract-to-target-directory}</extractPrettierToTargetDirectory>
+            <printWidth>90</printWidth>
+            <ignoreConfigFile>true</ignoreConfigFile>
+            <ignoreEditorConfig>true</ignoreEditorConfig>
+          </configuration>
+        </plugin>
+
+        <plugin>
+          <groupId>com.hubspot.maven.plugins</groupId>
           <artifactId>dependency-scope-maven-plugin</artifactId>
           <configuration>
             <linkToDocumentation>true</linkToDocumentation>
@@ -2108,6 +2132,33 @@
               <goal>verify</goal>
             </goals>
             <phase>${basepom.check.phase-pom-lint}</phase>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>com.hubspot.maven.plugins</groupId>
+        <artifactId>prettier-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>write</id>
+            <goals>
+              <goal>write</goal>
+            </goals>
+            <phase>${basepom.fix.phase-prettier}</phase>
+            <configuration>
+              <skip>${basepom.fix.skip-prettier}</skip>
+            </configuration>
+          </execution>
+          <execution>
+            <id>check</id>
+            <goals>
+              <goal>check</goal>
+            </goals>
+            <phase>${basepom.check.phase-prettier}</phase>
+            <configuration>
+              <skip>${basepom.check.skip-prettier}</skip>
+            </configuration>
           </execution>
         </executions>
       </plugin>
@@ -2301,6 +2352,41 @@
           </plugins>
         </pluginManagement>
       </build>
+    </profile>
+    <profile>
+      <id>fix-errors</id>
+      <activation>
+        <property>
+          <name>fixErrors</name>
+          <value>true</value>
+        </property>
+        <file>
+          <missing>${basedir}/.disable-fix-errors</missing>
+        </file>
+      </activation>
+      <properties>
+        <basepom.fix.phase-prettier>validate</basepom.fix.phase-prettier>
+      </properties>
+    </profile>
+    <profile>
+      <id>blazar</id>
+      <activation>
+        <property>
+          <name>env.BLAZAR_COORDINATES</name>
+        </property>
+      </activation>
+      <properties>
+        <!-- Blazar has GLIBC 2.12 which don't work with newer Node versions -->
+        <basepom.prettier.node-version>10.17.0</basepom.prettier.node-version>
+        <!-- Don't reuse cached prettier directory, re-extract to target dir on each build -->
+        <!-- This is a bit slower but should hopefully avoid some weird concurrency issues -->
+        <basepom.prettier.extract-to-target-directory>true</basepom.prettier.extract-to-target-directory>
+        <!-- These populate the manifest: https://github.com/basepom/basepom/blob/basepom-25/foundation/pom.xml#L424-L430 -->
+        <git.branch>${env.GIT_BRANCH}</git.branch>
+        <git.build.time>${env.BUILD_START_TIMESTAMP}</git.build.time>
+        <git.commit.id>${env.GIT_COMMIT}</git.commit.id>
+        <git.remote.origin.url>git@${env.GIT_HOST}:${env.GIT_USER}/${env.GIT_REPO}.git</git.remote.origin.url>
+      </properties>
     </profile>
     <profile>
       <id>travis</id>
