@@ -110,7 +110,7 @@
     <dep.codahale-metrics.version>3.0.2</dep.codahale-metrics.version>
     <dep.error-prone.version>2.2.0</dep.error-prone.version>
     <dep.findbugs.version>3.0.1</dep.findbugs.version>
-    <dep.zookeeper.version>3.4.6</dep.zookeeper.version>
+    <dep.zookeeper.version>3.4.14</dep.zookeeper.version>
 
     <dep.assertj.version>3.4.1</dep.assertj.version>
     <dep.google.clients.version>1.20.0</dep.google.clients.version>
