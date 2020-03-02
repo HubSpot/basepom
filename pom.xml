@@ -1993,7 +1993,7 @@
         <plugin>
           <groupId>com.hubspot.maven.plugins</groupId>
           <artifactId>prettier-maven-plugin</artifactId>
-          <version>0.6</version>
+          <version>0.7</version>
           <configuration>
             <generateDiff>true</generateDiff>
             <nodeVersion>${basepom.prettier.node-version}</nodeVersion>
