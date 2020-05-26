@@ -15,6 +15,7 @@
 
   <properties>
     <project.build.targetJdk>1.8</project.build.targetJdk>
+    <project.build.sourceJdk>${project.build.targetJdk}</project.build.sourceJdk>
     <project.build.releaseJdk>8</project.build.releaseJdk>
 
     <basepom.plugin.phase-really-executable>none</basepom.plugin.phase-really-executable>
@@ -2437,6 +2438,7 @@
               <groupId>org.apache.maven.plugins</groupId>
               <artifactId>maven-compiler-plugin</artifactId>
               <configuration>
+                <source>${project.build.sourceJdk}</source>
                 <release>${project.build.releaseJdk}</release>
               </configuration>
             </plugin>
