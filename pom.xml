@@ -62,7 +62,7 @@
     <!-- Overridden because basepom 25 is on 2.20.1, safe to remove if we upgrade basepom -->
     <dep.plugin.surefire.version>2.21.0</dep.plugin.surefire.version>
 
-    <dep.commons-beanutils.version>1.9.2</dep.commons-beanutils.version>
+    <dep.commons-beanutils.version>1.9.4</dep.commons-beanutils.version>
     <dep.commons-codec.version>1.10</dep.commons-codec.version>
     <dep.commons-collections.version>3.2.1</dep.commons-collections.version>
     <dep.commons-collections4.version>4.0</dep.commons-collections4.version>
