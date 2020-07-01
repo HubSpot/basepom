@@ -98,7 +98,7 @@
     <dep.jdbi.version>2.73</dep.jdbi.version>
     <dep.liquibase.version>3.5.1</dep.liquibase.version>
     <dep.liquibase-slf4j.version>2.0.0</dep.liquibase-slf4j.version>
-    <dep.mysql-connector-java.version>5.1.43</dep.mysql-connector-java.version>
+    <dep.mysql-connector-java.version>8.0.16</dep.mysql-connector-java.version>
 
     <dep.hk2.version>2.5.0-b05</dep.hk2.version>
     <dep.jersey.version>1.19</dep.jersey.version>
