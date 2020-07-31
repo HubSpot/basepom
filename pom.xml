@@ -55,10 +55,16 @@
     <basepom.failsafe.timeout>900</basepom.failsafe.timeout>
 
     <dep.plugin.compiler.version>3.8.0</dep.plugin.compiler.version>
+    <dep.plugin.dependency.version>3.1.2-hubspot-SNAPSHOT</dep.plugin.dependency.version>
     <dep.plugin.dependency-management.version>0.8</dep.plugin.dependency-management.version>
     <dep.plugin.failsafe.version>3.0.0-M3</dep.plugin.failsafe.version>
     <dep.plugin.javadoc.version>3.1.0</dep.plugin.javadoc.version>
     <dep.plugin.plugin.version>3.6.0</dep.plugin.plugin.version>
+
+    <dep.plugin.pmd.version>3.13.0</dep.plugin.pmd.version>
+    <!-- the pmd plugin needs a higher version to actually be compatible with java 11 -->
+    <dep.pmd.version>6.21.0</dep.pmd.version>
+
     <!-- Overridden because basepom 25 is on 2.20.1, safe to remove if we upgrade basepom -->
     <dep.plugin.surefire.version>2.21.0</dep.plugin.surefire.version>
 
