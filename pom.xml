@@ -55,7 +55,7 @@
     <basepom.failsafe.timeout>900</basepom.failsafe.timeout>
 
     <dep.plugin.compiler.version>3.8.0</dep.plugin.compiler.version>
-    <dep.plugin.dependency.version>3.1.2-hubspot-SNAPSHOT</dep.plugin.dependency.version>
+    <dep.plugin.dependency.version>3.1.2</dep.plugin.dependency.version>
     <dep.plugin.dependency-management.version>0.8</dep.plugin.dependency-management.version>
     <dep.plugin.failsafe.version>3.0.0-M3</dep.plugin.failsafe.version>
     <dep.plugin.javadoc.version>3.1.0</dep.plugin.javadoc.version>
