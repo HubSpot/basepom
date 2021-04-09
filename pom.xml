@@ -128,7 +128,7 @@
     <dep.javassist.version>3.22.0-GA</dep.javassist.version>
     <dep.mime4j.version>0.8.0</dep.mime4j.version>
     <dep.netty3.version>3.9.4.Final</dep.netty3.version>
-    <dep.netty.version>4.1.8.Final</dep.netty.version>
+    <dep.netty.version>4.1.59.Final</dep.netty.version>
     <dep.netty.epoll.classifier />
     <dep.objenesis.version>2.6</dep.objenesis.version>
     <dep.reflections.version>0.9.10</dep.reflections.version>
