@@ -89,7 +89,7 @@
 
     <dep.hamcrest.version>1.3</dep.hamcrest.version>
     <dep.junit.version>4.12</dep.junit.version>
-    <dep.junit-jupiter.version>5.7.0</dep.junit-jupiter.version>
+    <dep.junit-jupiter.version>5.8.1</dep.junit-jupiter.version>
     <dep.testng.version>6.9.4</dep.testng.version>
     <dep.slf4j.version>1.7.25</dep.slf4j.version>
     <dep.logback.version>1.2.3</dep.logback.version>
