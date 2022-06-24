@@ -1471,6 +1471,12 @@
 
       <dependency>
         <groupId>com.fasterxml.jackson.dataformat</groupId>
+        <artifactId>jackson-dataformat-toml</artifactId>
+        <version>${dep.jackson.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.fasterxml.jackson.dataformat</groupId>
         <artifactId>jackson-dataformat-xml</artifactId>
         <version>${dep.jackson.version}</version>
       </dependency>
