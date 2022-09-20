@@ -57,6 +57,7 @@
     <dep.plugin.compiler.version>3.8.0</dep.plugin.compiler.version>
     <dep.plugin.dependency.version>3.1.2</dep.plugin.dependency.version>
     <dep.plugin.dependency-management.version>0.8</dep.plugin.dependency-management.version>
+    <dep.plugin.duplicate-finder.version>1.5.1</dep.plugin.duplicate-finder.version>
     <dep.plugin.failsafe.version>3.0.0-M3</dep.plugin.failsafe.version>
     <dep.plugin.javadoc.version>3.1.0</dep.plugin.javadoc.version>
     <dep.plugin.plugin.version>3.6.0</dep.plugin.plugin.version>
@@ -2157,10 +2158,6 @@
                 <artifactId>jruby-complete</artifactId>
               </dependency>
             </ignoredDependencies>
-            <ignoredClassPatterns>
-              <!-- Can remove once https://github.com/basepom/duplicate-finder-maven-plugin/issues/33 is fixed -->
-              <ignoredClassPattern>^META-INF.versions.9.module-info$</ignoredClassPattern>
-            </ignoredClassPatterns>
           </configuration>
         </plugin>
       </plugins>
