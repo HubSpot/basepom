@@ -1537,6 +1537,12 @@
         <version>${dep.jackson.version}</version>
       </dependency>
 
+      <dependency>
+        <groupId>com.fasterxml.jackson.module</groupId>
+        <artifactId>jackson-module-scala_2.12</artifactId>
+        <version>${dep.jackson.version}</version>
+      </dependency>
+
       <!-- jackson jaxrs -->
       <dependency>
         <groupId>com.fasterxml.jackson.jaxrs</groupId>
