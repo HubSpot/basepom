@@ -93,7 +93,7 @@
     <dep.junit-jupiter.version>5.8.1</dep.junit-jupiter.version>
     <dep.testng.version>6.9.4</dep.testng.version>
     <dep.slf4j.version>1.7.25</dep.slf4j.version>
-    <dep.logback.version>1.2.8</dep.logback.version>
+    <dep.logback.version>1.2.12</dep.logback.version>
     <dep.jboss-logging.version>3.3.0.Final</dep.jboss-logging.version>
 
     <dep.jackson.version>2.7.9</dep.jackson.version>
