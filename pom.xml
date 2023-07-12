@@ -35,9 +35,8 @@
     <basepom.check.phase-prepare-coverage>initialize</basepom.check.phase-prepare-coverage>
     <basepom.git-id.phase>initialize</basepom.git-id.phase>
 
-    <basepom.prettier.node-version>12.13.0</basepom.prettier.node-version>
-    <basepom.prettier.prettier-java-version>0.7.0</basepom.prettier.prettier-java-version>
-    <basepom.prettier.extract-to-target-directory>false</basepom.prettier.extract-to-target-directory>
+    <basepom.prettier.node-version>18.7.0</basepom.prettier.node-version>
+    <basepom.prettier.prettier-java-version>1.4.0</basepom.prettier.prettier-java-version>
 
     <basepom.check.skip-pom-lint>${basepom.check.skip-basic}</basepom.check.skip-pom-lint>
     <basepom.check.skip-license>true</basepom.check.skip-license>
@@ -2049,12 +2048,11 @@
         <plugin>
           <groupId>com.hubspot.maven.plugins</groupId>
           <artifactId>prettier-maven-plugin</artifactId>
-          <version>0.13</version>
+          <version>0.20</version>
           <configuration>
             <generateDiff>true</generateDiff>
             <nodeVersion>${basepom.prettier.node-version}</nodeVersion>
             <prettierJavaVersion>${basepom.prettier.prettier-java-version}</prettierJavaVersion>
-            <extractPrettierToTargetDirectory>${basepom.prettier.extract-to-target-directory}</extractPrettierToTargetDirectory>
             <printWidth>90</printWidth>
             <ignoreConfigFile>true</ignoreConfigFile>
             <ignoreEditorConfig>true</ignoreEditorConfig>
@@ -2428,17 +2426,26 @@
         </property>
       </activation>
       <properties>
-        <!-- Blazar has GLIBC 2.12 which don't work with newer Node versions -->
-        <basepom.prettier.node-version>10.17.0</basepom.prettier.node-version>
-        <!-- Don't reuse cached prettier directory, re-extract to target dir on each build -->
-        <!-- This is a bit slower but should hopefully avoid some weird concurrency issues -->
-        <basepom.prettier.extract-to-target-directory>true</basepom.prettier.extract-to-target-directory>
         <!-- These populate the manifest: https://github.com/basepom/basepom/blob/basepom-25/foundation/pom.xml#L424-L430 -->
         <git.branch>${env.GIT_BRANCH}</git.branch>
         <git.build.time>${env.BUILD_START_TIMESTAMP}</git.build.time>
         <git.commit.id>${env.GIT_COMMIT}</git.commit.id>
         <git.remote.origin.url>git@${env.GIT_HOST}:${env.GIT_USER}/${env.GIT_REPO}.git</git.remote.origin.url>
       </properties>
+      <build>
+        <pluginManagement>
+          <plugins>
+            <plugin>
+              <groupId>com.hubspot.maven.plugins</groupId>
+              <artifactId>prettier-maven-plugin</artifactId>
+              <configuration>
+                <nodePath>/opt/build-deps/node-${basepom.prettier.node-version}/bin/node</nodePath>
+                <npmPath>/opt/build-deps/node-${basepom.prettier.node-version}/lib/node_modules/npm/bin/npm-cli.js</npmPath>
+              </configuration>
+            </plugin>
+          </plugins>
+        </pluginManagement>
+      </build>
     </profile>
     <profile>
       <id>travis</id>
