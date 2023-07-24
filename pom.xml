@@ -2054,6 +2054,7 @@
             <nodeVersion>${basepom.prettier.node-version}</nodeVersion>
             <prettierJavaVersion>${basepom.prettier.prettier-java-version}</prettierJavaVersion>
             <printWidth>90</printWidth>
+            <disableGenericsLinebreaks>true</disableGenericsLinebreaks>
             <ignoreConfigFile>true</ignoreConfigFile>
             <ignoreEditorConfig>true</ignoreEditorConfig>
           </configuration>
