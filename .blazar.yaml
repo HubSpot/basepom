@@ -1,0 +1,3 @@
+buildpack:
+  name: Blazar-Buildpack-Java
+  branch: sgutz-dep-structure
