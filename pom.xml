@@ -14,9 +14,7 @@
   <packaging>pom</packaging>
 
   <properties>
-    <project.build.targetJdk>1.8</project.build.targetJdk>
-    <project.build.sourceJdk>${project.build.targetJdk}</project.build.sourceJdk>
-    <project.build.releaseJdk>8</project.build.releaseJdk>
+    <project.build.targetJdk>8</project.build.targetJdk>
 
     <basepom.plugin.phase-really-executable>none</basepom.plugin.phase-really-executable>
     <basepom.jar.name.format>${project.artifactId}-${project.version}</basepom.jar.name.format>
@@ -53,7 +51,7 @@
 
     <basepom.test.memory>1024m</basepom.test.memory>
     <basepom.test.timeout>900</basepom.test.timeout>
-    <basepom.failsafe.timeout>900</basepom.failsafe.timeout>
+    <basepom.it.timeout>900</basepom.it.timeout>
 
     <dep.plugin.plugin.version>3.9.0</dep.plugin.plugin.version>
 
@@ -2400,45 +2398,6 @@
               <configuration>
                 <nodePath>/opt/build-deps/node-${basepom.prettier.node-version}/bin/node</nodePath>
                 <npmPath>/opt/build-deps/node-${basepom.prettier.node-version}/lib/node_modules/npm/bin/npm-cli.js</npmPath>
-              </configuration>
-            </plugin>
-          </plugins>
-        </pluginManagement>
-      </build>
-    </profile>
-    <profile>
-      <id>disable-java8-doclint</id>
-      <activation>
-        <jdk>[1.8,)</jdk>
-      </activation>
-      <build>
-        <pluginManagement>
-          <plugins>
-            <plugin>
-              <groupId>org.apache.maven.plugins</groupId>
-              <artifactId>maven-javadoc-plugin</artifactId>
-              <configuration>
-                <doclint>none</doclint>
-              </configuration>
-            </plugin>
-          </plugins>
-        </pluginManagement>
-      </build>
-    </profile>
-    <profile>
-      <id>set-release-jdk</id>
-      <activation>
-        <jdk>[9,)</jdk>
-      </activation>
-      <build>
-        <pluginManagement>
-          <plugins>
-            <plugin>
-              <groupId>org.apache.maven.plugins</groupId>
-              <artifactId>maven-compiler-plugin</artifactId>
-              <configuration>
-                <source>${project.build.sourceJdk}</source>
-                <release>${project.build.releaseJdk}</release>
               </configuration>
             </plugin>
           </plugins>
