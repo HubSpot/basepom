@@ -2265,20 +2265,6 @@
       </plugin>
 
       <plugin>
-        <groupId>io.github.git-commit-id</groupId>
-        <artifactId>git-commit-id-maven-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>basepom.default</id>
-            <goals>
-              <goal>revision</goal>
-            </goals>
-            <phase>${basepom.git-id.phase}</phase>
-          </execution>
-        </executions>
-      </plugin>
-
-      <plugin>
         <groupId>org.jacoco</groupId>
         <artifactId>jacoco-maven-plugin</artifactId>
         <executions>
