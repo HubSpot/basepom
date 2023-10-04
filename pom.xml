@@ -30,6 +30,7 @@
     <basepom.check.phase-pom-lint>validate</basepom.check.phase-pom-lint>
     <basepom.check.phase-prepare-coverage>process-test-classes</basepom.check.phase-prepare-coverage>
     <basepom.check.phase-prettier>validate</basepom.check.phase-prettier>
+    <basepom.check.phase-spotbugs>verify</basepom.check.phase-spotbugs>
     <basepom.git-id.phase>initialize</basepom.git-id.phase>
 
     <basepom.prettier.node-version>18.7.0</basepom.prettier.node-version>
@@ -2260,6 +2261,20 @@
               <goal>check</goal>
             </goals>
             <phase>${basepom.check.phase-pmd}</phase>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>com.github.spotbugs</groupId>
+        <artifactId>spotbugs-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>basepom.default</id>
+            <goals>
+              <goal>check</goal>
+            </goals>
+            <phase>${basepom.check.phase-spotbugs}</phase>
           </execution>
         </executions>
       </plugin>
