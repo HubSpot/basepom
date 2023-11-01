@@ -59,9 +59,6 @@
 
     <dep.plugin.plugin.version>3.9.0</dep.plugin.plugin.version>
 
-    <!-- TODO somewhere in v2.8.2...v3.1.1 breaks mercedes:report -->
-    <dep.plugin.deploy.version>2.8.2</dep.plugin.deploy.version>
-
     <dep.commons-beanutils.version>1.9.2</dep.commons-beanutils.version>
     <dep.commons-codec.version>1.10</dep.commons-codec.version>
     <dep.commons-collections.version>3.2.1</dep.commons-collections.version>
