@@ -5,18 +5,16 @@
   <parent>
     <groupId>org.basepom</groupId>
     <artifactId>basepom-oss</artifactId>
-    <version>25</version>
+    <version>56</version>
   </parent>
 
   <groupId>com.hubspot</groupId>
   <artifactId>basepom</artifactId>
-  <version>25.9-SNAPSHOT</version>
+  <version>56.1-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <properties>
-    <project.build.targetJdk>1.8</project.build.targetJdk>
-    <project.build.sourceJdk>${project.build.targetJdk}</project.build.sourceJdk>
-    <project.build.releaseJdk>8</project.build.releaseJdk>
+    <project.build.targetJdk>8</project.build.targetJdk>
 
     <basepom.plugin.phase-really-executable>none</basepom.plugin.phase-really-executable>
     <basepom.jar.name.format>${project.artifactId}-${project.version}</basepom.jar.name.format>
@@ -28,11 +26,11 @@
     <basepom.check.phase-dependency-scope>validate</basepom.check.phase-dependency-scope>
     <basepom.check.phase-duplicate-finder>verify</basepom.check.phase-duplicate-finder>
     <basepom.check.phase-enforcer>validate</basepom.check.phase-enforcer>
-    <basepom.check.phase-findbugs>verify</basepom.check.phase-findbugs>
     <basepom.check.phase-pmd>verify</basepom.check.phase-pmd>
     <basepom.check.phase-pom-lint>validate</basepom.check.phase-pom-lint>
+    <basepom.check.phase-prepare-coverage>process-test-classes</basepom.check.phase-prepare-coverage>
     <basepom.check.phase-prettier>validate</basepom.check.phase-prettier>
-    <basepom.check.phase-prepare-coverage>initialize</basepom.check.phase-prepare-coverage>
+    <basepom.check.phase-spotbugs>verify</basepom.check.phase-spotbugs>
     <basepom.git-id.phase>initialize</basepom.git-id.phase>
 
     <basepom.prettier.node-version>18.7.0</basepom.prettier.node-version>
@@ -43,6 +41,12 @@
     <basepom.check.skip-coverage>true</basepom.check.skip-coverage>
     <basepom.check.skip-prettier>false</basepom.check.skip-prettier>
 
+    <basepom.deploy.skip>${maven.deploy.skip}</basepom.deploy.skip>
+    <maven.deploy.skip>false</maven.deploy.skip>
+
+    <basepom.install.skip>${maven.install.skip}</basepom.install.skip>
+    <maven.install.skip>false</maven.install.skip>
+
     <basepom.fix.phase-prettier>never</basepom.fix.phase-prettier>
     <basepom.fix.skip-prettier>${basepom.check.skip-prettier}</basepom.fix.skip-prettier>
 
@@ -51,21 +55,9 @@
 
     <basepom.test.memory>1024m</basepom.test.memory>
     <basepom.test.timeout>900</basepom.test.timeout>
-    <basepom.failsafe.timeout>900</basepom.failsafe.timeout>
+    <basepom.it.timeout>900</basepom.it.timeout>
 
-    <dep.plugin.compiler.version>3.8.0</dep.plugin.compiler.version>
-    <dep.plugin.dependency.version>3.1.2</dep.plugin.dependency.version>
-    <dep.plugin.dependency-management.version>0.8</dep.plugin.dependency-management.version>
-    <dep.plugin.duplicate-finder.version>1.5.1</dep.plugin.duplicate-finder.version>
-    <dep.plugin.failsafe.version>3.0.0-M3</dep.plugin.failsafe.version>
-    <dep.plugin.javadoc.version>3.1.0</dep.plugin.javadoc.version>
     <dep.plugin.plugin.version>3.9.0</dep.plugin.plugin.version>
-
-    <dep.plugin.pmd.version>3.21.0</dep.plugin.pmd.version>
-    <dep.pmd.version>6.55.0</dep.pmd.version>
-
-    <!-- Overridden because basepom 25 is on 2.20.1, safe to remove if we upgrade basepom -->
-    <dep.plugin.surefire.version>3.0.0-M5</dep.plugin.surefire.version>
 
     <dep.commons-beanutils.version>1.9.2</dep.commons-beanutils.version>
     <dep.commons-codec.version>1.10</dep.commons-codec.version>
@@ -2060,7 +2052,7 @@
         </plugin>
 
         <plugin>
-          <groupId>com.hubspot.maven.plugins</groupId>
+          <groupId>org.basepom.maven</groupId>
           <artifactId>dependency-scope-maven-plugin</artifactId>
           <configuration>
             <linkToDocumentation>true</linkToDocumentation>
@@ -2075,23 +2067,6 @@
             <outputFile>${project.build.directory}/${basepom.jar.name.format}-shaded.jar</outputFile>
             <shadedArtifactAttached>false</shadedArtifactAttached>
           </configuration>
-        </plugin>
-
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-checkstyle-plugin</artifactId>
-          <dependencies>
-            <dependency>
-              <groupId>org.slf4j</groupId>
-              <artifactId>slf4j-jdk14</artifactId>
-              <version>1.7.5</version>
-            </dependency>
-            <dependency>
-              <groupId>org.slf4j</groupId>
-              <artifactId>jcl-over-slf4j</artifactId>
-              <version>1.7.5</version>
-            </dependency>
-          </dependencies>
         </plugin>
 
         <plugin>
@@ -2218,7 +2193,7 @@
         <artifactId>maven-enforcer-plugin</artifactId>
         <executions>
           <execution>
-            <id>default</id>
+            <id>basepom.default</id>
             <goals>
               <goal>enforce</goal>
             </goals>
@@ -2270,7 +2245,7 @@
         <artifactId>duplicate-finder-maven-plugin</artifactId>
         <executions>
           <execution>
-            <id>default</id>
+            <id>basepom.default</id>
             <goals>
               <goal>check</goal>
             </goals>
@@ -2284,7 +2259,7 @@
         <artifactId>maven-pmd-plugin</artifactId>
         <executions>
           <execution>
-            <id>default</id>
+            <id>basepom.default</id>
             <goals>
               <goal>check</goal>
             </goals>
@@ -2294,29 +2269,15 @@
       </plugin>
 
       <plugin>
-        <groupId>pl.project13.maven</groupId>
-        <artifactId>git-commit-id-plugin</artifactId>
+        <groupId>com.github.spotbugs</groupId>
+        <artifactId>spotbugs-maven-plugin</artifactId>
         <executions>
           <execution>
-            <id>default</id>
-            <goals>
-              <goal>revision</goal>
-            </goals>
-            <phase>${basepom.git-id.phase}</phase>
-          </execution>
-        </executions>
-      </plugin>
-
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>findbugs-maven-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>default</id>
+            <id>basepom.default</id>
             <goals>
               <goal>check</goal>
             </goals>
-            <phase>${basepom.check.phase-findbugs}</phase>
+            <phase>${basepom.check.phase-spotbugs}</phase>
           </execution>
         </executions>
       </plugin>
@@ -2326,14 +2287,14 @@
         <artifactId>jacoco-maven-plugin</artifactId>
         <executions>
           <execution>
-            <id>default</id>
+            <id>basepom.default</id>
             <goals>
               <goal>prepare-agent</goal>
             </goals>
             <phase>${basepom.check.phase-prepare-coverage}</phase>
           </execution>
           <execution>
-            <id>default-it</id>
+            <id>basepom.default-it</id>
             <goals>
               <goal>prepare-agent-integration</goal>
             </goals>
@@ -2373,7 +2334,7 @@
             <artifactId>really-executable-jar-maven-plugin</artifactId>
             <executions>
               <execution>
-                <id>default</id>
+                <id>basepom.executable.default</id>
                 <phase>${basepom.plugin.phase-really-executable}</phase>
               </execution>
             </executions>
@@ -2426,7 +2387,7 @@
         </property>
       </activation>
       <properties>
-        <!-- These populate the manifest: https://github.com/basepom/basepom/blob/basepom-25/foundation/pom.xml#L424-L430 -->
+        <!-- These populate the manifest: https://github.com/basepom/basepom/blob/basepom-54/poms/foundation/pom.xml#L504-L522 -->
         <git.branch>${env.GIT_BRANCH}</git.branch>
         <git.build.time>${env.BUILD_START_TIMESTAMP}</git.build.time>
         <git.commit.id>${env.GIT_COMMIT}</git.commit.id>
@@ -2441,57 +2402,6 @@
               <configuration>
                 <nodePath>/opt/build-deps/node-${basepom.prettier.node-version}/bin/node</nodePath>
                 <npmPath>/opt/build-deps/node-${basepom.prettier.node-version}/lib/node_modules/npm/bin/npm-cli.js</npmPath>
-              </configuration>
-            </plugin>
-          </plugins>
-        </pluginManagement>
-      </build>
-    </profile>
-    <profile>
-      <id>travis</id>
-      <activation>
-        <property>
-          <name>env.TRAVIS</name>
-        </property>
-      </activation>
-      <properties>
-        <basepom.test.reuse-vm>false</basepom.test.reuse-vm>
-        <basepom.test.fork-count>1</basepom.test.fork-count>
-      </properties>
-    </profile>
-    <profile>
-      <id>disable-java8-doclint</id>
-      <activation>
-        <jdk>[1.8,)</jdk>
-      </activation>
-      <build>
-        <pluginManagement>
-          <plugins>
-            <plugin>
-              <groupId>org.apache.maven.plugins</groupId>
-              <artifactId>maven-javadoc-plugin</artifactId>
-              <configuration>
-                <doclint>none</doclint>
-              </configuration>
-            </plugin>
-          </plugins>
-        </pluginManagement>
-      </build>
-    </profile>
-    <profile>
-      <id>set-release-jdk</id>
-      <activation>
-        <jdk>[9,)</jdk>
-      </activation>
-      <build>
-        <pluginManagement>
-          <plugins>
-            <plugin>
-              <groupId>org.apache.maven.plugins</groupId>
-              <artifactId>maven-compiler-plugin</artifactId>
-              <configuration>
-                <source>${project.build.sourceJdk}</source>
-                <release>${project.build.releaseJdk}</release>
               </configuration>
             </plugin>
           </plugins>
