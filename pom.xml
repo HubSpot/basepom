@@ -42,6 +42,7 @@
     <basepom.check.skip-license>true</basepom.check.skip-license>
     <basepom.check.skip-coverage>true</basepom.check.skip-coverage>
     <basepom.check.skip-prettier>false</basepom.check.skip-prettier>
+    <mdep.analyze.skip>${basepom.check.skip-dependency}</mdep.analyze.skip>
 
     <basepom.deploy.skip>${maven.deploy.skip}</basepom.deploy.skip>
     <maven.deploy.skip>false</maven.deploy.skip>
