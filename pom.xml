@@ -2350,6 +2350,7 @@
     <profile>
       <id>basepom.oss-release</id>
       <properties>
+        <basepom.deploy.skip>true</basepom.deploy.skip>
         <basepom.plugin.phase-really-executable>package</basepom.plugin.phase-really-executable>
       </properties>
       <build>
