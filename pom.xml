@@ -2352,6 +2352,8 @@
       <properties>
         <basepom.deploy.skip>true</basepom.deploy.skip>
         <basepom.plugin.phase-really-executable>package</basepom.plugin.phase-really-executable>
+
+        <basepom.nexus-staging.staging-url>https://oss.sonatype.org/</basepom.nexus-staging.staging-url>
       </properties>
       <build>
         <pluginManagement>
