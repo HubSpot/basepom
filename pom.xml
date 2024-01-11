@@ -36,7 +36,7 @@
     <basepom.git-id.phase>initialize</basepom.git-id.phase>
 
     <basepom.prettier.node-version>18.7.0</basepom.prettier.node-version>
-    <basepom.prettier.prettier-java-version>1.4.0</basepom.prettier.prettier-java-version>
+    <basepom.prettier.prettier-java-version>2.1.0</basepom.prettier.prettier-java-version>
 
     <basepom.check.skip-pom-lint>${basepom.check.skip-basic}</basepom.check.skip-pom-lint>
     <basepom.check.skip-license>true</basepom.check.skip-license>
