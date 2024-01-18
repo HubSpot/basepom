@@ -1,0 +1,4 @@
+buildpack:
+  name: Blazar-Buildpack-Java
+  branch: js/alt-reqsnapver
+
