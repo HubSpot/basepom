@@ -60,6 +60,7 @@
     <basepom.test.timeout>900</basepom.test.timeout>
     <basepom.it.timeout>900</basepom.it.timeout>
 
+    <basepom.nexus-staging.release-after-close>true</basepom.nexus-staging.release-after-close>
     <basepom.release.profiles>basepom.oss-release</basepom.release.profiles>
 
     <dep.plugin.plugin.version>3.9.0</dep.plugin.plugin.version>
