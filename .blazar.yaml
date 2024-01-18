@@ -1,4 +1,3 @@
-buildpack:
-  name: Blazar-Buildpack-Java
-  branch: js/alt-reqsnapver
+env:
+  MERCEDES_MAVEN_EXTENSION_EXTVER: 1.0-js-multi-module-publish-SNAPSHOT 
 
