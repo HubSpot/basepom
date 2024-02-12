@@ -63,6 +63,7 @@
     <basepom.nexus-staging.release-after-close>true</basepom.nexus-staging.release-after-close>
     <basepom.release.profiles>basepom.oss-release</basepom.release.profiles>
 
+    <dep.plugin.javadoc.version>3.1.0</dep.plugin.javadoc.version>
     <dep.plugin.plugin.version>3.9.0</dep.plugin.plugin.version>
 
     <dep.commons-beanutils.version>1.9.2</dep.commons-beanutils.version>
