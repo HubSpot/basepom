@@ -14,7 +14,7 @@
   <packaging>pom</packaging>
 
   <properties>
-    <project.build.targetJdk>1.8</project.build.targetJdk>
+    <project.build.targetJdk>8</project.build.targetJdk>
     <project.build.sourceJdk>${project.build.targetJdk}</project.build.sourceJdk>
     <project.build.releaseJdk>8</project.build.releaseJdk>
 
