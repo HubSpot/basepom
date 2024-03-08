@@ -5,12 +5,12 @@
   <parent>
     <groupId>org.basepom</groupId>
     <artifactId>basepom-oss</artifactId>
-    <version>56</version>
+    <version>59</version>
   </parent>
 
   <groupId>com.hubspot</groupId>
   <artifactId>basepom</artifactId>
-  <version>56.4-SNAPSHOT</version>
+  <version>59.1-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <properties>
