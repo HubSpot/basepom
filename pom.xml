@@ -14,9 +14,9 @@
   <packaging>pom</packaging>
 
   <properties>
-    <project.build.targetJdk>8</project.build.targetJdk>
+    <project.build.targetJdk>11</project.build.targetJdk>
     <project.build.sourceJdk>${project.build.targetJdk}</project.build.sourceJdk>
-    <project.build.releaseJdk>8</project.build.releaseJdk>
+    <project.build.releaseJdk>11</project.build.releaseJdk>
 
     <basepom.plugin.phase-really-executable>none</basepom.plugin.phase-really-executable>
     <basepom.jar.name.format>${project.artifactId}-${project.version}</basepom.jar.name.format>
@@ -65,10 +65,10 @@
 
     <dep.plugin.plugin.version>3.9.0</dep.plugin.plugin.version>
 
-    <dep.commons-beanutils.version>1.9.2</dep.commons-beanutils.version>
+    <dep.commons-beanutils.version>1.9.4</dep.commons-beanutils.version>
     <dep.commons-codec.version>1.10</dep.commons-codec.version>
-    <dep.commons-collections.version>3.2.1</dep.commons-collections.version>
-    <dep.commons-collections4.version>4.0</dep.commons-collections4.version>
+    <dep.commons-collections.version>3.2.2</dep.commons-collections.version>
+    <dep.commons-collections4.version>4.1</dep.commons-collections4.version>
     <dep.commons-configuration.version>1.10</dep.commons-configuration.version>
     <dep.commons-io.version>2.5</dep.commons-io.version>
     <dep.commons-lang.version>2.6</dep.commons-lang.version>
@@ -80,7 +80,7 @@
     <dep.javax-validation.version>1.1.0.Final</dep.javax-validation.version>
     <dep.javax-servlet.version>3.1.0</dep.javax-servlet.version>
 
-    <dep.guice.version>4.1.0</dep.guice.version>
+    <dep.guice.version>5.1.0</dep.guice.version>
     <dep.log4j.version>1.2.17</dep.log4j.version>
     <dep.jmxutils.version>1.18</dep.jmxutils.version>
 
@@ -92,67 +92,67 @@
     <dep.logback.version>1.2.12</dep.logback.version>
     <dep.jboss-logging.version>3.3.0.Final</dep.jboss-logging.version>
 
-    <dep.jackson.version>2.7.9</dep.jackson.version>
-    <dep.jackson-databind.version>2.7.9.5</dep.jackson-databind.version>
+    <dep.jackson.version>2.12.6</dep.jackson.version>
+    <dep.jackson-databind.version>${dep.jackson.version}</dep.jackson-databind.version>
     <dep.classmate.version>1.3.1</dep.classmate.version>
 
-    <dep.joda.version>2.9.9</dep.joda.version>
-    <dep.guava.version>25.0-jre</dep.guava.version>
-    <dep.protobuf-java.version>2.5.0</dep.protobuf-java.version>
+    <dep.joda.version>2.10.8</dep.joda.version>
+    <dep.guava.version>31.1-jre</dep.guava.version>
+    <dep.protobuf-java.version>3.23.2</dep.protobuf-java.version>
     <dep.jdbi.version>2.73</dep.jdbi.version>
     <dep.liquibase.version>3.5.1</dep.liquibase.version>
     <dep.liquibase-slf4j.version>2.0.0</dep.liquibase-slf4j.version>
-    <dep.mysql-connector-java.version>5.1.43</dep.mysql-connector-java.version>
+    <dep.mysql-connector-java.version>5.1.49</dep.mysql-connector-java.version>
 
-    <dep.hk2.version>2.5.0-b05</dep.hk2.version>
+    <dep.hk2.version>2.5.0-b32</dep.hk2.version>
     <dep.jersey.version>1.19</dep.jersey.version>
-    <dep.jersey2.version>2.23.2</dep.jersey2.version>
-    <dep.jetty.version>9.3.25.v20180904</dep.jetty.version>
+    <dep.jersey2.version>2.25.1</dep.jersey2.version>
+    <dep.jetty.version>9.4.19.v20190610</dep.jetty.version>
     <dep.hibernate-validator.version>5.4.2.Final</dep.hibernate-validator.version>
 
-    <dep.dropwizard-metrics.version>3.1.4</dep.dropwizard-metrics.version>
+    <dep.dropwizard-metrics.version>4.0.2</dep.dropwizard-metrics.version>
     <dep.metrics-guice.version>3.1.4</dep.metrics-guice.version>
     <dep.codahale-metrics.version>3.0.2</dep.codahale-metrics.version>
-    <dep.error-prone.version>2.2.0</dep.error-prone.version>
+    <dep.error-prone.version>2.23.0</dep.error-prone.version>
     <dep.findbugs.version>3.0.1</dep.findbugs.version>
-    <dep.zookeeper.version>3.4.6</dep.zookeeper.version>
+    <dep.zookeeper.version>3.6.3</dep.zookeeper.version>
 
-    <dep.assertj.version>3.4.1</dep.assertj.version>
+    <dep.assertj.version>3.17.1</dep.assertj.version>
     <dep.google.clients.version>1.20.0</dep.google.clients.version>
-    <dep.httpclient.version>4.5.5</dep.httpclient.version>
-    <dep.httpcore.version>4.4.9</dep.httpcore.version>
-    <dep.httpmime.version>4.5.5</dep.httpmime.version>
-    <dep.javassist.version>3.22.0-GA</dep.javassist.version>
+    <dep.httpclient.version>4.5.13</dep.httpclient.version>
+    <dep.httpcore.version>4.4.15</dep.httpcore.version>
+    <dep.httpmime.version>4.5.13</dep.httpmime.version>
+    <dep.javassist.version>3.24.1-GA</dep.javassist.version>
     <dep.mime4j.version>0.8.0</dep.mime4j.version>
     <dep.netty3.version>3.9.4.Final</dep.netty3.version>
     <dep.netty.version>4.1.8.Final</dep.netty.version>
     <dep.netty.epoll.classifier />
     <dep.objenesis.version>2.6</dep.objenesis.version>
     <dep.reflections.version>0.9.10</dep.reflections.version>
-    <dep.mockito.version>2.23.4</dep.mockito.version>
+    <dep.mockito.version>5.7.0</dep.mockito.version>
 
     <dep.jesos.version>1.1</dep.jesos.version>
 
     <dep.swagger.version>1.3.12</dep.swagger.version>
     <dep.swagger-plugin.version>3.1.8</dep.swagger-plugin.version>
 
-    <dep.curator.version>2.8.0</dep.curator.version>
-    <dropwizard.version>1.0.9</dropwizard.version>
+    <dep.curator.version>5.3.0</dep.curator.version>
+    <dropwizard.version>1.3.5</dropwizard.version>
     <dep.guava-retrying.version>2.0.0</dep.guava-retrying.version>
     <mesos.version>1.1.2</mesos.version>
-    <ning.async.version>1.8.12</ning.async.version>
-    <snappy.version>0.3</snappy.version>
+    <ning.async.version>1.9.38</ning.async.version>
+    <snappy.version>0.4</snappy.version>
     <sentry.version>6.0.0</sentry.version>
     <horizon.version>0.1.1</horizon.version>
-    <dep.algebra.version>1.2</dep.algebra.version>
+    <dep.algebra.version>1.3</dep.algebra.version>
     <dep.jmh.version>1.21</dep.jmh.version>
-    <dep.hubspot-immutables.version>1.2</dep.hubspot-immutables.version>
-    <dep.immutables.version>2.5.6</dep.immutables.version>
+    <dep.hubspot-immutables.version>1.4</dep.hubspot-immutables.version>
+    <dep.immutables.version>2.8.8</dep.immutables.version>
     <commons-exec.version>1.1</commons-exec.version>
-    <jukito.version>1.4.1</jukito.version>
-    <handlebars.version>1.3.1</handlebars.version>
-    <ringleader.version>0.1.4</ringleader.version>
-    <aws.sdk.version>1.9.37</aws.sdk.version>
+    <jukito.version>1.5</jukito.version>
+    <handlebars.version>4.0.5</handlebars.version>
+    <ringleader.version>0.1.9</ringleader.version>
+    <aws.sdk.version>1.12.643</aws.sdk.version>
   </properties>
 
   <dependencyManagement>
