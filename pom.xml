@@ -134,7 +134,6 @@
     <horizon.version>0.1.1</horizon.version>
     <jukito.version>1.5</jukito.version>
     <mesos.version>1.1.2</mesos.version>
-    <ning.async.version>1.8.12</ning.async.version>
     <ning.async.version>1.9.38</ning.async.version>
     <ringleader.version>0.1.9</ringleader.version>
     <sentry.version>6.0.0</sentry.version>
