@@ -145,7 +145,7 @@
     <mesos.version>1.1.2</mesos.version>
     <ning.async.version>1.8.12</ning.async.version>
     <snappy.version>0.3</snappy.version>
-    <dep.xerial.snappy.version>1.0.5</dep.xerial.snappy.version>
+    <dep.xerial.snappy.version>1.1.8.4</dep.xerial.snappy.version>
     <sentry.version>6.0.0</sentry.version>
     <horizon.version>0.1.1</horizon.version>
     <dep.algebra.version>1.2</dep.algebra.version>
