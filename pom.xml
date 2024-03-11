@@ -2054,6 +2054,11 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-shade-plugin</artifactId>
+          <configuration>
+            <!-- Need to use outputFile because passing this value as finalName fails -->
+            <outputFile>${project.build.directory}/${basepom.jar.name.format}-shaded.jar</outputFile>
+            <shadedArtifactAttached>false</shadedArtifactAttached>
+          </configuration>
           <dependencies>
             <dependency>
               <groupId>com.hubspot</groupId>
@@ -2061,11 +2066,6 @@
               <version>${dep.hubspot-basepom-policy.version}</version>
             </dependency>
           </dependencies>
-          <configuration>
-            <!-- Need to use outputFile because passing this value as finalName fails -->
-            <outputFile>${project.build.directory}/${basepom.jar.name.format}-shaded.jar</outputFile>
-            <shadedArtifactAttached>false</shadedArtifactAttached>
-          </configuration>
         </plugin>
 
         <plugin>
@@ -2078,9 +2078,6 @@
               <version>${dep.hubspot-basepom-policy.version}</version>
             </dependency>
           </dependencies>
-          <configuration>
-            <configLocation>checkstyle/checkstyle-basepom.xml</configLocation>
-          </configuration>
         </plugin>
 
         <plugin>
