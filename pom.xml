@@ -64,6 +64,7 @@
     <dep.algebra.version>1.3</dep.algebra.version>
     <dep.apache-bval.version>0.5</dep.apache-bval.version>
     <dep.assertj.version>3.17.1</dep.assertj.version>
+    <dep.basepom-policy.version>1.0-hubspot-empty-SNAPSHOT</dep.basepom-policy.version>
     <dep.classmate.version>1.3.1</dep.classmate.version>
     <dep.codahale-metrics.version>3.0.2</dep.codahale-metrics.version>
     <dep.commons-beanutils.version>1.9.4</dep.commons-beanutils.version>
@@ -89,6 +90,7 @@
     <dep.httpclient.version>4.5.13</dep.httpclient.version>
     <dep.httpcore.version>4.4.15</dep.httpcore.version>
     <dep.httpmime.version>4.5.13</dep.httpmime.version>
+    <dep.hubspot-basepom-policy.version>11.1</dep.hubspot-basepom-policy.version>
     <dep.hubspot-immutables.version>1.4</dep.hubspot-immutables.version>
     <dep.immutables.version>2.8.8</dep.immutables.version>
     <dep.jackson-databind.version>${dep.jackson.version}</dep.jackson-databind.version>
@@ -2057,6 +2059,25 @@
             <outputFile>${project.build.directory}/${basepom.jar.name.format}-shaded.jar</outputFile>
             <shadedArtifactAttached>false</shadedArtifactAttached>
           </configuration>
+          <dependencies>
+            <dependency>
+              <groupId>com.hubspot</groupId>
+              <artifactId>basepom-policy</artifactId>
+              <version>${dep.hubspot-basepom-policy.version}</version>
+            </dependency>
+          </dependencies>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-checkstyle-plugin</artifactId>
+          <dependencies>
+            <dependency>
+              <groupId>com.hubspot</groupId>
+              <artifactId>basepom-policy</artifactId>
+              <version>${dep.hubspot-basepom-policy.version}</version>
+            </dependency>
+          </dependencies>
         </plugin>
 
         <plugin>
@@ -2073,6 +2094,23 @@
               <excludeRoot>target/generated-sources/dependency-protobufs</excludeRoot>
             </excludeRoots>
           </configuration>
+        </plugin>
+
+        <plugin>
+          <groupId>com.github.spotbugs</groupId>
+          <artifactId>spotbugs-maven-plugin</artifactId>
+          <configuration>
+            <excludeFilterFiles combine.children="append">
+              <excludeFilterFile>spotbugs/spotbugs-suppress-hubspot.xml</excludeFilterFile>
+            </excludeFilterFiles>
+          </configuration>
+          <dependencies>
+            <dependency>
+              <groupId>com.hubspot</groupId>
+              <artifactId>basepom-policy</artifactId>
+              <version>${dep.hubspot-basepom-policy.version}</version>
+            </dependency>
+          </dependencies>
         </plugin>
 
         <plugin>
