@@ -1022,6 +1022,12 @@
       </dependency>
 
       <dependency>
+        <groupId>org.apache.zookeeper</groupId>
+        <artifactId>zookeeper-jute</artifactId>
+        <version>${dep.zookeeper.version}</version>
+      </dependency>
+
+      <dependency>
         <groupId>org.apache.curator</groupId>
         <artifactId>curator-client</artifactId>
         <version>${dep.curator.version}</version>
