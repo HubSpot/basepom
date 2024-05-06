@@ -627,6 +627,12 @@
       </dependency>
 
       <dependency>
+        <groupId>com.getsentry.raven</groupId>
+        <artifactId>raven</artifactId>
+        <version>8.0.2</version>
+      </dependency>
+
+      <dependency>
         <groupId>net.kencochrane.raven</groupId>
         <artifactId>raven</artifactId>
         <version>${sentry.version}</version>
