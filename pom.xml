@@ -2450,7 +2450,6 @@
         </file>
       </activation>
       <properties>
-        <basepom.check.phase-prettier>never</basepom.check.phase-prettier>
         <basepom.fix.phase-prettier>validate</basepom.fix.phase-prettier>
       </properties>
     </profile>
