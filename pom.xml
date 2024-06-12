@@ -120,7 +120,7 @@
     <dep.mysql-connector-java.version>5.1.49</dep.mysql-connector-java.version>
     <dep.netty.epoll.classifier />
     <dep.netty.version>4.1.110.Final</dep.netty.version>
-    <dep.netty3.version>3.9.4.Final</dep.netty3.version>
+    <dep.netty3.version>3.9.8.Final</dep.netty3.version>
     <dep.objenesis.version>2.6</dep.objenesis.version>
     <dep.plugin.plugin.version>3.9.0</dep.plugin.plugin.version>
     <dep.protobuf-java.version>3.23.2</dep.protobuf-java.version>
@@ -1759,7 +1759,22 @@
       <dependency>
         <groupId>com.icegreen</groupId>
         <artifactId>greenmail</artifactId>
-        <version>1.5.3</version>
+        <version>1.6.15</version>
+        <exclusions>
+          <exclusion>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>com.sun.mail</groupId>
+            <artifactId>jakarta.mail</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+      <dependency>
+        <groupId>com.icegreen</groupId>
+        <artifactId>greenmail-junit4</artifactId>
+        <version>1.6.15</version>
         <exclusions>
           <exclusion>
             <groupId>org.slf4j</groupId>
