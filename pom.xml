@@ -2082,15 +2082,44 @@
         <plugin>
           <groupId>com.hubspot.maven.plugins</groupId>
           <artifactId>prettier-maven-plugin</artifactId>
-          <version>0.22</version>
-          <configuration>
+          <version>1.0-deprecate-SNAPSHOT</version>
+          <configuration combine.children="override">
             <generateDiff>true</generateDiff>
             <nodeVersion>${basepom.prettier.node-version}</nodeVersion>
-            <prettierJavaVersion>${basepom.prettier.prettier-java-version}</prettierJavaVersion>
+            <prettierJavaVersion>2.5.0</prettierJavaVersion>
             <printWidth>90</printWidth>
             <disableGenericsLinebreaks>true</disableGenericsLinebreaks>
             <ignoreConfigFile>true</ignoreConfigFile>
             <ignoreEditorConfig>true</ignoreEditorConfig>
+          </configuration>
+        </plugin>
+
+        <plugin>
+          <groupId>com.diffplug.spotless</groupId>
+          <artifactId>spotless-maven-plugin</artifactId>
+          <version>2.44.0.BETA1</version>
+          <configuration>
+            <skip>${basepom.check.skip-prettier}</skip>
+            <checkSkip>${basepom.check.skip-prettier}</checkSkip>
+            <java>
+              <prettier>
+                <devDependencyProperties>
+                  <property>
+                    <name>@hs/prettier-plugin-java</name>
+                    <value>https://hubspot-prettier-java-artifacts-na1.s3.amazonaws.com/tars/prettier-plugin-java-2.5.0.tgz</value>
+                  </property>
+                </devDependencyProperties>
+                <config>
+                  <parser>java</parser>
+                  <printWidth>90</printWidth>
+                  <noConfig>true</noConfig>
+                  <noEditorConfig>true</noEditorConfig>
+                  <!-- Prettier v3 Only - Comma Delimited -->
+                  <plugins>@hs/prettier-plugin-java</plugins>
+                </config>
+                <npmInstallCache>${user.home}/.spotless-npm-install-cache</npmInstallCache>
+              </prettier>
+            </java>
           </configuration>
         </plugin>
 
@@ -2240,6 +2269,7 @@
         </executions>
       </plugin>
 
+      <!-- keep prettier around for now to support prettier:print-args -->
       <plugin>
         <groupId>com.hubspot.maven.plugins</groupId>
         <artifactId>prettier-maven-plugin</artifactId>
@@ -2249,7 +2279,7 @@
             <goals>
               <goal>write</goal>
             </goals>
-            <phase>${basepom.fix.phase-prettier}</phase>
+            <phase>never</phase>
             <configuration>
               <skip>${basepom.fix.skip-prettier}</skip>
             </configuration>
@@ -2259,10 +2289,31 @@
             <goals>
               <goal>check</goal>
             </goals>
-            <phase>${basepom.check.phase-prettier}</phase>
+            <phase>never</phase>
             <configuration>
               <skip>${basepom.check.skip-prettier}</skip>
             </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>com.diffplug.spotless</groupId>
+        <artifactId>spotless-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>apply</id>
+            <goals>
+              <goal>apply</goal>
+            </goals>
+            <phase>${basepom.fix.phase-prettier}</phase>
+          </execution>
+          <execution>
+            <id>check</id>
+            <goals>
+              <goal>check</goal>
+            </goals>
+            <phase>${basepom.check.phase-prettier}</phase>
           </execution>
         </executions>
       </plugin>
@@ -2461,6 +2512,68 @@
         <basepom.fix.phase-prettier>validate</basepom.fix.phase-prettier>
       </properties>
     </profile>
+
+    <profile>
+      <id>spotless-node-path-mac-m1</id>
+      <activation>
+        <os>
+          <family>mac</family>
+        </os>
+        <file>
+          <exists>/opt/homebrew/bin/node</exists>
+        </file>
+      </activation>
+      <build>
+        <pluginManagement>
+          <plugins>
+            <plugin>
+              <groupId>com.diffplug.spotless</groupId>
+              <artifactId>spotless-maven-plugin</artifactId>
+              <configuration>
+                <java>
+                  <prettier>
+                    <!-- OS X doesn't propagate $PATH to non-terminal programs, so set this explicitly to allow intellij to work -->
+                    <nodeExecutable>/opt/homebrew/bin/node</nodeExecutable>
+                  </prettier>
+                </java>
+              </configuration>
+            </plugin>
+          </plugins>
+        </pluginManagement>
+      </build>
+    </profile>
+
+    <profile>
+      <id>spotless-node-path-mac-intel</id>
+      <activation>
+        <os>
+          <family>mac</family>
+        </os>
+        <file>
+          <exists>/usr/local/bin/node</exists>
+        </file>
+      </activation>
+      <build>
+        <pluginManagement>
+          <plugins>
+            <plugin>
+              <groupId>com.diffplug.spotless</groupId>
+              <artifactId>spotless-maven-plugin</artifactId>
+              <configuration>
+                <java>
+                  <prettier>
+                    <!-- OS X doesn't propagate $PATH to non-terminal programs, so set this explicitly to allow intellij to work -->
+                    <nodeExecutable>/usr/local/bin/node</nodeExecutable>
+                  </prettier>
+                </java>
+              </configuration>
+            </plugin>
+          </plugins>
+        </pluginManagement>
+      </build>
+    </profile>
+
+
     <profile>
       <id>blazar</id>
       <activation>
@@ -2485,6 +2598,26 @@
                 <nodePath>/opt/build-deps/node-${basepom.prettier.node-version}/bin/node</nodePath>
                 <npmPath>/opt/build-deps/node-${basepom.prettier.node-version}/lib/node_modules/npm/bin/npm-cli.js</npmPath>
               </configuration>
+            </plugin>
+            <plugin>
+              <groupId>com.diffplug.spotless</groupId>
+              <artifactId>spotless-maven-plugin</artifactId>
+              <version>2.43.0</version>
+              <configuration>
+                <java>
+                  <prettier>
+                    <nodeExecutable>/opt/build-deps/node-${basepom.prettier.node-version}/bin/node</nodeExecutable>
+                    <npmInstallCache>${user.home}/.m2/repository/.spotless-npm-install-cache</npmInstallCache>
+                  </prettier>
+                </java>
+              </configuration>
+              <dependencies>
+                <dependency>
+                  <groupId>com.diffplug.spotless</groupId>
+                  <artifactId>spotless-lib</artifactId>
+                  <version>1.0-hubspot-SNAPSHOT</version>
+                </dependency>
+              </dependencies>
             </plugin>
           </plugins>
         </pluginManagement>
