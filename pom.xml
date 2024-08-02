@@ -2611,13 +2611,6 @@
                   </prettier>
                 </java>
               </configuration>
-              <dependencies>
-                <dependency>
-                  <groupId>com.diffplug.spotless</groupId>
-                  <artifactId>spotless-lib</artifactId>
-                  <version>1.0-hubspot-SNAPSHOT</version>
-                </dependency>
-              </dependencies>
             </plugin>
           </plugins>
         </pluginManagement>
