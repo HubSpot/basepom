@@ -15,6 +15,7 @@
 
   <properties>
     <project.build.targetJdk>11</project.build.targetJdk>
+    <project.build.releaseJdk>${project.build.targetJdk}</project.build.releaseJdk>
 
     <basepom.check.phase-checkstyle>validate</basepom.check.phase-checkstyle>
     <basepom.check.phase-coverage>pre-integration-test</basepom.check.phase-coverage>
@@ -2608,6 +2609,25 @@
                     <npmInstallCache>${user.home}/.m2/repository/.spotless-npm-install-cache</npmInstallCache>
                   </prettier>
                 </java>
+              </configuration>
+            </plugin>
+          </plugins>
+        </pluginManagement>
+      </build>
+    </profile>
+    <profile>
+      <id>set-release-jdk</id>
+      <activation>
+        <jdk>[9,)</jdk>
+      </activation>
+      <build>
+        <pluginManagement>
+          <plugins>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-compiler-plugin</artifactId>
+              <configuration>
+                <release>${project.build.releaseJdk}</release>
               </configuration>
             </plugin>
           </plugins>
