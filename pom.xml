@@ -1684,19 +1684,7 @@
 
       <dependency>
         <groupId>org.eclipse.jetty</groupId>
-        <artifactId>jetty-monitor</artifactId>
-        <version>${dep.jetty.version}</version>
-      </dependency>
-
-      <dependency>
-        <groupId>org.eclipse.jetty</groupId>
         <artifactId>jetty-http-spi</artifactId>
-        <version>${dep.jetty.version}</version>
-      </dependency>
-
-      <dependency>
-        <groupId>org.eclipse.jetty</groupId>
-        <artifactId>jetty-jsp</artifactId>
         <version>${dep.jetty.version}</version>
       </dependency>
 
