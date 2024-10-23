@@ -517,8 +517,8 @@
         <groupId>org.ow2.asm</groupId>
         <artifactId>asm-bom</artifactId>
         <version>${dep.asm.version}</version>
-        <scope>import</scope>
         <type>pom</type>
+        <scope>import</scope>
       </dependency>
 
       <dependency>
