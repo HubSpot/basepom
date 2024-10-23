@@ -113,7 +113,6 @@
     <dep.liquibase.version>3.5.1</dep.liquibase.version>
     <dep.log4j.version>1.2.17</dep.log4j.version>
     <dep.logback.version>1.2.12</dep.logback.version>
-    <dep.metrics-guice.version>3.1.4</dep.metrics-guice.version>
     <dep.mime4j.version>0.8.0</dep.mime4j.version>
     <dep.mockito.version>5.7.0</dep.mockito.version>
     <dep.mysql-connector-java.version>5.1.49</dep.mysql-connector-java.version>
@@ -724,18 +723,6 @@
         <groupId>io.dropwizard.metrics</groupId>
         <artifactId>metrics-servlets</artifactId>
         <version>${dep.dropwizard-metrics.version}</version>
-      </dependency>
-
-      <dependency>
-        <groupId>com.palominolabs.metrics</groupId>
-        <artifactId>metrics-guice</artifactId>
-        <version>${dep.metrics-guice.version}</version>
-        <exclusions>
-          <exclusion>
-            <groupId>com.google.code.findbugs</groupId>
-            <artifactId>jsr305</artifactId>
-          </exclusion>
-        </exclusions>
       </dependency>
 
       <dependency>
