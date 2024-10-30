@@ -128,6 +128,7 @@
     <dep.protobuf-java.version>3.23.2</dep.protobuf-java.version>
     <dep.reflections.version>0.9.10</dep.reflections.version>
     <dep.slf4j.version>1.7.32</dep.slf4j.version>
+    <dep.sisu.version>0.9.0.M3</dep.sisu.version>
     <dep.swagger-plugin.version>3.1.8</dep.swagger-plugin.version>
     <dep.swagger.version>1.3.12</dep.swagger.version>
     <dep.testng.version>6.9.4</dep.testng.version>
@@ -259,7 +260,7 @@
       <dependency>
         <groupId>org.eclipse.sisu</groupId>
         <artifactId>org.eclipse.sisu.plexus</artifactId>
-        <version>0.9.0.M3</version>
+        <version>${dep.sisu.version}</version>
         <exclusions>
           <exclusion>
             <!-- Way too easy to conflict with plugins to be in Maven and leak in plugins -->
@@ -271,7 +272,7 @@
       <dependency>
         <groupId>org.eclipse.sisu</groupId>
         <artifactId>org.eclipse.sisu.inject</artifactId>
-        <version>0.9.0.M3</version>
+        <version>${dep.sisu.version}</version>
       </dependency>
 
       <!-- Java APIs -->
@@ -2242,6 +2243,12 @@
           <groupId>org.codehaus.plexus</groupId>
           <artifactId>plexus-component-metadata</artifactId>
           <version>${dep.plexus.version}</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.eclipse.sisu</groupId>
+          <artifactId>sisu-maven-plugin</artifactId>
+          <version>${dep.sisu.version}</version>
         </plugin>
 
         <plugin>
