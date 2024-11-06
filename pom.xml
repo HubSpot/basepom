@@ -15,8 +15,6 @@
 
   <properties>
     <project.build.targetJdk>11</project.build.targetJdk>
-    <project.build.releaseJdk>${project.build.targetJdk}</project.build.releaseJdk>
-    <maven.compiler.release>${project.build.releaseJdk}</maven.compiler.release>
 
     <basepom.check.phase-checkstyle>validate</basepom.check.phase-checkstyle>
     <basepom.check.phase-coverage>pre-integration-test</basepom.check.phase-coverage>
