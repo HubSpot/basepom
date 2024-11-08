@@ -58,7 +58,6 @@
     <basepom.release.profiles>basepom.oss-release</basepom.release.profiles>
 
     <aws.sdk.version>1.12.643</aws.sdk.version>
-    <commons-exec.version>1.4.0</commons-exec.version>
     <dep.algebra.version>1.3</dep.algebra.version>
     <dep.apache-bval.version>0.5</dep.apache-bval.version>
     <dep.asm.version>9.7.1</dep.asm.version>
@@ -70,6 +69,7 @@
     <dep.commons-collections.version>3.2.2</dep.commons-collections.version>
     <dep.commons-collections4.version>4.4</dep.commons-collections4.version>
     <dep.commons-configuration.version>1.10</dep.commons-configuration.version>
+    <dep.commons-exec.version>1.4.0</dep.commons-exec.version>
     <dep.commons-io.version>2.16.1</dep.commons-io.version>
     <dep.commons-lang.version>2.6</dep.commons-lang.version>
     <dep.commons-lang3.version>3.14.0</dep.commons-lang3.version>
@@ -89,7 +89,7 @@
     <dep.httpcore.version>4.4.15</dep.httpcore.version>
     <dep.httpmime.version>4.5.13</dep.httpmime.version>
     <dep.hubspot-basepom-policy.version>11.1</dep.hubspot-basepom-policy.version>
-    <dep.hubspot-immutables.version>1.9</dep.hubspot-immutables.version>
+    <dep.hubspot-immutables.version>1.10.0</dep.hubspot-immutables.version>
     <dep.immutables.version>2.10.1</dep.immutables.version>
     <dep.jackson-core.version>${dep.jackson.version}</dep.jackson-core.version>
     <dep.jackson-databind.version>2.12.7.1</dep.jackson-databind.version>
@@ -1157,7 +1157,7 @@
       <dependency>
         <groupId>org.apache.commons</groupId>
         <artifactId>commons-exec</artifactId>
-        <version>${commons-exec.version}</version>
+        <version>${dep.commons-exec.version}</version>
       </dependency>
 
       <!-- Jukito (testing) -->
