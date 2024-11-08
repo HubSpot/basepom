@@ -57,12 +57,11 @@
     <basepom.nexus-staging.release-after-close>true</basepom.nexus-staging.release-after-close>
     <basepom.release.profiles>basepom.oss-release</basepom.release.profiles>
 
-    <aws.sdk.version>1.12.643</aws.sdk.version>
-    <commons-exec.version>1.4.0</commons-exec.version>
     <dep.algebra.version>1.3</dep.algebra.version>
     <dep.apache-bval.version>0.5</dep.apache-bval.version>
     <dep.asm.version>9.7.1</dep.asm.version>
     <dep.assertj.version>3.17.1</dep.assertj.version>
+    <dep.aws.sdk.version>1.12.777</dep.aws.sdk.version>
     <dep.classmate.version>1.3.1</dep.classmate.version>
     <dep.codahale-metrics.version>3.0.2</dep.codahale-metrics.version>
     <dep.commons-beanutils.version>1.9.4</dep.commons-beanutils.version>
@@ -70,12 +69,14 @@
     <dep.commons-collections.version>3.2.2</dep.commons-collections.version>
     <dep.commons-collections4.version>4.4</dep.commons-collections4.version>
     <dep.commons-configuration.version>1.10</dep.commons-configuration.version>
+    <dep.commons-exec.version>1.4.0</dep.commons-exec.version>
     <dep.commons-io.version>2.16.1</dep.commons-io.version>
     <dep.commons-lang.version>2.6</dep.commons-lang.version>
     <dep.commons-lang3.version>3.14.0</dep.commons-lang3.version>
     <dep.commons-logging.version>1.2</dep.commons-logging.version>
     <dep.curator.version>5.3.0</dep.curator.version>
     <dep.dropwizard-metrics.version>4.0.2</dep.dropwizard-metrics.version>
+    <dep.dropwizard.version>1.3.5</dep.dropwizard.version>
     <dep.error-prone.version>2.35.1</dep.error-prone.version>
     <dep.findbugs.version>3.0.1</dep.findbugs.version>
     <dep.google.clients.version>1.20.0</dep.google.clients.version>
@@ -83,13 +84,14 @@
     <dep.guava.version>33.3.1-jre</dep.guava.version>
     <dep.guice.version>6.0.0</dep.guice.version>
     <dep.hamcrest.version>1.3</dep.hamcrest.version>
+    <dep.handlebars.version>4.0.5</dep.handlebars.version>
     <dep.hibernate-validator.version>5.4.2.Final</dep.hibernate-validator.version>
     <dep.hk2.version>2.5.0-b32</dep.hk2.version>
     <dep.httpclient.version>4.5.13</dep.httpclient.version>
     <dep.httpcore.version>4.4.15</dep.httpcore.version>
     <dep.httpmime.version>4.5.13</dep.httpmime.version>
     <dep.hubspot-basepom-policy.version>11.1</dep.hubspot-basepom-policy.version>
-    <dep.hubspot-immutables.version>1.9</dep.hubspot-immutables.version>
+    <dep.hubspot-immutables.version>1.10.0</dep.hubspot-immutables.version>
     <dep.immutables.version>2.10.1</dep.immutables.version>
     <dep.jackson-core.version>${dep.jackson.version}</dep.jackson-core.version>
     <dep.jackson-databind.version>2.12.7.1</dep.jackson-databind.version>
@@ -107,6 +109,7 @@
     <dep.jmh.version>1.21</dep.jmh.version>
     <dep.jmxutils.version>1.18</dep.jmxutils.version>
     <dep.joda.version>2.10.8</dep.joda.version>
+    <dep.jukito.version>1.5</dep.jukito.version>
     <dep.junit-jupiter.version>5.10.2</dep.junit-jupiter.version>
     <dep.junit.version>4.13.2</dep.junit.version>
     <dep.liquibase-slf4j.version>2.0.0</dep.liquibase-slf4j.version>
@@ -115,12 +118,14 @@
     <dep.logback.version>1.3.14</dep.logback.version>
     <dep.maven-core.version>3.9.9</dep.maven-core.version>
     <dep.maven-resolver.version>1.9.22</dep.maven-resolver.version>
+    <dep.mesos.version>1.1.2</dep.mesos.version>
     <dep.mime4j.version>0.8.0</dep.mime4j.version>
     <dep.mockito.version>5.7.0</dep.mockito.version>
     <dep.mysql-connector-java.version>5.1.49</dep.mysql-connector-java.version>
     <dep.netty.epoll.classifier />
     <dep.netty.version>4.1.110.Final</dep.netty.version>
     <dep.netty3.version>3.9.8.Final</dep.netty3.version>
+    <dep.ning.async.version>1.9.38</dep.ning.async.version>
     <dep.objenesis.version>2.6</dep.objenesis.version>
     <dep.plexus.version>2.2.0</dep.plexus.version>
     <dep.plugin.plugin.version>3.15.1</dep.plugin.plugin.version>
@@ -133,15 +138,6 @@
     <dep.testng.version>6.9.4</dep.testng.version>
     <dep.xerial.snappy.version>1.1.10.5</dep.xerial.snappy.version>
     <dep.zookeeper.version>3.6.3</dep.zookeeper.version>
-    <dropwizard.version>1.3.5</dropwizard.version>
-    <handlebars.version>4.0.5</handlebars.version>
-    <horizon.version>0.1.1</horizon.version>
-    <jukito.version>1.5</jukito.version>
-    <mesos.version>1.1.2</mesos.version>
-    <ning.async.version>1.9.38</ning.async.version>
-    <ringleader.version>0.1.9</ringleader.version>
-    <sentry.version>6.0.0</sentry.version>
-    <snappy.version>0.4</snappy.version>
   </properties>
 
   <dependencyManagement>
@@ -309,13 +305,13 @@
       <dependency>
         <groupId>io.dropwizard</groupId>
         <artifactId>dropwizard-auth</artifactId>
-        <version>${dropwizard.version}</version>
+        <version>${dep.dropwizard.version}</version>
       </dependency>
 
       <dependency>
         <groupId>io.dropwizard</groupId>
         <artifactId>dropwizard-core</artifactId>
-        <version>${dropwizard.version}</version>
+        <version>${dep.dropwizard.version}</version>
         <exclusions>
           <exclusion>
             <groupId>org.eclipse.jetty.orbit</groupId>
@@ -331,7 +327,7 @@
       <dependency>
         <groupId>io.dropwizard</groupId>
         <artifactId>dropwizard-configuration</artifactId>
-        <version>${dropwizard.version}</version>
+        <version>${dep.dropwizard.version}</version>
         <exclusions>
           <exclusion>
             <groupId>com.google.code.findbugs</groupId>
@@ -343,19 +339,19 @@
       <dependency>
         <groupId>io.dropwizard</groupId>
         <artifactId>dropwizard-db</artifactId>
-        <version>${dropwizard.version}</version>
+        <version>${dep.dropwizard.version}</version>
       </dependency>
 
       <dependency>
         <groupId>io.dropwizard</groupId>
         <artifactId>dropwizard-forms</artifactId>
-        <version>${dropwizard.version}</version>
+        <version>${dep.dropwizard.version}</version>
       </dependency>
 
       <dependency>
         <groupId>io.dropwizard</groupId>
         <artifactId>dropwizard-validation</artifactId>
-        <version>${dropwizard.version}</version>
+        <version>${dep.dropwizard.version}</version>
         <exclusions>
           <exclusion>
             <groupId>com.google.code.findbugs</groupId>
@@ -367,43 +363,43 @@
       <dependency>
         <groupId>io.dropwizard</groupId>
         <artifactId>dropwizard-jdbi</artifactId>
-        <version>${dropwizard.version}</version>
+        <version>${dep.dropwizard.version}</version>
       </dependency>
 
       <dependency>
         <groupId>io.dropwizard</groupId>
         <artifactId>dropwizard-logging</artifactId>
-        <version>${dropwizard.version}</version>
+        <version>${dep.dropwizard.version}</version>
       </dependency>
 
       <dependency>
         <groupId>io.dropwizard</groupId>
         <artifactId>dropwizard-metrics</artifactId>
-        <version>${dropwizard.version}</version>
+        <version>${dep.dropwizard.version}</version>
       </dependency>
 
       <dependency>
         <groupId>io.dropwizard</groupId>
         <artifactId>dropwizard-migrations</artifactId>
-        <version>${dropwizard.version}</version>
+        <version>${dep.dropwizard.version}</version>
       </dependency>
 
       <dependency>
         <groupId>io.dropwizard</groupId>
         <artifactId>dropwizard-jackson</artifactId>
-        <version>${dropwizard.version}</version>
+        <version>${dep.dropwizard.version}</version>
       </dependency>
 
       <dependency>
         <groupId>io.dropwizard</groupId>
         <artifactId>dropwizard-jetty</artifactId>
-        <version>${dropwizard.version}</version>
+        <version>${dep.dropwizard.version}</version>
       </dependency>
 
       <dependency>
         <groupId>io.dropwizard</groupId>
         <artifactId>dropwizard-jersey</artifactId>
-        <version>${dropwizard.version}</version>
+        <version>${dep.dropwizard.version}</version>
         <exclusions>
           <exclusion>
             <groupId>org.eclipse.jetty.orbit</groupId>
@@ -419,7 +415,7 @@
       <dependency>
         <groupId>io.dropwizard</groupId>
         <artifactId>dropwizard-lifecycle</artifactId>
-        <version>${dropwizard.version}</version>
+        <version>${dep.dropwizard.version}</version>
         <exclusions>
           <exclusion>
             <groupId>com.google.code.findbugs</groupId>
@@ -431,13 +427,13 @@
       <dependency>
         <groupId>io.dropwizard</groupId>
         <artifactId>dropwizard-request-logging</artifactId>
-        <version>${dropwizard.version}</version>
+        <version>${dep.dropwizard.version}</version>
       </dependency>
 
       <dependency>
         <groupId>io.dropwizard</groupId>
         <artifactId>dropwizard-servlets</artifactId>
-        <version>${dropwizard.version}</version>
+        <version>${dep.dropwizard.version}</version>
         <exclusions>
           <exclusion>
             <groupId>org.eclipse.jetty.orbit</groupId>
@@ -453,7 +449,7 @@
       <dependency>
         <groupId>io.dropwizard</groupId>
         <artifactId>dropwizard-util</artifactId>
-        <version>${dropwizard.version}</version>
+        <version>${dep.dropwizard.version}</version>
         <exclusions>
           <exclusion>
             <groupId>com.google.code.findbugs</groupId>
@@ -465,37 +461,37 @@
       <dependency>
         <groupId>io.dropwizard</groupId>
         <artifactId>dropwizard-views</artifactId>
-        <version>${dropwizard.version}</version>
+        <version>${dep.dropwizard.version}</version>
       </dependency>
 
       <dependency>
         <groupId>io.dropwizard</groupId>
         <artifactId>dropwizard-views-freemarker</artifactId>
-        <version>${dropwizard.version}</version>
+        <version>${dep.dropwizard.version}</version>
       </dependency>
 
       <dependency>
         <groupId>io.dropwizard</groupId>
         <artifactId>dropwizard-views-mustache</artifactId>
-        <version>${dropwizard.version}</version>
+        <version>${dep.dropwizard.version}</version>
       </dependency>
 
       <dependency>
         <groupId>io.dropwizard</groupId>
         <artifactId>dropwizard-assets</artifactId>
-        <version>${dropwizard.version}</version>
+        <version>${dep.dropwizard.version}</version>
       </dependency>
 
       <dependency>
         <groupId>io.dropwizard</groupId>
         <artifactId>dropwizard-testing</artifactId>
-        <version>${dropwizard.version}</version>
+        <version>${dep.dropwizard.version}</version>
       </dependency>
 
       <dependency>
         <groupId>io.dropwizard</groupId>
         <artifactId>dropwizard-client</artifactId>
-        <version>${dropwizard.version}</version>
+        <version>${dep.dropwizard.version}</version>
       </dependency>
 
       <dependency>
@@ -507,13 +503,13 @@
       <dependency>
         <groupId>org.apache.mesos</groupId>
         <artifactId>mesos</artifactId>
-        <version>${mesos.version}</version>
+        <version>${dep.mesos.version}</version>
       </dependency>
 
       <dependency>
         <groupId>org.apache.mesos</groupId>
         <artifactId>mesos</artifactId>
-        <version>${mesos.version}</version>
+        <version>${dep.mesos.version}</version>
         <classifier>shaded-protobuf</classifier>
         <exclusions>
           <exclusion>
@@ -693,7 +689,7 @@
       <dependency>
         <groupId>net.kencochrane.raven</groupId>
         <artifactId>raven</artifactId>
-        <version>${sentry.version}</version>
+        <version>6.0.0</version>
         <exclusions>
           <exclusion>
             <groupId>org.slf4j</groupId>
@@ -721,7 +717,7 @@
       <dependency>
         <groupId>org.iq80.snappy</groupId>
         <artifactId>snappy</artifactId>
-        <version>${snappy.version}</version>
+        <version>0.4</version>
       </dependency>
 
       <dependency>
@@ -934,7 +930,7 @@
       <dependency>
         <groupId>com.ning</groupId>
         <artifactId>async-http-client</artifactId>
-        <version>${ning.async.version}</version>
+        <version>${dep.ning.async.version}</version>
         <exclusions>
           <exclusion>
             <groupId>org.slf4j</groupId>
@@ -1035,7 +1031,7 @@
       <dependency>
         <groupId>com.github.jknack</groupId>
         <artifactId>handlebars</artifactId>
-        <version>${handlebars.version}</version>
+        <version>${dep.handlebars.version}</version>
       </dependency>
 
       <!-- Curator -->
@@ -1157,21 +1153,21 @@
       <dependency>
         <groupId>org.apache.commons</groupId>
         <artifactId>commons-exec</artifactId>
-        <version>${commons-exec.version}</version>
+        <version>${dep.commons-exec.version}</version>
       </dependency>
 
       <!-- Jukito (testing) -->
       <dependency>
         <groupId>org.jukito</groupId>
         <artifactId>jukito</artifactId>
-        <version>${jukito.version}</version>
+        <version>${dep.jukito.version}</version>
       </dependency>
 
       <!-- AWS SDK -->
       <dependency>
         <groupId>com.amazonaws</groupId>
         <artifactId>aws-java-sdk-core</artifactId>
-        <version>${aws.sdk.version}</version>
+        <version>${dep.aws.sdk.version}</version>
         <exclusions>
           <exclusion>
             <groupId>commons-logging</groupId>
@@ -1187,7 +1183,7 @@
       <dependency>
         <groupId>com.amazonaws</groupId>
         <artifactId>aws-java-sdk-elasticloadbalancing</artifactId>
-        <version>${aws.sdk.version}</version>
+        <version>${dep.aws.sdk.version}</version>
         <exclusions>
           <exclusion>
             <groupId>commons-logging</groupId>
