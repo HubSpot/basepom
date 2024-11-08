@@ -76,6 +76,7 @@
     <dep.commons-logging.version>1.2</dep.commons-logging.version>
     <dep.curator.version>5.3.0</dep.curator.version>
     <dep.dropwizard-metrics.version>4.0.2</dep.dropwizard-metrics.version>
+    <dep.dropwizard.version>1.3.5</dep.dropwizard.version>
     <dep.error-prone.version>2.35.1</dep.error-prone.version>
     <dep.findbugs.version>3.0.1</dep.findbugs.version>
     <dep.google.clients.version>1.20.0</dep.google.clients.version>
@@ -134,7 +135,7 @@
     <dep.testng.version>6.9.4</dep.testng.version>
     <dep.xerial.snappy.version>1.1.10.5</dep.xerial.snappy.version>
     <dep.zookeeper.version>3.6.3</dep.zookeeper.version>
-    <dropwizard.version>1.3.5</dropwizard.version>
+
     <handlebars.version>4.0.5</handlebars.version>
     <horizon.version>0.1.1</horizon.version>
     <mesos.version>1.1.2</mesos.version>
@@ -309,13 +310,13 @@
       <dependency>
         <groupId>io.dropwizard</groupId>
         <artifactId>dropwizard-auth</artifactId>
-        <version>${dropwizard.version}</version>
+        <version>${dep.dropwizard.version}</version>
       </dependency>
 
       <dependency>
         <groupId>io.dropwizard</groupId>
         <artifactId>dropwizard-core</artifactId>
-        <version>${dropwizard.version}</version>
+        <version>${dep.dropwizard.version}</version>
         <exclusions>
           <exclusion>
             <groupId>org.eclipse.jetty.orbit</groupId>
@@ -331,7 +332,7 @@
       <dependency>
         <groupId>io.dropwizard</groupId>
         <artifactId>dropwizard-configuration</artifactId>
-        <version>${dropwizard.version}</version>
+        <version>${dep.dropwizard.version}</version>
         <exclusions>
           <exclusion>
             <groupId>com.google.code.findbugs</groupId>
@@ -343,19 +344,19 @@
       <dependency>
         <groupId>io.dropwizard</groupId>
         <artifactId>dropwizard-db</artifactId>
-        <version>${dropwizard.version}</version>
+        <version>${dep.dropwizard.version}</version>
       </dependency>
 
       <dependency>
         <groupId>io.dropwizard</groupId>
         <artifactId>dropwizard-forms</artifactId>
-        <version>${dropwizard.version}</version>
+        <version>${dep.dropwizard.version}</version>
       </dependency>
 
       <dependency>
         <groupId>io.dropwizard</groupId>
         <artifactId>dropwizard-validation</artifactId>
-        <version>${dropwizard.version}</version>
+        <version>${dep.dropwizard.version}</version>
         <exclusions>
           <exclusion>
             <groupId>com.google.code.findbugs</groupId>
@@ -367,43 +368,43 @@
       <dependency>
         <groupId>io.dropwizard</groupId>
         <artifactId>dropwizard-jdbi</artifactId>
-        <version>${dropwizard.version}</version>
+        <version>${dep.dropwizard.version}</version>
       </dependency>
 
       <dependency>
         <groupId>io.dropwizard</groupId>
         <artifactId>dropwizard-logging</artifactId>
-        <version>${dropwizard.version}</version>
+        <version>${dep.dropwizard.version}</version>
       </dependency>
 
       <dependency>
         <groupId>io.dropwizard</groupId>
         <artifactId>dropwizard-metrics</artifactId>
-        <version>${dropwizard.version}</version>
+        <version>${dep.dropwizard.version}</version>
       </dependency>
 
       <dependency>
         <groupId>io.dropwizard</groupId>
         <artifactId>dropwizard-migrations</artifactId>
-        <version>${dropwizard.version}</version>
+        <version>${dep.dropwizard.version}</version>
       </dependency>
 
       <dependency>
         <groupId>io.dropwizard</groupId>
         <artifactId>dropwizard-jackson</artifactId>
-        <version>${dropwizard.version}</version>
+        <version>${dep.dropwizard.version}</version>
       </dependency>
 
       <dependency>
         <groupId>io.dropwizard</groupId>
         <artifactId>dropwizard-jetty</artifactId>
-        <version>${dropwizard.version}</version>
+        <version>${dep.dropwizard.version}</version>
       </dependency>
 
       <dependency>
         <groupId>io.dropwizard</groupId>
         <artifactId>dropwizard-jersey</artifactId>
-        <version>${dropwizard.version}</version>
+        <version>${dep.dropwizard.version}</version>
         <exclusions>
           <exclusion>
             <groupId>org.eclipse.jetty.orbit</groupId>
@@ -419,7 +420,7 @@
       <dependency>
         <groupId>io.dropwizard</groupId>
         <artifactId>dropwizard-lifecycle</artifactId>
-        <version>${dropwizard.version}</version>
+        <version>${dep.dropwizard.version}</version>
         <exclusions>
           <exclusion>
             <groupId>com.google.code.findbugs</groupId>
@@ -431,13 +432,13 @@
       <dependency>
         <groupId>io.dropwizard</groupId>
         <artifactId>dropwizard-request-logging</artifactId>
-        <version>${dropwizard.version}</version>
+        <version>${dep.dropwizard.version}</version>
       </dependency>
 
       <dependency>
         <groupId>io.dropwizard</groupId>
         <artifactId>dropwizard-servlets</artifactId>
-        <version>${dropwizard.version}</version>
+        <version>${dep.dropwizard.version}</version>
         <exclusions>
           <exclusion>
             <groupId>org.eclipse.jetty.orbit</groupId>
@@ -453,7 +454,7 @@
       <dependency>
         <groupId>io.dropwizard</groupId>
         <artifactId>dropwizard-util</artifactId>
-        <version>${dropwizard.version}</version>
+        <version>${dep.dropwizard.version}</version>
         <exclusions>
           <exclusion>
             <groupId>com.google.code.findbugs</groupId>
@@ -465,37 +466,37 @@
       <dependency>
         <groupId>io.dropwizard</groupId>
         <artifactId>dropwizard-views</artifactId>
-        <version>${dropwizard.version}</version>
+        <version>${dep.dropwizard.version}</version>
       </dependency>
 
       <dependency>
         <groupId>io.dropwizard</groupId>
         <artifactId>dropwizard-views-freemarker</artifactId>
-        <version>${dropwizard.version}</version>
+        <version>${dep.dropwizard.version}</version>
       </dependency>
 
       <dependency>
         <groupId>io.dropwizard</groupId>
         <artifactId>dropwizard-views-mustache</artifactId>
-        <version>${dropwizard.version}</version>
+        <version>${dep.dropwizard.version}</version>
       </dependency>
 
       <dependency>
         <groupId>io.dropwizard</groupId>
         <artifactId>dropwizard-assets</artifactId>
-        <version>${dropwizard.version}</version>
+        <version>${dep.dropwizard.version}</version>
       </dependency>
 
       <dependency>
         <groupId>io.dropwizard</groupId>
         <artifactId>dropwizard-testing</artifactId>
-        <version>${dropwizard.version}</version>
+        <version>${dep.dropwizard.version}</version>
       </dependency>
 
       <dependency>
         <groupId>io.dropwizard</groupId>
         <artifactId>dropwizard-client</artifactId>
-        <version>${dropwizard.version}</version>
+        <version>${dep.dropwizard.version}</version>
       </dependency>
 
       <dependency>
