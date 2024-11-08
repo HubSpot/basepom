@@ -57,11 +57,11 @@
     <basepom.nexus-staging.release-after-close>true</basepom.nexus-staging.release-after-close>
     <basepom.release.profiles>basepom.oss-release</basepom.release.profiles>
 
-    <aws.sdk.version>1.12.643</aws.sdk.version>
     <dep.algebra.version>1.3</dep.algebra.version>
     <dep.apache-bval.version>0.5</dep.apache-bval.version>
     <dep.asm.version>9.7.1</dep.asm.version>
     <dep.assertj.version>3.17.1</dep.assertj.version>
+    <dep.aws.sdk.version>1.12.777</dep.aws.sdk.version>
     <dep.classmate.version>1.3.1</dep.classmate.version>
     <dep.codahale-metrics.version>3.0.2</dep.codahale-metrics.version>
     <dep.commons-beanutils.version>1.9.4</dep.commons-beanutils.version>
@@ -107,6 +107,7 @@
     <dep.jmh.version>1.21</dep.jmh.version>
     <dep.jmxutils.version>1.18</dep.jmxutils.version>
     <dep.joda.version>2.10.8</dep.joda.version>
+    <dep.jukito.version>1.5</dep.jukito.version>
     <dep.junit-jupiter.version>5.10.2</dep.junit-jupiter.version>
     <dep.junit.version>4.13.2</dep.junit.version>
     <dep.liquibase-slf4j.version>2.0.0</dep.liquibase-slf4j.version>
@@ -136,7 +137,6 @@
     <dropwizard.version>1.3.5</dropwizard.version>
     <handlebars.version>4.0.5</handlebars.version>
     <horizon.version>0.1.1</horizon.version>
-    <jukito.version>1.5</jukito.version>
     <mesos.version>1.1.2</mesos.version>
     <ning.async.version>1.9.38</ning.async.version>
     <ringleader.version>0.1.9</ringleader.version>
@@ -1164,14 +1164,14 @@
       <dependency>
         <groupId>org.jukito</groupId>
         <artifactId>jukito</artifactId>
-        <version>${jukito.version}</version>
+        <version>${dep.jukito.version}</version>
       </dependency>
 
       <!-- AWS SDK -->
       <dependency>
         <groupId>com.amazonaws</groupId>
         <artifactId>aws-java-sdk-core</artifactId>
-        <version>${aws.sdk.version}</version>
+        <version>${dep.aws.sdk.version}</version>
         <exclusions>
           <exclusion>
             <groupId>commons-logging</groupId>
@@ -1187,7 +1187,7 @@
       <dependency>
         <groupId>com.amazonaws</groupId>
         <artifactId>aws-java-sdk-elasticloadbalancing</artifactId>
-        <version>${aws.sdk.version}</version>
+        <version>${dep.aws.sdk.version}</version>
         <exclusions>
           <exclusion>
             <groupId>commons-logging</groupId>
