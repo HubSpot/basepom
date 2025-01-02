@@ -2233,11 +2233,7 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-dependency-plugin</artifactId>
           <configuration>
-            <!-- MDEP-804 -->
-            <ignoredNonTestScopedDependencies>
-              <ignoreNonTestScopedDependency>*</ignoreNonTestScopedDependency>
-            </ignoredNonTestScopedDependencies>
-            <ignoredDependencies>
+            <ignoredDependencies combine.self="override">
               <!-- jars that only contain annotations are pretty rough to detect as they need -->
               <!-- to be present when compiling but may or may not be referenced at runtime -->
               <ignoredDependency>aopalliance:aopalliance</ignoredDependency>
