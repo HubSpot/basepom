@@ -2231,6 +2231,33 @@
 
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-dependency-plugin</artifactId>
+          <configuration>
+            <!-- MDEP-804 -->
+            <ignoredNonTestScopedDependencies>
+              <ignoreNonTestScopedDependency>*</ignoreNonTestScopedDependency>
+            </ignoredNonTestScopedDependencies>
+            <ignoredDependencies>
+              <!-- jars that only contain annotations are pretty rough to detect as they need -->
+              <!-- to be present when compiling but may or may not be referenced at runtime -->
+              <ignoredDependency>aopalliance:aopalliance</ignoredDependency>
+              <ignoredDependency>com.github.spotbugs:spotbugs-annotations</ignoredDependency>
+              <ignoredDependency>com.google.code.findbugs:annotations</ignoredDependency>
+              <ignoredDependency>com.google.code.findbugs:jsr305</ignoredDependency>
+              <!-- ignoredDependency>com.google.errorprone:error_prone_annotations</ignoredDependency -->
+              <ignoredDependency>jakarta.inject:jakarta.inject-api</ignoredDependency>
+              <ignoredDependency>javax.inject:javax.inject</ignoredDependency>
+              <ignoredDependency>net.jcip:jcip-annotations</ignoredDependency>
+              <ignoredDependency>org.checkerframework:checker-qual</ignoredDependency>
+              <ignoredDependency>org.glassfish.hk2.external:aopalliance-repackaged</ignoredDependency>
+              <ignoredDependency>org.glassfish.hk2.external:jakarta.inject</ignoredDependency>
+              <ignoredDependency>org.glassfish.hk2.external:javax.inject</ignoredDependency>
+            </ignoredDependencies>
+          </configuration>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-plugin-plugin</artifactId>
           <version>${dep.plugin.plugin.version}</version>
           <configuration>
