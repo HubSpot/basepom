@@ -2083,13 +2083,6 @@
         <artifactId>apache-mime4j-dom</artifactId>
         <version>${dep.mime4j.version}</version>
       </dependency>
-
-      <!-- hbase -->
-      <dependency>
-        <groupId>org.apache.hbase.thirdparty</groupId>
-        <artifactId>hbase-shaded-protobuf</artifactId>
-        <version>3.5.1</version>
-      </dependency>
     </dependencies>
   </dependencyManagement>
 
