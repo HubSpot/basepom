@@ -16,6 +16,11 @@
   <properties>
     <project.build.targetJdk>11</project.build.targetJdk>
 
+    <!-- The JDK version used to run the build (eg, the version of javac to be used) -->
+    <!-- This determines what is going to be picked up by the toolchains plugin -->
+    <project.build.jdk.version>21</project.build.jdk.version>
+
+    <basepom.build.phase-toolchain>validate</basepom.build.phase-toolchain>
     <basepom.check.phase-checkstyle>validate</basepom.check.phase-checkstyle>
     <basepom.check.phase-coverage>pre-integration-test</basepom.check.phase-coverage>
     <basepom.check.phase-dependency-management>validate</basepom.check.phase-dependency-management>
@@ -2207,6 +2212,19 @@
         </plugin>
 
         <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-toolchains-plugin</artifactId>
+          <version>3.2.0</version>
+          <configuration>
+            <toolchains>
+              <jdk>
+                <version>${project.build.jdk.version}</version>
+              </jdk>
+            </toolchains>
+          </configuration>
+        </plugin>
+
+        <plugin>
           <groupId>com.github.spotbugs</groupId>
           <artifactId>spotbugs-maven-plugin</artifactId>
           <configuration>
@@ -2474,6 +2492,20 @@
               <goal>check</goal>
             </goals>
             <phase>${basepom.check.phase-pmd}</phase>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-toolchains-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>basepom.default</id>
+            <goals>
+              <goal>toolchain</goal>
+            </goals>
+            <phase>${basepom.build.phase-toolchain}</phase>
           </execution>
         </executions>
       </plugin>
