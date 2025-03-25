@@ -1358,6 +1358,12 @@
       </dependency>
 
       <dependency>
+        <groupId>org.glassfish.jersey.inject</groupId>
+        <artifactId>jersey-hk2</artifactId>
+        <version>${dep.jersey2.version}</version>
+      </dependency>
+
+      <dependency>
         <groupId>org.glassfish.jersey.media</groupId>
         <artifactId>jersey-media-multipart</artifactId>
         <version>${dep.jersey2.version}</version>
@@ -1397,6 +1403,12 @@
             <artifactId>asm-debug-all</artifactId>
           </exclusion>
         </exclusions>
+      </dependency>
+
+      <dependency>
+        <groupId>org.glassfish.hk2</groupId>
+        <artifactId>guice-bridge</artifactId>
+        <version>${dep.hk2.version}</version>
       </dependency>
 
       <dependency>
@@ -1650,6 +1662,10 @@
         <artifactId>jetty-server</artifactId>
         <version>${dep.jetty.version}</version>
         <exclusions>
+          <exclusion>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+          </exclusion>
           <exclusion>
             <groupId>org.eclipse.jetty.orbit</groupId>
             <artifactId>javax.servlet</artifactId>
