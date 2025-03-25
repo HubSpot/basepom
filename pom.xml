@@ -406,12 +406,24 @@
         <groupId>io.dropwizard</groupId>
         <artifactId>dropwizard-jackson</artifactId>
         <version>${dep.dropwizard.version}</version>
+        <exclusions>
+          <exclusion>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>jsr305</artifactId>
+          </exclusion>
+        </exclusions>
       </dependency>
 
       <dependency>
         <groupId>io.dropwizard</groupId>
         <artifactId>dropwizard-jetty</artifactId>
         <version>${dep.dropwizard.version}</version>
+        <exclusions>
+          <exclusion>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>jsr305</artifactId>
+          </exclusion>
+        </exclusions>
       </dependency>
 
       <dependency>
@@ -419,6 +431,10 @@
         <artifactId>dropwizard-jersey</artifactId>
         <version>${dep.dropwizard.version}</version>
         <exclusions>
+          <exclusion>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>jsr305</artifactId>
+          </exclusion>
           <exclusion>
             <groupId>org.eclipse.jetty.orbit</groupId>
             <artifactId>javax.servlet</artifactId>
