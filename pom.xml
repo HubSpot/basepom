@@ -388,6 +388,12 @@
         <groupId>io.dropwizard</groupId>
         <artifactId>dropwizard-logging</artifactId>
         <version>${dep.dropwizard.version}</version>
+        <exclusions>
+          <exclusion>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>jsr305</artifactId>
+          </exclusion>
+        </exclusions>
       </dependency>
 
       <dependency>
