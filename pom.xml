@@ -389,6 +389,11 @@
         <artifactId>dropwizard-jdbi</artifactId>
         <version>${dep.dropwizard.version}</version>
       </dependency>
+      <dependency>
+        <groupId>io.dropwizard</groupId>
+        <artifactId>dropwizard-jdbi3</artifactId>
+        <version>${dep.dropwizard.version}</version>
+      </dependency>
 
       <dependency>
         <groupId>io.dropwizard</groupId>
