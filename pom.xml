@@ -20,7 +20,7 @@
     <!-- This determines what is going to be picked up by the toolchains plugin -->
     <project.build.jdk.version>21</project.build.jdk.version>
 
-    <basepom.build.phase-toolchain>validate</basepom.build.phase-toolchain>
+    <basepom.build.phase-toolchain>never</basepom.build.phase-toolchain>
     <basepom.check.phase-checkstyle>validate</basepom.check.phase-checkstyle>
     <basepom.check.phase-coverage>pre-integration-test</basepom.check.phase-coverage>
     <basepom.check.phase-dependency-management>validate</basepom.check.phase-dependency-management>
