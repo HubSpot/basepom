@@ -5,12 +5,12 @@
   <parent>
     <groupId>org.basepom</groupId>
     <artifactId>basepom-oss</artifactId>
-    <version>62</version>
+    <version>63</version>
   </parent>
 
   <groupId>com.hubspot</groupId>
   <artifactId>basepom</artifactId>
-  <version>62.2-SNAPSHOT</version>
+  <version>63.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <properties>
@@ -59,8 +59,9 @@
     <maven.install.skip>false</maven.install.skip>
     <mdep.analyze.skip>${basepom.check.skip-dependency}</mdep.analyze.skip>
 
-    <basepom.nexus-staging.release-after-close>true</basepom.nexus-staging.release-after-close>
-    <basepom.release.profiles>basepom.oss-release</basepom.release.profiles>
+    <basepom.central-publishing.auto-publish>true</basepom.central-publishing.auto-publish>
+    <basepom.central-publishing.wait-until>published</basepom.central-publishing.wait-until>
+    <basepom.release.profiles>basepom.central-release</basepom.release.profiles>
 
     <dep.algebra.version>1.3</dep.algebra.version>
     <dep.apache-bval.version>0.5</dep.apache-bval.version>
@@ -2573,12 +2574,10 @@
       </build>
     </profile>
     <profile>
-      <id>basepom.oss-release</id>
+      <id>basepom.central-release</id>
       <properties>
         <basepom.deploy.skip>true</basepom.deploy.skip>
         <basepom.plugin.phase-really-executable>package</basepom.plugin.phase-really-executable>
-
-        <basepom.nexus-staging.staging-url>https://oss.sonatype.org/</basepom.nexus-staging.staging-url>
       </properties>
       <build>
         <pluginManagement>
