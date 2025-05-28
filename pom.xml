@@ -97,7 +97,7 @@
     <dep.httpcore.version>4.4.15</dep.httpcore.version>
     <dep.httpmime.version>4.5.13</dep.httpmime.version>
     <dep.hubspot-basepom-policy.version>11.1</dep.hubspot-basepom-policy.version>
-    <dep.hubspot-immutables.version>1.10.1</dep.hubspot-immutables.version>
+    <dep.hubspot-immutables.version>1.11.0</dep.hubspot-immutables.version>
     <dep.immutables.version>2.10.1</dep.immutables.version>
     <dep.jackson-core.version>${dep.jackson.version}</dep.jackson-core.version>
     <dep.jackson-databind.version>${dep.jackson.version}</dep.jackson-databind.version>
