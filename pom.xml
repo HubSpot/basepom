@@ -61,6 +61,7 @@
 
     <basepom.central-publishing.auto-publish>true</basepom.central-publishing.auto-publish>
     <basepom.central-publishing.wait-until>published</basepom.central-publishing.wait-until>
+    <basepom.central-publishing.repo-id>sonatype-nexus-staging</basepom.central-publishing.repo-id>
     <basepom.release.profiles>basepom.central-release</basepom.release.profiles>
 
     <dep.algebra.version>1.3</dep.algebra.version>
