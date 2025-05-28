@@ -13,6 +13,9 @@
   <version>63.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
+  <name>HubSpot Basepom</name>
+  <description>Basepom for all HubSpot Projects</description>
+
   <properties>
     <project.build.targetJdk>11</project.build.targetJdk>
 
@@ -2536,7 +2539,20 @@
     </plugins>
   </build>
 
+  <url>https://github.com/HubSpot/basepom</url>
+
+  <licenses>
+    <license>
+      <name>The Apache License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+    </license>
+  </licenses>
+
   <developers>
+    <developer>
+      <name>Jared Stehler</name>
+      <email>jstehler@hubspot.com</email>
+    </developer>
     <developer>
       <name>Jonathan Haber</name>
       <email>jhaber@hubspot.com</email>
