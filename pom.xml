@@ -977,8 +977,10 @@
       <!-- HTTP -->
       <dependency>
         <groupId>com.google.api-client</groupId>
-        <artifactId>google-api-client</artifactId>
+        <artifactId>google-api-client-bom</artifactId>
         <version>${dep.google.clients.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
       </dependency>
       <dependency>
         <groupId>com.google.http-client</groupId>
