@@ -89,7 +89,8 @@
     <dep.error-prone.version>2.35.1</dep.error-prone.version>
     <dep.extra-enforcer-rules.version>1.9.0</dep.extra-enforcer-rules.version>
     <dep.findbugs.version>3.0.1</dep.findbugs.version>
-    <dep.google.clients.version>1.20.0</dep.google.clients.version>
+    <dep.google.clients.version>2.7.2</dep.google.clients.version>
+    <dep.google.http.version>1.45.2</dep.google.http.version>
     <dep.guava-retrying.version>2.0.0</dep.guava-retrying.version>
     <dep.guava.version>33.3.1-jre</dep.guava.version>
     <dep.guice.version>6.0.0</dep.guice.version>
@@ -976,24 +977,53 @@
       <!-- HTTP -->
       <dependency>
         <groupId>com.google.api-client</groupId>
-        <artifactId>google-api-client</artifactId>
+        <artifactId>google-api-client-bom</artifactId>
         <version>${dep.google.clients.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>com.google.http-client</groupId>
+        <artifactId>google-http-client</artifactId>
+        <version>${dep.google.http.version}</version>
         <exclusions>
           <exclusion>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava-jdk5</artifactId>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>jsr305</artifactId>
           </exclusion>
         </exclusions>
       </dependency>
       <dependency>
         <groupId>com.google.http-client</groupId>
-        <artifactId>google-http-client</artifactId>
-        <version>${dep.google.clients.version}</version>
+        <artifactId>google-http-client-jackson2</artifactId>
+        <version>${dep.google.http.version}</version>
       </dependency>
       <dependency>
-        <groupId>com.google.http-client</groupId>
-        <artifactId>google-http-client-jackson2</artifactId>
-        <version>${dep.google.clients.version}</version>
+        <groupId>com.google.oauth-client</groupId>
+        <artifactId>google-oauth-client</artifactId>
+        <version>1.36.0</version>
+        <exclusions>
+          <exclusion>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>jsr305</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+      <dependency>
+        <groupId>com.google.auth</groupId>
+        <artifactId>google-auth-library-credentials</artifactId>
+        <version>1.30.0</version>
+      </dependency>
+      <dependency>
+        <groupId>com.google.auth</groupId>
+        <artifactId>google-auth-library-oauth2-http</artifactId>
+        <version>1.30.0</version>
+        <exclusions>
+          <exclusion>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>jsr305</artifactId>
+          </exclusion>
+        </exclusions>
       </dependency>
 
       <dependency>
