@@ -158,24 +158,12 @@
         <groupId>com.google.guava</groupId>
         <artifactId>guava</artifactId>
         <version>${dep.guava.version}</version>
-        <exclusions>
-          <exclusion>
-            <groupId>com.google.code.findbugs</groupId>
-            <artifactId>jsr305</artifactId>
-          </exclusion>
-        </exclusions>
       </dependency>
 
       <dependency>
         <groupId>com.google.guava</groupId>
         <artifactId>guava-testlib</artifactId>
         <version>${dep.guava.version}</version>
-        <exclusions>
-          <exclusion>
-            <groupId>com.google.code.findbugs</groupId>
-            <artifactId>jsr305</artifactId>
-          </exclusion>
-        </exclusions>
       </dependency>
 
       <!-- Maven libraries -->
@@ -329,12 +317,6 @@
         <groupId>io.dropwizard</groupId>
         <artifactId>dropwizard-auth</artifactId>
         <version>${dep.dropwizard.version}</version>
-        <exclusions>
-          <exclusion>
-            <groupId>com.google.code.findbugs</groupId>
-            <artifactId>jsr305</artifactId>
-          </exclusion>
-        </exclusions>
       </dependency>
 
       <dependency>
@@ -346,10 +328,6 @@
             <groupId>org.eclipse.jetty.orbit</groupId>
             <artifactId>javax.servlet</artifactId>
           </exclusion>
-          <exclusion>
-            <groupId>com.google.code.findbugs</groupId>
-            <artifactId>jsr305</artifactId>
-          </exclusion>
         </exclusions>
       </dependency>
 
@@ -357,12 +335,6 @@
         <groupId>io.dropwizard</groupId>
         <artifactId>dropwizard-configuration</artifactId>
         <version>${dep.dropwizard.version}</version>
-        <exclusions>
-          <exclusion>
-            <groupId>com.google.code.findbugs</groupId>
-            <artifactId>jsr305</artifactId>
-          </exclusion>
-        </exclusions>
       </dependency>
 
       <dependency>
@@ -381,12 +353,6 @@
         <groupId>io.dropwizard</groupId>
         <artifactId>dropwizard-validation</artifactId>
         <version>${dep.dropwizard.version}</version>
-        <exclusions>
-          <exclusion>
-            <groupId>com.google.code.findbugs</groupId>
-            <artifactId>jsr305</artifactId>
-          </exclusion>
-        </exclusions>
       </dependency>
 
       <dependency>
@@ -404,12 +370,6 @@
         <groupId>io.dropwizard</groupId>
         <artifactId>dropwizard-logging</artifactId>
         <version>${dep.dropwizard.version}</version>
-        <exclusions>
-          <exclusion>
-            <groupId>com.google.code.findbugs</groupId>
-            <artifactId>jsr305</artifactId>
-          </exclusion>
-        </exclusions>
       </dependency>
 
       <dependency>
@@ -428,24 +388,12 @@
         <groupId>io.dropwizard</groupId>
         <artifactId>dropwizard-jackson</artifactId>
         <version>${dep.dropwizard.version}</version>
-        <exclusions>
-          <exclusion>
-            <groupId>com.google.code.findbugs</groupId>
-            <artifactId>jsr305</artifactId>
-          </exclusion>
-        </exclusions>
       </dependency>
 
       <dependency>
         <groupId>io.dropwizard</groupId>
         <artifactId>dropwizard-jetty</artifactId>
         <version>${dep.dropwizard.version}</version>
-        <exclusions>
-          <exclusion>
-            <groupId>com.google.code.findbugs</groupId>
-            <artifactId>jsr305</artifactId>
-          </exclusion>
-        </exclusions>
       </dependency>
 
       <dependency>
@@ -453,10 +401,6 @@
         <artifactId>dropwizard-jersey</artifactId>
         <version>${dep.dropwizard.version}</version>
         <exclusions>
-          <exclusion>
-            <groupId>com.google.code.findbugs</groupId>
-            <artifactId>jsr305</artifactId>
-          </exclusion>
           <exclusion>
             <groupId>org.eclipse.jetty.orbit</groupId>
             <artifactId>javax.servlet</artifactId>
@@ -472,12 +416,6 @@
         <groupId>io.dropwizard</groupId>
         <artifactId>dropwizard-lifecycle</artifactId>
         <version>${dep.dropwizard.version}</version>
-        <exclusions>
-          <exclusion>
-            <groupId>com.google.code.findbugs</groupId>
-            <artifactId>jsr305</artifactId>
-          </exclusion>
-        </exclusions>
       </dependency>
 
       <dependency>
@@ -495,10 +433,6 @@
             <groupId>org.eclipse.jetty.orbit</groupId>
             <artifactId>javax.servlet</artifactId>
           </exclusion>
-          <exclusion>
-            <groupId>com.google.code.findbugs</groupId>
-            <artifactId>jsr305</artifactId>
-          </exclusion>
         </exclusions>
       </dependency>
 
@@ -506,12 +440,6 @@
         <groupId>io.dropwizard</groupId>
         <artifactId>dropwizard-util</artifactId>
         <version>${dep.dropwizard.version}</version>
-        <exclusions>
-          <exclusion>
-            <groupId>com.google.code.findbugs</groupId>
-            <artifactId>jsr305</artifactId>
-          </exclusion>
-        </exclusions>
       </dependency>
 
       <dependency>
@@ -543,10 +471,6 @@
         <artifactId>dropwizard-testing</artifactId>
         <version>${dep.dropwizard.version}</version>
         <exclusions>
-          <exclusion>
-            <groupId>com.google.code.findbugs</groupId>
-            <artifactId>jsr305</artifactId>
-          </exclusion>
           <exclusion>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -611,10 +535,6 @@
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
           </exclusion>
-          <exclusion>
-            <groupId>com.google.code.findbugs</groupId>
-            <artifactId>jsr305</artifactId>
-          </exclusion>
         </exclusions>
       </dependency>
 
@@ -636,12 +556,6 @@
         <groupId>com.google.protobuf</groupId>
         <artifactId>protobuf-java-util</artifactId>
         <version>${dep.protobuf-java.version}</version>
-        <exclusions>
-          <exclusion>
-            <groupId>com.google.code.findbugs</groupId>
-            <artifactId>jsr305</artifactId>
-          </exclusion>
-        </exclusions>
       </dependency>
 
       <dependency>
@@ -954,24 +868,12 @@
         <groupId>com.google.inject.extensions</groupId>
         <artifactId>guice-testlib</artifactId>
         <version>${dep.guice.version}</version>
-        <exclusions>
-          <exclusion>
-            <groupId>com.google.code.findbugs</groupId>
-            <artifactId>jsr305</artifactId>
-          </exclusion>
-        </exclusions>
       </dependency>
 
       <dependency>
         <groupId>com.google.inject.extensions</groupId>
         <artifactId>guice-throwingproviders</artifactId>
         <version>${dep.guice.version}</version>
-        <exclusions>
-          <exclusion>
-            <groupId>com.google.code.findbugs</groupId>
-            <artifactId>jsr305</artifactId>
-          </exclusion>
-        </exclusions>
       </dependency>
 
       <!-- HTTP -->
@@ -990,36 +892,18 @@
         <scope>import</scope>
       </dependency>
       <dependency>
-        <groupId>com.google.http-client</groupId>
-        <artifactId>google-http-client-jackson2</artifactId>
-        <version>${dep.google.http.version}</version>
-      </dependency>
-      <dependency>
         <groupId>com.google.oauth-client</groupId>
-        <artifactId>google-oauth-client</artifactId>
+        <artifactId>google-oauth-client-bom</artifactId>
         <version>1.36.0</version>
-        <exclusions>
-          <exclusion>
-            <groupId>com.google.code.findbugs</groupId>
-            <artifactId>jsr305</artifactId>
-          </exclusion>
-        </exclusions>
+        <type>pom</type>
+        <scope>import</scope>
       </dependency>
       <dependency>
         <groupId>com.google.auth</groupId>
-        <artifactId>google-auth-library-credentials</artifactId>
+        <artifactId>google-auth-library-bom</artifactId>
         <version>1.30.0</version>
-      </dependency>
-      <dependency>
-        <groupId>com.google.auth</groupId>
-        <artifactId>google-auth-library-oauth2-http</artifactId>
-        <version>1.30.0</version>
-        <exclusions>
-          <exclusion>
-            <groupId>com.google.code.findbugs</groupId>
-            <artifactId>jsr305</artifactId>
-          </exclusion>
-        </exclusions>
+        <type>pom</type>
+        <scope>import</scope>
       </dependency>
 
       <dependency>
@@ -2040,10 +1924,6 @@
             <groupId>com.google.auto.value</groupId>
             <artifactId>auto-value-annotations</artifactId>
           </exclusion>
-          <exclusion>
-            <groupId>com.google.code.findbugs</groupId>
-            <artifactId>jsr305</artifactId>
-          </exclusion>
           <!-- errorprone javac isn't required on jdk 9+ with -XPlugin:ErrorProne -->
           <exclusion>
             <groupId>com.google.errorprone</groupId>
@@ -2058,10 +1938,6 @@
         <artifactId>annotations</artifactId>
         <version>${dep.findbugs.version}</version>
         <exclusions>
-          <exclusion>
-            <groupId>com.google.code.findbugs</groupId>
-            <artifactId>jsr305</artifactId>
-          </exclusion>
           <exclusion>
             <groupId>net.jcip</groupId>
             <artifactId>jcip-annotations</artifactId>
