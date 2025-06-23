@@ -984,14 +984,10 @@
       </dependency>
       <dependency>
         <groupId>com.google.http-client</groupId>
-        <artifactId>google-http-client</artifactId>
+        <artifactId>google-http-client-bom</artifactId>
         <version>${dep.google.http.version}</version>
-        <exclusions>
-          <exclusion>
-            <groupId>com.google.code.findbugs</groupId>
-            <artifactId>jsr305</artifactId>
-          </exclusion>
-        </exclusions>
+        <type>pom</type>
+        <scope>import</scope>
       </dependency>
       <dependency>
         <groupId>com.google.http-client</groupId>
