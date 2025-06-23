@@ -89,8 +89,7 @@
     <dep.error-prone.version>2.35.1</dep.error-prone.version>
     <dep.extra-enforcer-rules.version>1.9.0</dep.extra-enforcer-rules.version>
     <dep.findbugs.version>3.0.1</dep.findbugs.version>
-    <dep.google.clients.version>2.7.2</dep.google.clients.version>
-    <dep.google.http.version>1.45.2</dep.google.http.version>
+    <dep.google.libraries.version>26.62.0</dep.google.libraries.version>
     <dep.guava-retrying.version>2.0.0</dep.guava-retrying.version>
     <dep.guava.version>33.3.1-jre</dep.guava.version>
     <dep.guice.version>6.0.0</dep.guice.version>
@@ -876,36 +875,15 @@
         <version>${dep.guice.version}</version>
       </dependency>
 
-      <!-- HTTP -->
       <dependency>
-        <groupId>com.google.api-client</groupId>
-        <artifactId>google-api-client-bom</artifactId>
-        <version>${dep.google.clients.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-      <dependency>
-        <groupId>com.google.http-client</groupId>
-        <artifactId>google-http-client-bom</artifactId>
-        <version>${dep.google.http.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-      <dependency>
-        <groupId>com.google.oauth-client</groupId>
-        <artifactId>google-oauth-client-bom</artifactId>
-        <version>1.36.0</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-      <dependency>
-        <groupId>com.google.auth</groupId>
-        <artifactId>google-auth-library-bom</artifactId>
-        <version>1.30.0</version>
+        <groupId>com.google.cloud</groupId>
+        <artifactId>libraries-bom-protobuf3</artifactId>
+        <version>26.62.0</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
 
+      <!-- HTTP -->
       <dependency>
         <groupId>com.ning</groupId>
         <artifactId>async-http-client</artifactId>
