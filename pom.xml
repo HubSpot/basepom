@@ -2138,6 +2138,20 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-enforcer-plugin</artifactId>
+          <configuration>
+            <skip>${basepom.check.skip-enforcer}</skip>
+            <fail>${basepom.check.fail-enforcer}</fail>
+            <failFast>false</failFast>
+            <rules>
+              <requireMavenVersion>
+                <version>[${basepom.maven.version},)</version>
+              </requireMavenVersion>
+              <requireJavaVersion>
+                <version>${project.build.systemJdk}</version>
+                <message>JDK version ${java.version} not supported as system JDK (requires ${project.build.systemJdk})!</message>
+              </requireJavaVersion>
+            </rules>
+          </configuration>
           <dependencies>
             <dependency>
               <groupId>org.codehaus.mojo</groupId>
