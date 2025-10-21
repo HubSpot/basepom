@@ -2236,6 +2236,14 @@
             </ignoredDependencies>
           </configuration>
         </plugin>
+
+        <plugin>
+          <groupId>org.sonatype.central</groupId>
+          <artifactId>central-publishing-maven-plugin</artifactId>
+          <configuration>
+            <waitMaxTime>10800</waitMaxTime>
+          </configuration>
+        </plugin>
       </plugins>
     </pluginManagement>
 
