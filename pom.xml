@@ -1307,6 +1307,8 @@
         <groupId>com.fasterxml.jackson</groupId>
         <artifactId>jackson-bom</artifactId>
         <version>${dep.jackson.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
       </dependency>
 
       <!-- jetty -->
