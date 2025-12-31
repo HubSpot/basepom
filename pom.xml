@@ -131,7 +131,7 @@
     <dep.mockito.version>5.7.0</dep.mockito.version>
     <dep.mysql-connector-java.version>5.1.49</dep.mysql-connector-java.version>
     <dep.netty.epoll.classifier />
-    <dep.netty.version>4.1.124.Final</dep.netty.version>
+    <dep.netty.version>4.2.7.Final</dep.netty.version>
     <dep.netty3.version>3.9.8.Final</dep.netty3.version>
     <dep.ning.async.version>1.9.38</dep.ning.async.version>
     <dep.objenesis.version>2.6</dep.objenesis.version>
