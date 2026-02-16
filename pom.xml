@@ -138,7 +138,6 @@
     <dep.objenesis.version>2.6</dep.objenesis.version>
     <dep.plexus.version>2.2.0</dep.plexus.version>
     <dep.plugin.plugin.version>3.15.2</dep.plugin.plugin.version>
-    <dep.plugin.spotbugs.version>4.9.3.2</dep.plugin.spotbugs.version>
     <dep.protobuf-java.version>3.25.5</dep.protobuf-java.version>
     <dep.reflections.version>0.9.10</dep.reflections.version>
     <dep.slf4j.version>2.0.16</dep.slf4j.version>
