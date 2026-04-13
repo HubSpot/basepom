@@ -1865,7 +1865,7 @@
               <!-- to be present when compiling but may or may not be referenced at runtime -->
               <ignoredDependency>aopalliance:aopalliance</ignoredDependency>
               <ignoredDependency>com.github.spotbugs:spotbugs-annotations</ignoredDependency>
-              <ignoredDependency>com.google.code.findbugs:annotations</ignoredDependency>
+              <!-- ignoredDependency>com.google.code.findbugs:annotations</ignoredDependency -->
               <ignoredDependency>com.google.code.findbugs:jsr305</ignoredDependency>
               <!-- ignoredDependency>com.google.errorprone:error_prone_annotations</ignoredDependency -->
               <ignoredDependency>jakarta.inject:jakarta.inject-api</ignoredDependency>
