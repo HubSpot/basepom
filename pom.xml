@@ -921,6 +921,12 @@
         <version>${dep.httpmime.version}</version>
       </dependency>
 
+      <dependency>
+        <groupId>org.asynchttpclient</groupId>
+        <artifactId>async-http-client</artifactId>
+        <version>3.0.10</version>
+      </dependency>
+
       <!-- Hibernate -->
       <dependency>
         <groupId>org.hibernate</groupId>
