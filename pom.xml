@@ -110,7 +110,6 @@
     <dep.javax-servlet.version>3.1.0</dep.javax-servlet.version>
     <dep.javax-validation.version>1.1.0.Final</dep.javax-validation.version>
     <dep.jboss-logging.version>3.3.0.Final</dep.jboss-logging.version>
-    <dep.jdbi.version>2.76</dep.jdbi.version>
     <dep.jersey.version>1.19</dep.jersey.version>
     <dep.jersey2.version>2.25.1</dep.jersey2.version>
     <dep.jesos.version>1.1</dep.jesos.version>
@@ -577,12 +576,6 @@
         <groupId>de.neuland-bfi</groupId>
         <artifactId>jade4j</artifactId>
         <version>0.4.2</version>
-      </dependency>
-
-      <dependency>
-        <groupId>org.jdbi</groupId>
-        <artifactId>jdbi</artifactId>
-        <version>${dep.jdbi.version}</version>
       </dependency>
 
       <dependency>
